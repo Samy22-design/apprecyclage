@@ -1,0 +1,139 @@
+  body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5;
+      /* Light grey background */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      /* Prevent horizontal scrolling */
+  }
+  
+  .app-header {
+      background-color: #28a745;
+      /* Green header */
+      color: #ffffff;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+  }
+  
+  .main-content {
+      flex-grow: 1;
+      /* Allows content to take available space */
+      padding: 2rem 1rem 6rem;
+      /* Padding at bottom for footer */
+      max-width: 1200px;
+      /* Max width for content */
+      margin: 0 auto;
+      /* Center content */
+      width: 100%;
+  }
+  
+  .content-section {
+      background-color: #ffffff;
+      border-radius: 1rem;
+      /* Rounded corners */
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transition: opacity 0.3s ease-in-out;
+  }
+  
+  .app-footer {
+      background-color: #ffffff;
+      border-top: 1px solid #e0e0e0;
+      padding: 0.5rem 0;
+      /* Reduced vertical padding */
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+  }
+  
+  .app-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      /* Ensure nav takes full footer height */
+  }
+  
+  .page-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 0.5rem;
+      color: #6b7280;
+      /* Default grey text */
+      text-decoration: none;
+      border-radius: 0.75rem;
+      /* Rounded corners for buttons */
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+      flex: 1;
+      /* Distribute space evenly */
+      margin: 0 0.25rem;
+      /* Small margin between items */
+  }
+  
+  .page-menu i {
+      font-size: 1.5rem;
+      /* Icon size */
+      margin-bottom: 0.25rem;
+  }
+  
+  .page-menu .text {
+      font-size: 0.75rem;
+      /* Smaller text for mobile */
+      font-weight: 600;
+      text-align: center;
+  }
+  
+  .page-menu:hover {
+      background-color: #e2e8f0;
+      /* Light hover background */
+      color: #1f2937;
+      /* Darker text on hover */
+      transform: translateY(-2px);
+      /* Slight lift on hover */
+  }
+  
+  .page-menu.active {
+      color: #10B981;
+      /* Green for active item */
+      background-color: #e0f2f7;
+      /* Light blueish background for active */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+  }
+  /* Responsive adjustments for larger screens */
+  
+  @media (min-width: 640px) {
+      /* sm breakpoint */
+      .page-menu {
+          padding: 1rem 1rem;
+      }
+      .page-menu i {
+          font-size: 1.75rem;
+      }
+      .page-menu .text {
+          font-size: 0.875rem;
+      }
+      .app-nav {
+          justify-content: center;
+          /* Center items on larger screens */
+      }
+      .page-menu {
+          flex: none;
+          /* Don't grow on larger screens */
+          width: 120px;
+          /* Fixed width for better spacing */
+      }
+  }

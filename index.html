@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCycle - Recyclez pour un Cameroun plus propre</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playball&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="app-container">
+
+        <main id="main-content">
+
+            <section class="app-section active" id="section-accueil">
+                <div class="wrapper-apropos card">
+
+                    <div class="items-apropos">
+                        <div class="image">
+                            <img src="unnamed.png" alt="">
+                        </div>
+                    </div>
+                    <h1 class="titre">Recyclez pour un Cameroun plus propre</h1>
+                    <p class="text">Rejoignez-nous dans notre mission pour un environnement plus sain et plus propre. Recyclez, gagnez et faites la différence.</p>
+                    <div class="items-button-group">
+                        <button class="btn-buttom primary" data-target="section-signup">Commencer</button>
+                    </div>
+                </div>
+
+                <div class="wrapper card">
+                    <div class="image-wrapper">
+                    </div>
+                    <h2 class="titre">Welcome to EcoCycle</h2>
+                    <p class="text">Rejoignez notre communauté dédiée à un Cameroun plus propre. Inscrivez-vous ou connectez-vous pour agir..</p>
+                    <div class="items-button-group">
+                        <button class="btn-buttom primary"><i class="fab fa-google"></i> Entrez votre Email</button>
+                        <button class="btn-buttom secondary"><i class="fab fa-facebook"></i> Continuez avec Facebook</button>
+                        <button class="btn-buttom tertiary" data-target="section-login">se connecter</button>
+                    </div>
+                    <div class="box-text terms-text">
+                        <p class="text">En continuant, vous acceptez nos conditions d'utilisation et notre politique de confidentialité..</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="app-section" id="section-collecte">
+                <div class="wrap-items card dark">
+                    <div class="box-titre">
+                        <h2 class="text-white">Planifier une collecte</h2>
+                    </div>
+
+                    <h3 class="text-white sub-heading">Type de matériaux</h3>
+                    <div class="box-materiaux grid-2-col">
+                        <div class="box-text material-card">
+                            <i class="fas fa-bottle-water icon-large"></i>
+                            <p class="titre">Plastique</p>
+                        </div>
+                        <div class="box-text material-card">
+                            <i class="fas fa-recycle icon-large"></i>
+                            <p class="titre">Papier</p>
+                        </div>
+                        <div class="box-text material-card">
+                            <i class="fas fa-gavel icon-large"></i>
+                            <p class="titre">Métal</p>
+                        </div>
+                        <div class="box-text material-card">
+                            <i class="fas fa-wine-bottle icon-large"></i>
+                            <p class="titre">Verre</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-white sub-heading">Quantité estimée</h3>
+                    <div class="contenant input-group">
+                        <label for="quantite-collecte">
+                            <input type="number" id="quantite-collecte" placeholder="Entrez la quantité en kg" class="input-field" min="0" step="0.1" />
+                        </label>
+                    </div>
+
+                    <h3 class="text-white sub-heading">Date et heure de collecte</h3>
+                    <div class="contenant input-group">
+                        <label for="date-collecte">
+                            <input type="date" id="date-collecte" class="input-field" />
+                        </label>
+                    </div>
+                    <div class="contenant input-group">
+                        <label for="heure-collecte">
+                            <input type="time" id="heure-collecte" class="input-field" />
+                        </label>
+                    </div>
+
+                    <h3 class="text-white sub-heading">Résumé de la demande</h3>
+                    <div class="slides-text summary-box">
+                        <div class="box-text summary-item">
+                            <p class="text-label">Type de matériaux:</p>
+                            <p class="text-value">Plastique, Papier</p>
+                        </div>
+                        <div class="box-text summary-item">
+                            <p class="text-label">Quantité estimée:</p>
+                            <p class="text-value">5 kg</p>
+                        </div>
+                        <div class="box-text summary-item">
+                            <p class="text-label">Date de collecte:</p>
+                            <p class="text-value">15 juillet 2024</p>
+                        </div>
+                        <div class="box-text summary-item">
+                            <p class="text-label">Heure de collecte:</p>
+                            <p class="text-value">10h00</p>
+                        </div>
+                    </div>
+                    <button class="btn-buttom primary large">Confirmer la collecte</button>
+                </div>
+            </section>
+
+            <section class="app-section" id="section-materiaux">
+                <div class="wrapper card">
+                    <h2 class="section-title">Matériaux Recyclables</h2>
+                    <h3 class="sub-heading">Types de Matériaux Acceptés</h3>
+
+                    <div class="material-info-card">
+                        <h4 class="material-name">Plastique</h4>
+                        <p class="material-value">Valeur: 50 FCFA/kg</p>
+                        <p class="material-tips">Conseils de préparation: Rincer et compacter les bouteilles et autres contenants en plastique pour optimiser l'espace et faciliter le transport.</p>
+                    </div>
+
+                    <div class="material-info-card">
+                        <h4 class="material-name">Papier et Carton</h4>
+                        <p class="material-value">Valeur: 30 FCFA/kg</p>
+                        <p class="material-tips">Conseils de préparation: Plier et attacher les cartons pour gagner de la place. Séparer le papier du carton si possible.</p>
+                    </div>
+
+                    <div class="material-info-card">
+                        <h4 class="material-name">Métal</h4>
+                        <p class="material-value">Valeur: 100 FCFA/kg</p>
+                        <p class="material-tips">Conseils de préparation: Nettoyer les canettes et autres objets métalliques. Séparer les différents types de métaux si possible.</p>
+                    </div>
+
+                    <div class="material-info-card">
+                        <h4 class="material-name">Verre</h4>
+                        <p class="material-value">Valeur: 20 FCFA/kg</p>
+                        <p class="material-tips">Conseils de préparation: Manipuler avec précaution pour éviter la casse. Séparer les différentes couleurs de verre si possible.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="app-section" id="section-vendre">
+                <div class="plan-materiau card">
+                    <h2 class="section-title text-white">Vendre des Matériaux</h2>
+
+                    <h3 class="sub-heading text-white">Estimation des Matériaux</h3>
+                    <div class="contenant input-group">
+                        <label for="material-type-select" class="label-white">Type de matériau</label>
+                        <select id="material-type-select" class="input-field select-field">
+                            <option value="">Sélectionnez un type</option>
+                            <option value="plastique">Plastique</option>
+                            <option value="papier">Papier</option>
+                            <option value="metal">Métal</option>
+                            <option value="verre">Verre</option>
+                        </select>
+                    </div>
+
+                    <div class="contenant input-group">
+                        <label for="quantite-vente" class="label-white">Quantité (kg)</label>
+                        <input type="number" id="quantite-vente" placeholder="Quantité (kg)" class="input-field" min="0" step="0.1" />
+                    </div>
+
+                    <div class="estimation-btn">
+                        <button class="btn-buttom primary large">Estimer la Valeur</button>
+                    </div>
+
+                    <h3 class="sub-heading text-white">Transactions en Cours</h3>
+                    <div class="box-list transaction-item pending">
+                        <div>
+                            <p class="text-label">Vente de plastique</p>
+                            <p class="text-value">En attente de collecte</p>
+                        </div>
+                        <p class="text-amount">1500 XAF</p>
+                    </div>
+
+                    <h3 class="sub-heading text-white">Historique des Ventes</h3>
+                    <div class="box-list transaction-item completed">
+                        <div>
+                            <p class="text-label">Vente de métal</p>
+                            <p class="text-value">Collecte effectuée</p>
+                        </div>
+                        <p class="text-amount">2000 XAF</p>
+                    </div>
+                    <div class="box-list transaction-item completed">
+                        <div>
+                            <p class="text-label">Vente de verre</p>
+                            <p class="text-value">Collecte effectuée</p>
+                        </div>
+                        <p class="text-amount">1000 XAF</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="app-section" id="section-profil">
+                <div class="wrapper card">
+                    <h2 class="section-title">Profil</h2>
+                    <div class="items-center profile-summary">
+                        <div class="profile-image-container">
+                            <img src="user-avatar.jpg" alt="Aisha Diallo" class="profile-avatar">
+                        </div>
+                        <h3 class="profile-name">Aisha Diallo</h3>
+                        <p class="profile-status">Membre depuis 2022</p>
+                    </div>
+
+                    <h3 class="sub-heading">Informations personnelles</h3>
+                    <div class="info-item">
+                        <p class="text-label">Contact:</p>
+                        <p class="text-value">+237 677 123 456</p>
+                    </div>
+                    <div class="info-item">
+                        <p class="text-label">Adresse:</p>
+                        <p class="text-value">Yaoundé, Cameroun</p>
+                    </div>
+
+                    <h3 class="sub-heading">Statistiques de recyclage</h3>
+                    <div class="info-item">
+                        <p class="text-label">Quantité collectée:</p>
+                        <p class="text-value">150 kg</p>
+                    </div>
+                    <div class="info-item">
+                        <p class="text-label">Gains réalisés:</p>
+                        <p class="text-value">15 000 FCFA</p>
+                    </div>
+
+                    <h3 class="sub-heading">Paramètres</h3>
+                    <div class="settings-item flex">
+                        <p class="text-label">Notifications:</p>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item flex">
+                        <p class="text-label">Préférences de collecte:</p>
+                        <button class="btn-buttom secondary small">Gérer</button>
+                    </div>
+                </div>
+            </section>
+
+             <section class="app-section" id="section-signup">
+                <div class="wrapper card">
+                    <h2 class="titre">Créer un compte</h2>
+                    <p class="text">Rejoignez EcoCycle et commencez à recycler dès aujourd'hui !</p>
+                    <div class="contenant input-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" placeholder="Votre adresse email" class="input-field" />
+                    </div>
+                    <div class="contenant input-group">
+                        <label for="signup-password">Mot de passe</label>
+                        <input type="password" id="signup-password" placeholder="Minimum 6 caractères" class="input-field" />
+                    </div>
+                    <button class="btn-buttom primary large">S'inscrire</button>
+                    <p class="text-small">Déjà un compte ? <a href="#" data-target="section-login" class="link-text">Connectez-vous ici.</a></p>
+                </div>
+            </section>
+
+            
+
+        </main>
+
+        <nav class="list-menu app-nav">
+            <a href="accueil.html" class="page-menu active" data-target="section-accueil">
+                <i class="fas fa-home"></i>
+                <p class="text">Accueil</p>
+            </a>
+            <a href="collecte.html" class="page-menu" data-target="section-collecte">
+                <i class="fas fa-truck-loading"></i>
+                <p class="text">Collecte</p>
+            </a>
+            <a href="vente.html" class="page-menu" data-target="section-vendre">
+                <i class="fas fa-dollar-sign"></i>
+                <p class="text">Vendre</p>
+            </a>
+            <a href="profil.html" class="page-menu" data-target="section-profil">
+                <i class="fas fa-user"></i>
+                <p class="text">Profil</p>
+            </a>
+        </nav>
+
+    </div> <script src="app.js"></script> </body>
+</html>

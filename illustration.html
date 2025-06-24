@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Gestion des Déchets</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="illustration.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="app-header flex items-center justify-center">
+        <h1 class="text-3xl font-bold">ecocycle</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+        <!-- New Économie Detail Section -->
+        <section id="section-economie-detail" class="content-section hidden">
+            <h2>Économie Circulaire: Vos Déchets, Votre Revenu</h2>
+            <p>Découvrez comment ecocycle vous aide à transformer vos déchets en une source de revenus stable, tout en contribuant à une économie plus verte et plus durable.</p>
+
+            <h3>Comment ça Marche ?</h3>
+            <div class="process-flow">
+                <div class="process-step">
+                    <!-- Image of a person collecting waste -->
+                    <img src="https://placehold.co/80x80/28a745/ffffff?text=Collecte" alt="Collectez">
+                    <h3>1. Collectez</h3>
+                    <p>Rassemblez vos déchets recyclables comme le plastique, le papier, le verre et le métal.</p>
+                </div>
+                <div class="process-step">
+                    <!-- Image of waste sorting -->
+                    <img src="https://placehold.co/80x80/007bff/ffffff?text=Tri" alt="Triez">
+                    <h3>2. Triez</h3>
+                    <p>Séparez vos matériaux par catégorie pour maximiser leur valeur de revente.</p>
+                </div>
+                <div class="process-step">
+                    <!-- Image of a hand holding money -->
+                    <img src="https://placehold.co/80x80/ffc107/ffffff?text=Vente" alt="Vendez">
+                    <h3>3. Vendez</h3>
+                    <p>Proposez vos déchets sur notre plateforme ou organisez une collecte avec nous.</p>
+                </div>
+                <div class="process-step">
+                    <!-- Image of growth or earnings -->
+                    <img src="https://placehold.co/80x80/6f42c1/ffffff?text=Gain" alt="Gagnez">
+                    <h3>4. Gagnez</h3>
+                    <p>Recevez un paiement équitable pour vos matériaux et contribuez à un avenir meilleur.</p>
+                </div>
+            </div>
+
+            <h3>Témoignages de Succès</h3>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <p>"Grâce à ecocycle, je transforme mes vieux cartons en un revenu supplémentaire pour ma famille. C'est simple et efficace !"</p>
+                    <div class="author">- Marie, Collectrice Indépendante</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Notre entreprise a réduit ses coûts d'élimination des déchets et génère des revenus inattendus en vendant nos plastiques à ecocycle."</p>
+                    <div class="author">- samy, Gérante d'entreprise</div>
+                </div>
+                <!-- Add more testimonials if desired -->
+            </div>
+
+            <div class="mt-8">
+                <button class="learn-more-button" data-target="section-vendre">Commencez à Vendre Maintenant !</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Navigation -->
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageMenus = document.querySelectorAll('.page-menu');
+            const contentSections = document.querySelectorAll('.content-section');
+            // Select the new "En Savoir Plus" buttons
+            const learnMoreButtons = document.querySelectorAll('.learn-more-button');
+
+            // Function to show a specific section and activate its menu item
+            const showSection = (targetId) => {
+                // Remove 'active' class from all menu items
+                pageMenus.forEach(menu => menu.classList.remove('active'));
+
+                // Hide all content sections
+                contentSections.forEach(section => {
+                    section.classList.add('hidden');
+                    section.style.opacity = '0'; // For transition effect
+                });
+
+                // Find the target section and show it
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    // Trigger reflow to ensure transition works
+                    void targetSection.offsetWidth;
+                    targetSection.style.opacity = '1';
+                }
+
+                // Activate the corresponding menu item if it exists in the footer navigation
+                const activeMenu = document.querySelector(`.page-menu[data-target="${targetId}"]`);
+                if (activeMenu) {
+                    activeMenu.classList.add('active');
+                }
+            };
+
+            
+            // Add click event listeners to the new "En Savoir Plus" buttons
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default button behavior (if it were a form submit, for example)
+                    const targetId = button.dataset.target; // Get the target section ID
+                    showSection(targetId);
+                });
+            });
+
+            // Show the initial active section (Accueil) on page load
+            showSection('section-economie-detail');
+        });
+    </script>
+</body>
+</html>

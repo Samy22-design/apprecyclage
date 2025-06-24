@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recy'Com - Gestion des Déchets</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="profil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="app-header flex items-center justify-center">
+        <h1 class="text-3xl font-bold">EcoCycle</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+       
+
+        <!-- Profil Section (hidden by default) -->
+        <section id="section-profil" class="content-section hidden">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Mon Profil</h2>
+            <p class="text-gray-700 mb-4">Gérez vos informations personnelles, consultez l'historique de vos collectes et ventes, et suivez vos contributions à l'environnement.</p>
+            <div class="bg-indigo-50 rounded-lg p-4 mb-4 border border-indigo-200">
+                <h3 class="text-lg font-medium text-indigo-700 mb-2">Informations Générales</h3>
+                <p class="text-indigo-600"><span class="font-semibold">Nom:</span> Jean Dupont</p>
+                <p class="text-indigo-600"><span class="font-semibold">Email:</span> jean.dupont@example.com</p>
+                <p class="text-indigo-600"><span class="font-semibold">Téléphone:</span> +237 670 123 456</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <h3 class="text-lg font-medium text-gray-700 mb-2">Historique des Transactions</h3>
+                <ul class="list-disc list-inside text-gray-600">
+                    <li>15 Juin 2025: Collecte de 10 kg de Plastique (Terminé)</li>
+                    <li>10 Mai 2025: Vente de 5 kg d'Aluminium (Payé)</li>
+                    <li>01 Avril 2025: Collecte de 20 kg de Carton (Terminé)</li>
+                </ul>
+            </div>
+            <div class="mt-6 text-center">
+                <button class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                    Modifier le Profil
+                </button>
+                <button class="ml-4 bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                    Se Déconnecter
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Navigation -->
+    <footer class="app-footer">
+        <nav class="list-menu app-nav">
+           
+            <a href="#" class="page-menu" data-target="section-profil">
+                <i class="fas fa-user"></i>
+                <p class="text">Profil</p>
+            </a>
+        </nav>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageMenus = document.querySelectorAll('.page-menu');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            // Function to show a specific section and activate its menu item
+            const showSection = (targetId) => {
+                // Remove 'active' class from all menu items
+                pageMenus.forEach(menu => menu.classList.remove('active'));
+
+                // Hide all content sections
+                contentSections.forEach(section => {
+                    section.classList.add('hidden');
+                    section.style.opacity = '0'; // For transition effect
+                });
+
+                // Find the target section and show it
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    // Trigger reflow to ensure transition works
+                    void targetSection.offsetWidth;
+                    targetSection.style.opacity = '1';
+                }
+
+                // Activate the corresponding menu item
+                const activeMenu = document.querySelector(`.page-menu[data-target="${targetId}"]`);
+                if (activeMenu) {
+                    activeMenu.classList.add('active');
+                }
+            };
+
+            // Add click event listeners to each navigation link
+            pageMenus.forEach(menu => {
+                menu.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const targetId = menu.dataset.target; // Get the target section ID from data-target attribute
+                    showSection(targetId);
+                });
+            });
+
+            // Show the initial active section (Accueil) on page load
+            // This ensures 'section-accueil' is visible and its menu item is active if page is refreshed
+            showSection('section-profil');
+        });
+    </script>
+</body>
+</html>

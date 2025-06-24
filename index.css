@@ -1,0 +1,1709 @@
+@charset "utf-8";
+
+/********************************* Font Awesome *****************************************/
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css');
+
+/* The fontawesome.min.css import is redundant if all.min.css is already included */
+
+
+/********************************* Font Families *****************************************/
+
+
+/* Prioritize a few good fonts for consistency and performance */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+:root {
+    /* Color Palette */
+    --primary-color: #28a745;
+    /* Green */
+    --secondary-color: #007bff;
+    /* Blue */
+    --dark-color: #343a40;
+    /* Dark Grey/Black */
+    --light-color: #f8f9fa;
+    /* Light Grey */
+    --white-color: #ffffff;
+    --text-color: #333;
+    --light-text-color: #555;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-green: #1e7e34;
+    --hover-blue: #0056b3;
+    /* Font Families */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+    --font-alt: 'Roboto', sans-serif;
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    /* Border Radius */
+    --border-radius-sm: 5px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+}
+
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    border: none;
+    text-decoration: none;
+    color: inherit;
+    word-wrap: break-word;
+}
+
+body {
+    font-family: var(--font-secondary);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Global Container for Centering */
+
+.app-container {
+    max-width: 1200px;
+    margin: var(--spacing-md) auto;
+    padding: var(--spacing-md);
+    width: 95%;
+    /* Adjust for smaller screens */
+}
+
+
+/* --- Wrapper for main content sections --- */
+
+.wrapper-apropos,
+.wrapper {
+    background-color: var(--white-color);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    /* Enhanced shadow */
+    text-align: center;
+}
+
+.container-apropos {
+    padding: var(--spacing-md);
+}
+
+.wrap-apropos {
+    margin-bottom: var(--spacing-md);
+}
+
+.items-apropos .image {
+    width: 120px;
+    /* Slightly larger */
+    height: 120px;
+    /* Slightly larger */
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto var(--spacing-sm);
+    /* Add bottom margin */
+    border: 3px solid var(--primary-color);
+    /* Add a subtle border */
+}
+
+.items-apropos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.titre {
+    color: var(--primary-color);
+    margin-top: var(--spacing-sm);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+    /* Larger for headings */
+}
+
+.text {
+    line-height: 1.8;
+    /* Improved readability */
+    color: var(--light-text-color);
+    font-size: 1rem;
+}
+
+.items-buttom,
+.items .buttom {
+    margin-top: var(--spacing-lg);
+}
+
+
+/* --- Buttons --- */
+
+.btn-buttom {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px 25px;
+    /* More padding */
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Add transform for hover effect */
+    margin: var(--spacing-xs);
+    display: inline-block;
+    /* Allow multiple buttons on a line */
+}
+
+.btn-buttom:hover {
+    background-color: var(--hover-green);
+    transform: translateY(-2px);
+    /* Slight lift on hover */
+}
+
+.btn-buttom.secondary {
+    /* Example for a secondary button style */
+    background-color: var(--secondary-color);
+}
+
+.btn-buttom.secondary:hover {
+    background-color: var(--hover-blue);
+}
+
+.items button {
+    /* For specific buttons within .items that are NOT .btn-buttom, consider distinct styling */
+    width: 100%;
+    /* If they need to be block level */
+    margin-bottom: var(--spacing-sm);
+}
+
+.items button:last-child {
+    margin-bottom: 0;
+}
+
+.box-text {
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+
+/* --- Darker Sections (e.g., features, lists) --- */
+
+.wrap-items {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    max-width: none;
+    /* Remove max-width to allow better responsiveness with app-container */
+}
+
+.slides {
+    padding: var(--spacing-sm);
+}
+
+.box-titre h2 {
+    color: var(--white-color);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.text-white {
+    color: var(--white-color);
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.box-materiaux {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap on smaller screens */
+    justify-content: space-around;
+    gap: var(--spacing-md);
+    /* Space between items */
+    margin-bottom: var(--spacing-md);
+}
+
+.box-materiaux .box-text {
+    background-color: var(--dark-color);
+    /* Maintain dark background for these specific boxes */
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    flex: 1 1 calc(33% - var(--spacing-md));
+    /* Distribute items, 3 per row initially */
+    min-width: 250px;
+    /* Minimum width before wrapping */
+    box-shadow: 0 2px 8px var(--shadow-color);
+    /* Subtle shadow for inner boxes */
+    transition: transform 0.3s ease;
+}
+
+.box-materiaux .box-text:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+}
+
+.box-materiaux .box-text .titre {
+    color: var(--primary-color);
+    /* Highlight titles */
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.box-materiaux .box-text .text {
+    color: var(--light-color);
+}
+
+
+/* --- Form Elements --- */
+
+.contenant {
+    margin-bottom: var(--spacing-md);
+}
+
+.contenant label {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--light-color);
+    /* For labels in dark sections */
+    text-align: left;
+}
+
+.contenant input,
+.list {
+    width: 100%;
+    /* Full width */
+    padding: 12px;
+    /* More padding */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    background-color: var(--white-color);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contenant input:focus,
+.list:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+    /* Focus highlight */
+}
+
+.slides-text {
+    background-color: var(--dark-color);
+    /* Consistency with dark sections */
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.slides-text .box-text {
+    text-align: left;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Lighter border for contrast */
+}
+
+.slides-text .box-text:last-child {
+    border-bottom: none;
+}
+
+.slides-text .box-text .text {
+    color: var(--light-color);
+    margin: var(--spacing-xs) 0;
+}
+
+.btn-buttom.btn {
+    /* Specific override if needed for a single button */
+    display: block;
+    width: fit-content;
+    margin: var(--spacing-md) auto 0;
+}
+
+
+/* --- Navigation Menu --- */
+
+.list-menu {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: space-around;
+    padding: var(--spacing-md) 0;
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-md);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.page-menu {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: var(--border-radius-sm);
+}
+
+.page-menu:hover,
+.page-menu.active {
+    /* Add an 'active' class for the current page */
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+/* --- Plan Material Section --- */
+
+.plan-materiau {
+    background-color: var(--white-color);
+    /* Changed to white for better contrast with dark sections */
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    margin-top: var(--spacing-md);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.option {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.estimation-btn {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+
+/* --- List Boxes (e.g., items in a cart/selection) --- */
+
+.box-list {
+    background-color: var(--light-color);
+    /* Lighter background for individual list items */
+    color: var(--text-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow for list items */
+    border: 1px solid var(--border-color);
+    /* Add a light border */
+}
+
+.box-list>div {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.box-list .text {
+    margin: var(--spacing-xs) 0;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.titre- {
+    /* This class name is unusual, consider something like .section-title */
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.items-center {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--light-color);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.items-center .wrap-items p {
+    margin: var(--spacing-xs) 0;
+}
+
+.container>h3 {
+    color: var(--dark-color);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.container>div>div>div {
+    /* This selector is very specific, consider more robust class names */
+    background-color: var(--white-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.container>div>div>div p {
+    margin: var(--spacing-xs) 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex input[type="checkbox"] {
+    width: 25px;
+    /* Slightly smaller */
+    height: 25px;
+    /* Slightly smaller */
+    accent-color: var(--primary-color);
+    /* Styles the checkbox color */
+    cursor: pointer;
+}
+
+
+/* --- Responsive Design (Media Queries) --- */
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: var(--spacing-sm);
+    }
+    .wrapper-apropos,
+    .wrapper,
+    .wrap-items,
+    .plan-materiau {
+        padding: var(--spacing-md);
+        margin-left: var(--spacing-sm);
+        margin-right: var(--spacing-sm);
+    }
+    .box-materiaux {
+        flex-direction: column;
+        /* Stack materials vertically */
+        align-items: center;
+    }
+    .box-materiaux .box-text {
+        flex: 1 1 90%;
+        /* Take almost full width */
+        min-width: unset;
+        /* Reset min-width */
+    }
+    .list-menu {
+        flex-direction: column;
+        /* Stack menu items */
+        padding: var(--spacing-sm) 0;
+    }
+    .page-menu {
+        padding: var(--spacing-sm) var(--spacing-md);
+        width: 100%;
+        text-align: center;
+    }
+    .contenant input,
+    .list {
+        width: 100%;
+    }
+    .btn-buttom {
+        width: 100%;
+        margin: var(--spacing-sm) 0;
+    }
+    .box-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .box-list>div {
+        width: 100%;
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .titre {
+        font-size: 1.5rem;
+    }
+    .box-titre h2 {
+        font-size: 1.6rem;
+    }
+    .btn-buttom {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    .text {
+        font-size: 0.9rem;
+    }
+}
+
+
+/********************************* Font Awesome *****************************************/
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css');
+
+/* The fontawesome.min.css import is redundant if all.min.css is already included */
+
+
+/********************************* Font Families *****************************************/
+
+
+/* Prioritize a few good fonts for consistency and performance */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+:root {
+    /* Color Palette */
+    --primary-color: #28a745;
+    /* Green */
+    --secondary-color: #007bff;
+    /* Blue */
+    --dark-color: #ffffff;
+    /* Dark Grey/Black */
+    --light-color: #f8f9fa;
+    /* Light Grey */
+    --white-color: #ffffff;
+    --text-color: #333;
+    --light-text-color: #555;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-green: #f5e837e6;
+    --hover-blue: #0056b3;
+    /* Font Families */
+    --font-primary: 'playball', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+    --font-alt: 'Roboto', sans-serif;
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    /* Border Radius */
+    --border-radius-sm: 5px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+}
+
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    border: none;
+    text-decoration: none;
+    color: inherit;
+    word-wrap: break-word;
+}
+
+body {
+    font-family: var(--font-secondary);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Global Container for Centering */
+
+.app-container {
+    max-width: 1200px;
+    margin: var(--spacing-md) auto;
+    padding: var(--spacing-md);
+    width: 95%;
+    /* Adjust for smaller screens */
+}
+
+.wrapper-apropos.card {
+    background-image: url(plage.jpg);
+}
+
+
+/* --- Wrapper for main content sections --- */
+
+.wrapper-apropos,
+.wrapper {
+    background-color: var(--white-color);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    /* Enhanced shadow */
+    text-align: center;
+}
+
+.container-apropos {
+    padding: var(--spacing-md);
+}
+
+.wrap-apropos {
+    margin-bottom: var(--spacing-md);
+}
+
+.items-apropos .image {
+    width: 120px;
+    /* Slightly larger */
+    height: 120px;
+    /* Slightly larger */
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto var(--spacing-sm);
+    /* Add bottom margin */
+    border: 3px solid var(--primary-color);
+    /* Add a subtle border */
+}
+
+.items-apropos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.active .titre {
+    color: #f5e837;
+    margin-top: var(--spacing-sm);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 2.8rem;
+    /* Larger for headings */
+    transform: translateY(0);
+    opacity: 1;
+    transform: translate(0px, 0px);
+    visibility: visible;
+    transition-delay: 1s;
+}
+
+h1.titre {
+    font-size: 90px;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 15px;
+    transition: all ease 1.5s .5s;
+    transform: translateY(100px);
+    opacity: 0;
+    visibility: hidden;
+    font-family: "Playball", sans-serif;
+    font-weight: 400;
+}
+
+.text {
+    line-height: 1.8;
+    /* Improved readability */
+    color: #219315;
+    font-size: 20px;
+}
+
+.items-buttom,
+.items .buttom {
+    margin-top: var(--spacing-lg);
+}
+
+
+/* --- Buttons --- */
+
+.btn-buttom {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px 25px;
+    /* More padding */
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Add transform for hover effect */
+    margin: var(--spacing-xs);
+    display: inline-block;
+    /* Allow multiple buttons on a line */
+}
+
+.btn-buttom:hover {
+    background-color: var(--hover-green);
+    transform: translateY(-2px);
+    /* Slight lift on hover */
+}
+
+.btn-buttom.secondary {
+    /* Example for a secondary button style */
+    background-color: var(--secondary-color);
+}
+
+.btn-buttom.secondary:hover {
+    background-color: var(--hover-blue);
+}
+
+.items button {
+    /* This rule is too broad, prefer specific classes */
+    /* Remove or refine this rule if it conflicts with .btn-buttom */
+    /* For specific buttons within .items that are NOT .btn-buttom, consider distinct styling */
+    width: 100%;
+    /* If they need to be block level */
+    margin-bottom: var(--spacing-sm);
+}
+
+.items button:last-child {
+    margin-bottom: 0;
+}
+
+.box-text {
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+
+/* --- Darker Sections (e.g., features, lists) --- */
+
+.wrap-items {
+    background-color: rgba(40, 167, 69, 0.25);
+    color: #219315;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    max-width: none;
+    /* Remove max-width to allow better responsiveness with app-container */
+}
+
+.slides {
+    padding: var(--spacing-sm);
+}
+
+.box-titre h2 {
+    color: var(--white-color);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.text-white {
+    color: #fff;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.box-materiaux {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap on smaller screens */
+    justify-content: space-around;
+    gap: var(--spacing-md);
+    /* Space between items */
+    margin-bottom: var(--spacing-md);
+}
+
+.box-materiaux .box-text {
+    background-color: var(--dark-color);
+    /* Maintain dark background for these specific boxes */
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    flex: 1 1 calc(33% - var(--spacing-md));
+    /* Distribute items, 3 per row initially */
+    min-width: 250px;
+    /* Minimum width before wrapping */
+    box-shadow: 0 2px 8px var(--shadow-color);
+    /* Subtle shadow for inner boxes */
+    transition: transform 0.3s ease;
+}
+
+.box-materiaux .box-text:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+}
+
+.box-materiaux .box-text .titre {
+    color: var(--primary-color);
+    /* Highlight titles */
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.box-materiaux .box-text .text {
+    color: var(--light-color);
+}
+
+
+/* --- Form Elements --- */
+
+.contenant {
+    margin-bottom: var(--spacing-md);
+}
+
+.contenant label {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--light-color);
+    /* For labels in dark sections */
+    text-align: left;
+}
+
+.contenant input,
+.list {
+    width: 100%;
+    /* Full width */
+    padding: 12px;
+    /* More padding */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    background-color: var(--white-color);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contenant input:focus,
+.list:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+    /* Focus highlight */
+}
+
+.slides-text {
+    background-color: var(--dark-color);
+    /* Consistency with dark sections */
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.slides-text .box-text {
+    text-align: left;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Lighter border for contrast */
+}
+
+.slides-text .box-text:last-child {
+    border-bottom: none;
+}
+
+.slides-text .box-text .text {
+    color: var(--light-color);
+    margin: var(--spacing-xs) 0;
+}
+
+.btn-buttom.btn {
+    /* Specific override if needed for a single button */
+    display: block;
+    width: fit-content;
+    margin: var(--spacing-md) auto 0;
+}
+
+
+/* --- Navigation Menu --- */
+
+.list-menu {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: space-around;
+    padding: var(--spacing-md) 0;
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-md);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.page-menu {
+    text-decoration: none;
+    color: green;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: var(--border-radius-sm);
+}
+
+.page-menu:hover,
+.page-menu.active {
+    /* Add an 'active' class for the current page */
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+/* --- Plan Material Section --- */
+
+.plan-materiau {
+    background-color: #28a745;
+    /* Changed to white for better contrast with dark sections */
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    margin-top: var(--spacing-md);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.option {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.estimation-btn {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+
+/* --- List Boxes (e.g., items in a cart/selection) --- */
+
+.box-list {
+    background-color: #d3dce5;
+    /* Lighter background for individual list items */
+    color: var(--text-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow for list items */
+    border: 1px solid var(--border-color);
+    /* Add a light border */
+}
+
+.box-list>div {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.box-list .text {
+    margin: var(--spacing-xs) 0;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.titre- {
+    /* This class name is unusual, consider something like .section-title */
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.items-center {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--light-color);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.items-center .wrap-items p {
+    margin: var(--spacing-xs) 0;
+}
+
+.container>h3 {
+    color: var(--dark-color);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.container>div>div>div {
+    /* This selector is very specific, consider more robust class names */
+    background-color: var(--white-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.container>div>div>div p {
+    margin: var(--spacing-xs) 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex input[type="checkbox"] {
+    width: 25px;
+    /* Slightly smaller */
+    height: 25px;
+    /* Slightly smaller */
+    accent-color: var(--primary-color);
+    /* Styles the checkbox color */
+    cursor: pointer;
+}
+
+
+/* --- Responsive Design (Media Queries) --- */
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: var(--spacing-sm);
+    }
+    .wrapper-apropos,
+    .wrapper,
+    .wrap-items,
+    .plan-materiau {
+        padding: var(--spacing-md);
+        margin-left: var(--spacing-sm);
+        margin-right: var(--spacing-sm);
+    }
+    .box-materiaux {
+        flex-direction: column;
+        /* Stack materials vertically */
+        align-items: center;
+    }
+    .box-materiaux .box-text {
+        flex: 1 1 90%;
+        /* Take almost full width */
+        min-width: unset;
+        /* Reset min-width */
+    }
+    .list-menu {
+        flex-direction: column;
+        /* Stack menu items */
+        padding: var(--spacing-sm) 0;
+    }
+    .page-menu {
+        padding: var(--spacing-sm) var(--spacing-md);
+        width: 100%;
+        text-align: center;
+    }
+    .contenant input,
+    .list {
+        width: 100%;
+    }
+    .btn-buttom {
+        width: 100%;
+        margin: var(--spacing-sm) 0;
+    }
+    .box-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .box-list>div {
+        width: 100%;
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .titre {
+        font-size: 1.5rem;
+    }
+    .box-titre h2 {
+        font-size: 1.6rem;
+    }
+    .btn-buttom {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    .text {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Exemple de reset très simple */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    /* Utilisez vos polices importées */
+    line-height: 1.6;
+    background-color: #f0f2f5;
+    /* Un fond doux */
+    color: #333;
+}
+
+#app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Prend toute la hauteur de la fenêtre */
+}
+
+#app-header {
+    background-color: #007bff;
+    /* Couleur primaire pour le header */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    /* ou fixed pour une app mobile */
+    top: 0;
+    z-index: 1000;
+}
+
+#app-header .logo img {
+    height: 40px;
+    /* Taille de votre logo */
+}
+
+#app-header h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+#main-content {
+    flex-grow: 1;
+    /* Permet au main de prendre l'espace restant */
+    padding: 20px;
+    /* Espacement autour des sections */
+    overflow-y: auto;
+    /* Permet le défilement si le contenu dépasse */
+}
+
+#app-footer {
+    background-color: #ffffff;
+    /* Fond blanc pour la navigation */
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    position: sticky;
+    /* ou fixed pour une app mobile */
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 0.9em;
+    padding: 5px;
+    flex: 1;
+    /* Pour que les éléments prennent un espace égal */
+}
+
+.nav-item i {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+.nav-item.active {
+    color: #007bff;
+    /* Couleur active */
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    margin-bottom: 20px;
+    /* Espace entre les cartes */
+    text-align: center;
+    /* Pour les cartes d'accueil */
+}
+
+.dark-card {
+    background-color: #343a40;
+    /* Un fond sombre */
+    color: white;
+}
+
+.card .image-intro img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #212529;
+    margin-bottom: 15px;
+}
+
+.dark-card h1,
+.dark-card h2,
+.dark-card h3 {
+    color: white;
+}
+
+.titre-principal {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.titre-secondaire {
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.sub-heading {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Ligne pour séparer les sections de titre */
+    padding-bottom: 5px;
+}
+
+.dark-card .sub-heading {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    line-height: 1.7;
+    color: #555;
+}
+
+.dark-card p {
+    color: #ddd;
+}
+
+.text-small {
+    font-size: 0.85em;
+    color: #777;
+}
+
+.link-text {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link-text:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: block;
+    /* Chaque bouton sur sa propre ligne */
+    width: 100%;
+    padding: 14px 20px;
+    margin-top: 15px;
+    /* Espace entre les boutons */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn.secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn.tertiary {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.btn.tertiary:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn.large {
+    padding: 16px 25px;
+    font-size: 1.2em;
+}
+
+.btn.small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    width: auto;
+    /* Pour les boutons gérés dans des flexbox */
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.button-group {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Espace entre les boutons dans un groupe */
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+    /* Aligne les labels à gauche */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+}
+
+.input-group .label-white {
+    color: white;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.select-field {
+    /* Styles spécifiques pour les selects si nécessaire */
+    appearance: none;
+    /* Supprime le style par défaut du navigateur */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.7L146.2%20202.7%2018.5%2075.1a17.6%2017.6%200%200%200-25.7%2023.1L133.4%20230a17.6%2017.6%200%200%200%2025.7%200L298.3%2098.3a17.6%2017.6%200%200%200-11.3-28.9z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 35px;
+    /* Pour éviter que le texte ne chevauche la flèche */
+}
+
+.material-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    /* 2 colonnes sur mobile, plus sur grand écran */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.material-card {
+    background-color: #f8f9fa;
+    /* Fond clair */
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark-card .material-card {
+    background-color: #495057;
+    /* Fond plus foncé pour les cartes dans les sections sombres */
+    color: white;
+}
+
+.material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.material-card .icon-large {
+    font-size: 2.5em;
+    color: #007bff;
+    /* Couleur des icônes */
+    margin-bottom: 10px;
+}
+
+.dark-card .material-card .icon-large {
+    color: #89cff0;
+    /* Une couleur différente pour les icônes sur fond sombre */
+}
+
+.material-card .material-name {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.material-card.selectable-card {
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.material-card.selectable-card.selected {
+    border-color: #007bff;
+    /* Bordure bleue quand sélectionné */
+    background-color: #e6f2ff;
+    /* Fond légèrement teinté */
+}
+
+.dark-card .material-card.selectable-card.selected {
+    border-color: #89cff0;
+    background-color: #5d6770;
+}
+
+.summary-box,
+.transaction-list {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    /* Ombre interne subtile */
+}
+
+.dark-card .summary-box,
+.dark-card .transaction-list {
+    background-color: #495057;
+}
+
+.summary-item,
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    /* Ligne pointillée */
+}
+
+.dark-card .summary-item,
+.dark-card .transaction-item {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.summary-item:last-child,
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.summary-label,
+.transaction-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.dark-card .summary-label,
+.dark-card .transaction-label {
+    color: white;
+}
+
+.summary-value,
+.transaction-amount,
+.transaction-status {
+    color: #666;
+}
+
+.dark-card .summary-value,
+.dark-card .transaction-amount,
+.dark-card .transaction-status {
+    color: #ddd;
+}
+
+.transaction-item.pending .transaction-status {
+    color: #ffc107;
+    /* Jaune pour en attente */
+    font-weight: 500;
+}
+
+.transaction-item.completed .transaction-status {
+    color: #28a745;
+    /* Vert pour complété */
+    font-weight: 500;
+}
+
+.transaction-item .transaction-amount {
+    font-weight: 600;
+    color: #007bff;
+    font-size: 1.1em;
+}
+
+.dark-card .transaction-item .transaction-amount {
+    color: #89cff0;
+}
+
+.profile-summary {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-image-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px auto;
+    border: 4px solid #007bff;
+    /* Bordure autour de l'avatar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.profile-status {
+    color: #777;
+    font-size: 0.9em;
+}
+
+.info-item,
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item:last-child,
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+.info-label,
+.settings-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.info-value {
+    color: #666;
+}
+
+
+/* Toggle switch for settings */
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #007bff;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #007bff;
+}
+
+input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+.app-section {
+    display: none;
+    /* Cache toutes les sections par défaut */
+}
+
+.app-section.active {
+    display: block;
+    /* Affiche uniquement la section active */
+}
