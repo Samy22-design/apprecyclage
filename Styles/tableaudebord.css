@@ -1,0 +1,804 @@
+/* Importez vos polices si vous en utilisez des spécifiques */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap'); */
+
+:root {
+    --primary-color: #0b1a5e; /* Bleu foncé Ecocycle */
+    --secondary-color: #28a745; /* Vert pour succès/actions positives */
+    --accent-color: #ffc107; /* Jaune pour attention/avertissement */
+    --text-color: #333;
+    --light-gray: #f4f7f6;
+    --medium-gray: #eee;
+    --dark-gray: #666;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Ou une autre police professionnelle */
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Empêche le défilement horizontal non désiré */
+}
+
+/* -------------------- Wrapper Global du Tableau de Bord -------------------- */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh; /* S'étend sur toute la hauteur de la vue */
+}
+
+/* -------------------- Sidebar (Barre Latérale) -------------------- */
+.dashboard-sidebar {
+    width: 250px;
+    background-color: #28a745;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Reste fixe lors du défilement */
+    height: 100%;
+    overflow-y: auto; /* Permet le défilement si le contenu est trop long */
+}
+
+.sidebar-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+a.logo-link {
+    background-color: white;
+}
+.sidebar-header .logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #17a2b8;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.sidebar-header .logo-img {
+    height: 45px;
+    margin-right: 10px;
+}
+
+.sidebar-nav {
+    flex-grow: 1; /* Prend l'espace disponible */
+    margin-top: 20px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+}
+
+.sidebar-menu .menu-item {
+    margin-bottom: 5px;
+}
+
+.sidebar-menu .menu-item a {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.05em;
+}
+
+.sidebar-menu .menu-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.sidebar-menu .menu-item.active a {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-left: 5px solid var(--secondary-color); /* Barre d'indication active */
+    padding-left: 20px;
+}
+
+.sidebar-menu .menu-icon {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.sidebar-footer {
+    padding: 20px 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.logout-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* -------------------- Contenu Principal du Tableau de Bord -------------------- */
+.dashboard-content {
+    flex-grow: 1;
+    margin-left: 250px; /* Égal à la largeur de la sidebar pour laisser de la place */
+    padding: 30px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-title {
+    font-size: 2.2em;
+    color: #17a2b8;
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary-action {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.action-btn.primary-action:hover {
+    background-color: #17a2b8;
+    transform: translateY(-1px);
+}
+
+.action-btn.secondary-action {
+    background-color: var(--medium-gray);
+    color: var(--dark-gray);
+    border: 1px solid var(--border-color);
+}
+
+.action-btn.secondary-action:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-1px);
+}
+
+.user-profile-widget {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--card-bg);
+    padding: 8px 15px;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.username {
+    font-weight: 600;
+    color: #17a2b8;
+}
+
+/* -------------------- Sections du Contenu -------------------- */
+.dashboard-section {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    display: none; /* Caché par défaut, sera affiché par JS */
+}
+
+.dashboard-section.active-section {
+    display: block; /* Section active visible */
+}
+
+.dashboard-section h2 {
+    color: #17a2b8;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+/* --- Aperçu (Overview) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border-left: 5px solid #28a745;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    font-size: 2.5em;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.stat-card h3 {
+    font-size: 1.2em;
+    color: var(--dark-gray);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #17a2b8;
+    margin: 0;
+}
+
+.stat-value small {
+    font-size: 0.6em;
+    font-weight: normal;
+    color: var(--dark-gray);
+}
+
+.stat-info {
+    font-size: 0.85em;
+    color: var(--secondary-color);
+    margin-top: 10px;
+    display: block;
+}
+
+.charts-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.chart-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.chart-card h3 {
+    font-size: 1.3em;
+    color: #17a2b8;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.chart-placeholder {
+    background-color: var(--light-gray);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-gray);
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.recent-activity {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.recent-activity h3 {
+    font-size: 1.3em;
+    color: #17a2b8;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-list li {
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--medium-gray);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--dark-gray);
+    font-size: 0.95em;
+}
+
+.activity-list li:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    color: var(--secondary-color);
+    font-size: 1.1em;
+}
+
+/* --- Tables (Collectes, Ventes) --- */
+.section-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Pour la responsivité */
+    gap: 15px;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 0.95em;
+    width: 250px;
+    box-sizing: border-box;
+}
+
+.collectes-table-container, .ventes-table-container {
+    overflow-x: auto; /* Permet le défilement horizontal sur les petits écrans */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f2f2f2;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+}
+
+.status-badge.completed { background-color: var(--secondary-color); }
+.status-badge.pending { background-color: var(--accent-color); }
+.status-badge.active { background-color: #17a2b8; } /* Information blue */
+.status-badge.sold { background-color: #6c757d; } /* Gray */
+
+.table-btn {
+    background: none;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-right: 5px;
+}
+
+.table-btn:hover {
+    background-color: var(--medium-gray);
+}
+
+.table-btn.view-btn { color: #007bff; border-color: #007bff; }
+.table-btn.edit-btn { color: #ffc107; border-color: #ffc107; }
+.table-btn.delete-btn { color: #dc3545; border-color: #dc3545; }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    font-size: 0.95em;
+    color: var(--dark-gray);
+}
+
+.pagination button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pagination button:hover {
+    background-color: #081240;
+}
+
+/* --- Profil --- */
+.profile-info-grid {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.profile-avatar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-avatar-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease;
+}
+
+.edit-avatar-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.profile-details p {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    color: var(--dark-gray);
+}
+
+.profile-details p strong {
+    color: var(--primary-color);
+}
+
+.notification-settings {
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+    text-align: left;
+}
+
+/* Toggle Switch pour les notifications */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--secondary-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--secondary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/* -------------------- Responsive Design pour le Tableau de Bord -------------------- */
+@media (max-width: 992px) {
+    .dashboard-sidebar {
+        width: 80px; /* Sidebar plus étroite */
+        overflow-x: hidden;
+    }
+
+    .sidebar-header .logo-text, .sidebar-nav span {
+        display: none; /* Cache le texte pour laisser seulement les icônes */
+    }
+
+    .sidebar-header .logo-link {
+        justify-content: center;
+        font-size: 0; /* Cache le texte si on le garde avec l'icône */
+    }
+
+    .sidebar-header .logo-img {
+        margin-right: 0; /* Pas de marge à droite si le texte disparaît */
+    }
+
+    .sidebar-menu .menu-item a {
+        justify-content: center; /* Centre les icônes */
+        padding: 15px 0;
+    }
+
+    .sidebar-menu .menu-icon {
+        margin-right: 0; /* Supprime la marge de l'icône */
+    }
+    
+    .sidebar-menu .menu-item.active a {
+        border-left: none; /* Supprime la barre à gauche */
+        border-bottom: 5px solid var(--secondary-color); /* Barre en bas des icônes */
+        padding-bottom: 10px;
+    }
+    .sidebar-footer .logout-btn {
+        width: 100%; /* Bouton déconnexion en pleine largeur */
+        padding: 10px 5px;
+        font-size: 0.85em;
+    }
+    
+    .dashboard-content {
+        margin-left: 80px; /* Ajuste la marge du contenu principal */
+        padding: 20px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .dashboard-title {
+        font-size: 1.8em;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-start; /* Alignement à gauche */
+        flex-wrap: wrap;
+    }
+
+    .action-btn {
+        flex-grow: 1; /* Permet aux boutons de prendre plus de place */
+        justify-content: center;
+        font-size: 0.9em;
+    }
+
+    .user-profile-widget {
+        order: -1; /* Remonte le widget utilisateur */
+        margin-bottom: 10px; /* Espace en dessous */
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour les stats sur les petites tablettes */
+    }
+
+    .charts-area {
+        grid-template-columns: 1fr; /* Une seule colonne pour les graphiques */
+    }
+
+    .profile-info-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-details {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-wrapper {
+        flex-direction: column; /* La sidebar passe en haut */
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative; /* Ne reste plus fixe */
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .sidebar-header {
+        border-bottom: none;
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .sidebar-header .logo-text {
+        display: block; /* Réaffiche le texte du logo sur la barre du haut */
+    }
+
+    .sidebar-header .logo-img {
+        margin-right: 10px;
+    }
+
+    .sidebar-nav {
+        display: none; /* Caché par défaut sur mobile (sera affiché via JS) */
+        margin-top: 10px;
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 10px;
+    }
+
+    .sidebar-nav.active { /* Classe ajoutée par JS pour afficher le menu */
+        display: block;
+    }
+
+    .sidebar-menu {
+        flex-direction: column;
+    }
+
+    .sidebar-menu .menu-item a {
+        justify-content: flex-start; /* Alignement à gauche des liens de menu */
+        border-left: none !important; /* Force la suppression de la barre gauche */
+        border-bottom: none !important; /* Force la suppression de la barre du bas */
+        padding: 12px 20px;
+    }
+
+    .sidebar-menu .menu-item.active a {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-footer {
+        display: none; /* Cache le bouton déconnexion pour le simplifier */
+    }
+
+    .dashboard-content {
+        margin-left: 0; /* Pas de marge à gauche si la sidebar est en haut */
+        padding: 20px 15px;
+    }
+
+    .dashboard-header {
+        padding-bottom: 15px;
+    }
+
+    .action-btn {
+        width: 100%; /* Boutons d'action en pleine largeur */
+    }
+
+    .section-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+}
+/* Styles pour le conteneur du graphique */
+.chart-placeholder {
+    width: 90%; /* Prend 90% de la largeur de son parent */
+    max-width: 1000px; /* Limite la largeur maximale sur les grands écrans */
+    margin: 50px auto; /* Centre le conteneur horizontalement et ajoute de l'espace vertical */
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+    height: 500px; /* Hauteur fixe pour le graphique */
+    position: relative; /* Important pour le responsive */
+    display: flex; /* Utilise flexbox pour centrer le canvas */
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    max-width: 100%; /* Assure que le canvas ne dépasse pas le conteneur */
+    max-height: 100%; /* Assure que le canvas ne dépasse pas le conteneur */
+    display: block; /* Supprime l'espace sous l'image/canvas */
+}
+
+/* Ajustements responsives pour le conteneur du graphique */
+@media (max-width: 768px) {
+    .chart-placeholder {
+        width: 95%;
+        padding: 15px;
+        height: 380px;
+        margin-top: 30px;
+    }
+}

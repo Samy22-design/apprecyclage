@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres - EcoCycle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e0ffe0, #c8ffd8); /* Light green gradient */
+            color: #333;
+            line-height: 1.6;
+            padding-top: 70px; /* Space for fixed header */
+        }
+
+        header {
+            width: 100%;
+            background-color: #28a745;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        header nav a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 100%;
+            max-width: 700px; /* Adjusted width for settings */
+            box-sizing: border-box;
+            margin: 30px auto;
+        }
+
+        h1 {
+            color: #28a745;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        h1 .menu-icon {
+            font-size: 1.5em;
+        }
+
+        .settings-section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 30px;
+        }
+
+        .settings-section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .settings-section h2 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .settings-section h2 .section-icon {
+            color: #28a745;
+            font-size: 1.1em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #28a745;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            min-width: 18px; /* Ensures checkbox is visible */
+            min-height: 18px;
+            accent-color: #28a745; /* Colors the checkbox itself */
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: 400;
+            color: #555;
+        }
+
+        button.btn-save {
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+            display: inline-block; /* Allows text to wrap, but button stays compact */
+        }
+
+        button.btn-save:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        button.btn-danger {
+            background-color: #2196f3;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+            margin-left: 15px; /* Spacing from save button */
+        }
+
+        button.btn-danger:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 30px;
+            gap: 10px; /* Space between buttons */
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 20px auto;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .settings-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            button.btn-save,
+            button.btn-danger {
+                width: 100%;
+                margin-left: 0; /* Remove left margin for stacked buttons */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+            .settings-section h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="apropos.html">À Propos</a>
+            <a href="contact.html">Contact</a>
+            <a href="connexion.html">Se connecter</a>
+            <a href="inscription.html">S'inscrire</a>
+            <a href="historique.html"><i class="fas fa-history menu-icon"></i> Historique</a>
+            <a href="parametres.html"><i class="fas fa-cog menu-icon"></i> Paramètres</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1><i class="fas fa-cog menu-icon"></i> Paramètres</h1>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-user section-icon"></i> Informations du Profil</h2>
+            <form>
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" value="UtilisateurEco" placeholder="Votre nom d'utilisateur">
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" id="email" name="email" value="utilisateur@example.com" placeholder="Votre adresse email">
+                </div>
+                <button type="submit" class="btn-save">Enregistrer les modifications</button>
+            </form>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-bell section-icon"></i> Préférences de Notification</h2>
+            <form>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="notif-general" name="notif-general" checked>
+                    <label for="notif-general">Recevoir les notifications générales (mises à jour, actualités)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="notif-promos" name="notif-promos">
+                    <label for="notif-promos">Recevoir les offres spéciales et promotions</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="notif-reminder">
+                    <label for="notif-reminder">Rappels de recyclage personnalisés</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="notif-impact" checked>
+                    <label for="notif-impact">Mises à jour de l'impact écologique</label>
+                </div>
+                <button type="submit" class="btn-save">Enregistrer les préférences</button>
+            </form>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-lock section-icon"></i> Sécurité du Compte</h2>
+            <form>
+                <div class="form-group">
+                    <label for="current-password">Mot de passe actuel</label>
+                    <input type="password" id="current-password" name="current-password" placeholder="Entrez votre mot de passe actuel">
+                </div>
+                <div class="form-group">
+                    <label for="new-password">Nouveau mot de passe</label>
+                    <input type="password" id="new-password" name="new-password" placeholder="Min. 8 caractères">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirmer le nouveau mot de passe</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmez le nouveau mot de passe">
+                </div>
+                <button type="submit" class="btn-save">Changer le mot de passe</button>
+            </form>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-times-circle section-icon"></i> Gestion du Compte</h2>
+            <div class="action-buttons">
+                <button type="button" class="btn-danger">Désactiver le compte</button>
+                <button type="button" class="btn-danger">Supprimer le compte</button>
+            </div>
+            <p style="font-size: 0.9em; color: #888; margin-top: 20px;">
+                La désactivation rend votre compte invisible. La suppression est définitive et toutes vos données seront effacées.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>

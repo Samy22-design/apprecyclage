@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le Profil</title>
+    <link rel="stylesheet" href="../Styles/modification-profil.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Modifier Votre Profil</h1>
+        <hr>
+
+        <form id="profileForm">
+            <h2>Informations Personnelles</h2>
+            <div class="form-group">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" value="Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" value="John">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Adresse e-mail :</label>
+                <input type="email" id="email" name="email" value="john.doe@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Numéro de téléphone :</label>
+                <input type="tel" id="telephone" name="telephone" value="+237 6XX XX XX XX">
+            </div>
+
+            <div class="form-group">
+                <label for="bio">Biographie (facultatif) :</label>
+                <textarea id="bio" name="bio" rows="4">Passionné de développement web et de nouvelles technologies.</textarea>
+            </div>
+
+            <hr>
+
+            <h2>Mot de Passe</h2>
+            <p>Si vous souhaitez changer votre mot de passe, veuillez remplir les champs ci-dessous. Laissez-les vides si vous ne souhaitez pas le modifier.</p>
+            <div class="form-group">
+                <label for="current_password">Mot de passe actuel :</label>
+                <input type="password" id="current_password" name="current_password">
+            </div>
+
+            <div class="form-group">
+                <label for="new_password">Nouveau mot de passe :</label>
+                <input type="password" id="new_password" name="new_password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirmer le nouveau mot de passe :</label>
+                <input type="password" id="confirm_password" name="confirm_password">
+            </div>
+
+            <hr>
+
+            <h2>Préférences de Communication</h2>
+            <div class="form-group checkbox-group">
+                <input type="radio" id="notifications_email" name="notifications" checked>
+                <label for="notifications_email">Recevoir les notifications par e-mail</label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="radio" id="notifications_sms" name="notifications">
+                <label for="notifications_sms">Recevoir les notifications par SMS</label>
+            </div>
+
+            <hr>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Enregistrer les Modifications</button>
+                <button type="button" class="btn btn-secondary" id="cancelButton">Annuler</button>
+            </div>
+        </form>
+
+        <p class="tips">
+            *Conseils pour la sécurité de votre compte :<br>
+            * Utilisez un mot de passe unique et fort, combinant des lettres majuscules et minuscules, des chiffres et des symboles.<br>
+            * Ne partagez jamais vos informations de connexion.<br>
+            * Mettez à jour régulièrement vos informations.
+        </p>
+    </div>
+
+    <script src="../Scripts/modification.js"></script>
+</body>
+</html>

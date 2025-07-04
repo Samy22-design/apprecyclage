@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits Recyclés - Votre Entreprise</title>
+    <link rel="stylesheet" href="../Styles/produit-recyclés.css">
+   
+</head>
+<body>
+
+    <header>
+        <h1>Produits Recyclés</h1>
+        <nav>
+            <a href="../PageUi/index.html">Accueil</a> |
+            <a href="../apropos.html">À Propos</a> |
+            <a href="../contact.html">Contact</a>
+            </nav>
+    </header>
+
+    <main>
+        <section class="filter-section">
+            <label for="category-filter">Catégorie :</label>
+            <select id="category-filter">
+                <option value="all">Toutes</option>
+                <option value="plastique">Plastique</option>
+                <option value="papier">Papier/Carton</option>
+                <option value="verre">Verre</option>
+                <option value="textile">Textile</option>
+                </select>
+
+            <label for="search-input">Recherche :</label>
+            <input type="search" id="search-input" placeholder="Rechercher un produit...">
+        </section>
+
+        <section class="product-grid" id="product-list">
+            <div class="product-card" data-category="plastique">
+                <img src="../images/téléchargement (1).jpeg " alt="Sac Recyclé">
+                <h3>Sac de courses réutilisable</h3>
+                <p>Fabriqué à partir de bouteilles en plastique recyclées. Durable et stylé.</p>
+                <span class="price">100 XAF</span>
+                <a href="../produit-details.html?id=1" class="btn">Voir Détails</a>
+            </div>
+
+            <div class="product-card" data-category="papier">
+                <img src="../images/téléchargement.jpeg" alt="Carnet en Papier Recyclé">
+                <h3>Carnet éco-conçu</h3>
+                <p>Pages en papier 100% recyclé, couverture en carton pressé. Idéal pour vos notes.</p>
+                <span class="price">100 XAF</span>
+                <a href="../produit-details.html?id=2" class="btn">Voir Détails</a>
+            </div>
+
+            <div class="product-card" data-category="verre">
+                <img src="../images/téléchargement (2).jpeg " alt="Verre Recyclé">
+                <h3>Vase en verre soufflé</h3>
+                <p>Design unique, créé à partir de bouteilles de vin recyclées. Fait main.</p>
+                <span class="price">200 XAF</span>
+                <a href="../produit-details.html?id=3" class="btn">Voir Détails</a>
+            </div>
+
+            
+            <div class="product-card" data-category="verre">
+                <img src="../images/téléchargement (8).jpeg" alt="Verre Recyclé">
+                <h3>plastique</h3>
+                <p>Le "plastique" en tant que matériau est une matière synthétique fabriquée à partir de polymères, souvent dérivée du pétrole, qui peut être façonnée et moulée</p>
+                <span class="price">50 XAF</span>
+                <a href="../produit-details.html?id=3" class="btn">Voir Détails</a>
+            </div>
+            <div class="product-card" data-category="verre">
+                <img src="../images/téléchargement (10).jpeg" alt="Verre Recyclé">
+                <h3>plastique</h3>
+                <p>Le "plastique" en tant que matériau est une matière synthétique fabriquée à partir de polymères, souvent dérivée du pétrole, qui peut être façonnée et moulée</p>
+                <span class="price">50 XAF</span>
+                <a href="../produit-details.html?id=3" class="btn">Voir Détails</a>
+            </div>
+
+            </section>
+
+        <section id="pagination">
+            </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Votre Entreprise. samyclean.</p>
+    </footer>
+
+    <script>
+        // Script pour la logique de filtrage et recherche (optionnel)
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoryFilter = document.getElementById('category-filter');
+            const searchInput = document.getElementById('search-input');
+            const productList = document.getElementById('product-list');
+            const productCards = productList.querySelectorAll('.product-card');
+
+            function filterProducts() {
+                const selectedCategory = categoryFilter.value;
+                const searchTerm = searchInput.value.toLowerCase();
+
+                productCards.forEach(card => {
+                    const category = card.dataset.category;
+                    const textContent = card.textContent.toLowerCase();
+
+                    const matchesCategory = (selectedCategory === 'all' || category === selectedCategory);
+                    const matchesSearch = (textContent.includes(searchTerm));
+
+                    if (matchesCategory && matchesSearch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            categoryFilter.addEventListener('change', filterProducts);
+            searchInput.addEventListener('input', filterProducts); // 'input' pour une recherche en temps réel
+
+            // Exécuter le filtre initialement pour s'assurer que tout est affiché correctement
+            filterProducts();
+        });
+    </script>
+</body>
+</html>

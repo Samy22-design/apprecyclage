@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Se Connecter - EcoCycle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/signin.css">
+
+</head>
+<body>
+    <div class="container">
+        <h2>Se Connecter</h2>
+        <form>
+            <div class="form-group">
+                <label for="email_login">Email</label>
+                <input type="email" id="email_login" name="email_login" placeholder="votre_email@exemple.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password_login">Mot de passe</label>
+                <input type="password" id="password_login" name="password_login" placeholder="Votre mot de passe" required>
+            </div>
+            <button type="submit" class="btn-submit">Connexion</button>
+        </form>
+        <div class="options">
+            <p><a href="#">Mot de passe oublié ?</a></p>
+            <p>Pas encore de compte ? <a href="PageUi\signup.html">S'inscrire</a></p>
+        </div>
+        <div class="social-login">
+            <p>Ou connectez-vous avec :</p>
+            <button class="social-button google-button">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+Continuer avec Google
+                
+            </button>
+            <button class="social-button facebook-button">
+                <i class="fab fa-facebook-f"></i> Continuer avec Facebook
+            </button>
+        </div>
+    </div>
+</body>
+</html>

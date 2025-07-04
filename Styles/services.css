@@ -1,0 +1,509 @@
+/* Variables de couleurs (réutilisez celles de styles.css ou dashboard-styles.css si elles sont globales) */
+:root {
+    --primary-color: #0b1a5e; /* Bleu foncé Ecocycle */
+    --secondary-color: #28a745; /* Vert pour succès/actions positives */
+    --accent-color: #ffc107; /* Jaune pour attention/avertissement */
+    --text-color: #333;
+    --light-gray: #f4f7f6;
+    --medium-gray: #eee;
+    --dark-gray: #666;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+/* Styles généraux pour le corps des pages de contenu */
+body {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    font-family: Arial, sans-serif; /* Assurez-vous que cette police correspond à votre header */
+    margin: 0;
+    padding-top: 80px; /* Espace pour le header fixe */
+}
+
+.page-content {
+    width: 100%;
+    max-width: 1200px; /* Largeur maximale pour le contenu */
+    margin: 0 auto;
+    padding: 0 20px; /* Padding latéral pour les petits écrans */
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1100px; /* Largeur pour le contenu centralisé */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1, h2, h3 {
+    color: #218838;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+p {
+    line-height: 1.8;
+    font-weight: 600;
+}
+
+/* -------------------- Hero Sections (Services & Blog) -------------------- */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    position: relative;
+    /* Effet d'overlay pour améliorer la lisibilité du texte */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay sombre */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-section h1 {
+    color: #28a745;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight:600;
+    border-radius: 50px; /* Boutons plus arrondis pour le hero */
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #11c1cb;
+}
+
+/* Images de fond spécifiques */
+.hero-services {
+    background-image: url('../images/bois-sainte-anastasie.jpg'); /* Remplacez par votre image */
+}
+
+.hero-blog {
+    background-image: url('../images/bois-sainte-anastasie.jpg'); /* Remplacez par votre image */
+}
+
+/* Barre de recherche du blog */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    padding: 8px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.search-bar .search-input {
+    flex-grow: 1;
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    font-size: 1.1em;
+    color: var(--text-color);
+    outline: none;
+}
+
+.search-bar .search-input::placeholder {
+    color: #999;
+}
+
+.search-bar .search-btn {
+    background-color: #218838;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar .search-btn:hover {
+    background-color: #081240;
+}
+
+/* -------------------- Services Overview Section -------------------- */
+.services-overview {
+    padding: 60px 0;
+    text-align: center;
+    /* display: flex; */
+}
+
+.services-overview h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.service-cards-grid {
+    /* display: grid; */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    display: flex;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.icon-circle {
+    background-color: #218838;
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #076166;
+}
+
+.service-card p {
+    color: var(--dark-gray);
+    font-size: 1em;
+    flex-grow: 1; /* Permet au paragraphe de prendre de la place */
+    margin-bottom: 25px;
+}
+
+.service-link {
+    color: #218838;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.service-link:hover {
+    color: var(--secondary-color);
+}
+
+/* -------------------- Blog Posts Section -------------------- */
+.blog-posts-section {
+    padding: 60px 0;
+}
+
+.blog-posts-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+}
+
+.blog-post-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Pour que l'image ne dépasse pas les bords arrondis */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.post-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Assure que l'image couvre la zone sans déformation */
+}
+
+.post-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.post-category {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.blog-post-card h3 {
+    font-size: 1.5em;
+    text-align: left;
+    margin-bottom: 15px;
+    color: #076166;
+}
+
+.post-excerpt {
+    font-size: 0.95em;
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+    flex-grow: 1; /* Permet au texte de prendre l'espace */
+}
+
+.read-more {
+    color: #218838;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+    margin-top: auto; /* Pousse le lien en bas */
+}
+
+.read-more:hover {
+    color: var(--secondary-color);
+}
+
+.post-meta {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: 15px;
+    border-top: 1px dashed var(--medium-gray);
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Pagination (reprise du style du tableau de bord) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    font-size: 0.95em;
+    color: var(--dark-gray);
+}
+
+.pagination button {
+    background-color: #218838;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pagination button:hover {
+    background-color: #081240;
+}
+
+/* -------------------- CTA Section (Call to Action) -------------------- */
+.cta-section {
+    background-color: #218838;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 40px;
+}
+
+.cta-section h2 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+.cta-btn {
+    padding: 15px 35px;
+    font-size: 1.15em;
+    border-radius: 50px;
+    display: inline-block; /* Pour appliquer padding et margin auto */
+}
+
+/* Bouton pour la CTA de services (primaire) */
+.cta-section .btn-primary {
+    background-color: #14a1a9;
+    border-color: #076166;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.cta-section .btn-primary:hover {
+    background-color: #24bac3; /* Vert plus foncé */
+    border-color: #11c1cb;
+}
+
+/* Bouton pour la CTA du blog (secondaire) */
+.cta-section .btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    text-decoration: none;
+}
+
+.cta-section .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+
+/* -------------------- Responsive Design pour les pages de contenu -------------------- */
+@media (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-section p {
+        font-size: 1.1em;
+    }
+
+    .service-cards-grid,
+    .blog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .service-card,
+    .blog-post-card {
+        padding: 25px;
+    }
+
+    .post-content {
+        padding: 20px;
+    }
+
+    .blog-post-card h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Ajustement du padding top pour le header mobile */
+    }
+
+    .hero-section {
+        padding: 60px 15px;
+        min-height: 300px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .services-overview h2,
+    .blog-posts-section h2,
+    .cta-section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .service-cards-grid,
+    .blog-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 20px;
+    }
+
+    .post-image {
+        height: 180px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .search-bar .search-input {
+        width: calc(100% - 20px);
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .search-bar .search-btn {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .cta-section p {
+        font-size: 1em;
+    }
+}

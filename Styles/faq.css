@@ -1,0 +1,154 @@
+/* Add this to your existing CSS for apropos.html (or in Styles/apropos.css) */
+
+.faq-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee; /* A subtle separator */
+}
+
+.faq-heading {
+    color: #28a745;
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.faq-heading .section-icon {
+    font-size: 1.2em;
+    color: #333; /* Slightly darker for contrast */
+}
+
+.faq-item {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden; /* Important for animation */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.faq-question {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f1fef1; /* Very light green background for questions */
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #e5ffe5;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.faq-question .arrow-icon {
+    font-size: 1.2rem;
+    color: #28a745;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question .arrow-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background-color: #ffffff;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px; /* Adjust based on max expected content height */
+    padding: 15px 25px 25px; /* Add padding when active */
+}
+
+.faq-answer p {
+    margin-bottom: 10px;
+}
+
+.faq-answer ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.faq-answer ul li {
+    margin-bottom: 5px;
+}
+
+.contact-prompt {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #e0ffe0; /* Light green background */
+    border-radius: 10px;
+    border: 1px solid #d0f0d0;
+}
+
+.contact-prompt p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn-contact-faq {
+    display: inline-block;
+    background-color: #28a745;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-contact-faq:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .faq-heading {
+        font-size: 1.8rem;
+    }
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    .faq-question, .faq-answer {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .faq-item.active .faq-answer {
+        padding: 10px 15px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-heading {
+        font-size: 1.5rem;
+    }
+    .faq-question h3 {
+        font-size: 0.95rem;
+    }
+    .btn-contact-faq {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}

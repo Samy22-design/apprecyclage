@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique - EcoCycle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e0ffe0, #c8ffd8); /* Light green gradient */
+            color: #333;
+            line-height: 1.6;
+            padding-top: 70px; /* Space for fixed header */
+        }
+
+        header {
+            width: 100%;
+            background-color: #28a745;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        header nav a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 100%;
+            max-width: 900px;
+            box-sizing: border-box;
+            margin: 30px auto;
+        }
+
+        h1 {
+            color: #28a745;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        h1 .menu-icon {
+            font-size: 1.5em;
+        }
+
+        .history-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .history-filters label {
+            font-weight: 500;
+            color: #555;
+            margin-right: 5px;
+        }
+
+        .history-filters select,
+        .history-filters input[type="date"] {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: #333;
+            background-color: #fff;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .history-filters select:focus,
+        .history-filters input[type="date"]:focus {
+            border-color: #28a745;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+        }
+
+        .history-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .history-item {
+            background-color: #fcfcfc;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .history-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .item-header h3 {
+            margin: 0;
+            color: #28a745;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .item-header .item-date {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .item-details p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .item-details p strong {
+            color: #333;
+        }
+
+        .no-history {
+            text-align: center;
+            color: #888;
+            padding: 50px;
+            font-size: 1.1rem;
+            border: 1px dashed #ccc;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .no-history i {
+            font-size: 2.5em;
+            color: #ccc;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 20px auto;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .history-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .item-header .item-date {
+                font-size: 0.85rem;
+            }
+            .history-item {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="apropos.html">À Propos</a>
+            <a href="contact.html">Contact</a>
+            <a href="connexion.html">Se connecter</a>
+            <a href="inscription.html">S'inscrire</a>
+            <a href="historique.html"><i class="fas fa-history menu-icon"></i> Historique</a>
+            <a href="parametres.html"><i class="fas fa-cog menu-icon"></i> Paramètres</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1><i class="fas fa-history menu-icon"></i> Votre Historique de Recyclage</h1>
+
+        <div class="history-filters">
+            <div>
+                <label for="filter-type">Type de matériau :</label>
+                <select id="filter-type">
+                    <option value="">Tous les types</option>
+                    <option value="plastique">Plastique</option>
+                    <option value="verre">Verre</option>
+                    <option value="papier">Papier/Carton</option>
+                    <option value="metal">Métal</option>
+                    <option value="electronique">Électronique</option>
+                    <option value="textile">Textile</option>
+                </select>
+            </div>
+            <div>
+                <label for="filter-period">Période :</label>
+                <select id="filter-period">
+                    <option value="">Toute l'année</option>
+                    <option value="last-month">Dernier mois</option>
+                    <option value="last-3-months">3 derniers mois</option>
+                    <option value="last-6-months">6 derniers mois</option>
+                    <option value="this-year">Cette année</option>
+                </select>
+            </div>
+            <div>
+                <label for="filter-date-start">Du :</label>
+                <input type="date" id="filter-date-start">
+            </div>
+            <div>
+                <label for="filter-date-end">Au :</label>
+                <input type="date" id="filter-date-end">
+            </div>
+        </div>
+
+        <div class="history-list">
+            <div class="history-item">
+                <div class="item-header">
+                    <h3>Dépôt au Centre EcoVert</h3>
+                    <span class="item-date">01 juillet 2025</span>
+                </div>
+                <div class="item-details">
+                    <p><strong>Matériaux :</strong> Plastique (2kg), Verre (5kg)</p>
+                    <p><strong>Point de collecte :</strong> Centre de Tri de la Rue Principale</p>
+                    <p><strong>Impact estimé :</strong> 10 kg CO2 évités, 3 litres d'eau économisés</p>
+                </div>
+            </div>
+
+            <div class="history-item">
+                <div class="item-header">
+                    <h3>Collecte de textiles</h3>
+                    <span class="item-date">25 juin 2025</span>
+                </div>
+                <div class="item-details">
+                    <p><strong>Matériaux :</strong> Vêtements usagés (3kg)</p>
+                    <p><strong>Point de collecte :</strong> Conteneur Textile du Marché</p>
+                    <p><strong>Impact estimé :</strong> 2 kg CO2 évités</p>
+                </div>
+            </div>
+
+            <div class="history-item">
+                <div class="item-header">
+                    <h3>Dépose de Piles usagées</h3>
+                    <span class="item-date">10 juin 2025</span>
+                </div>
+                <div class="item-details">
+                    <p><strong>Matériaux :</strong> Piles (0.5kg)</p>
+                    <p><strong>Point de collecte :</strong> Supermarché EcoPlus</p>
+                    <p><strong>Impact estimé :</strong> Réduction des polluants</p>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+</body>
+</html>

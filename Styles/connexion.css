@@ -1,0 +1,179 @@
+/* Styles généraux pour le corps des pages de formulaire */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6; /* Un fond légèrement différent pour les pages de formulaire */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* La hauteur minimale de la vue pour centrer le formulaire */
+    box-sizing: border-box; /* Inclure le padding et la bordure dans la taille totale */
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px; /* Largeur maximale du conteneur du formulaire */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.form-container h2 {
+    color: #0b1a5e; /* Couleur du titre, assortie à votre marque Ecocycle */
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+.back-link {
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #0b1a5e;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espace entre les groupes de formulaire */
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Important pour que padding n'augmente pas la largeur */
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="text"]:focus {
+    border-color: #0b1a5e; /* Bordure bleue au focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(11, 26, 94, 0.2);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.form-options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.form-options .forgot-password {
+    color: #0b1a5e;
+    text-decoration: none;
+}
+
+.form-options .forgot-password:hover {
+    text-decoration: underline;
+}
+
+.form-checkbox {
+    text-align: left;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.form-checkbox input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.form-checkbox a {
+    color: #0b1a5e;
+    text-decoration: none;
+}
+
+.form-checkbox a:hover {
+    text-decoration: underline;
+}
+
+.submit-btn {
+    background-color: #0b1a5e; /* Bouton principal assorti à la marque */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #081240; /* Bleu plus foncé au survol */
+}
+
+.form-switch {
+    margin-top: 30px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.form-switch a {
+    color: #0b1a5e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-switch a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries pour les petits écrans */
+@media (max-width: 500px) {
+    .form-container {
+        padding: 25px;
+        margin: 20px; /* Marge pour ne pas coller aux bords sur les très petits écrans */
+    }
+
+    .form-container h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .form-group input {
+        padding: 10px;
+    }
+
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .form-options {
+        flex-direction: column; /* Empile les options sur les petits écrans */
+        align-items: flex-start; /* Alignement à gauche */
+        gap: 10px;
+    }
+}

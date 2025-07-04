@@ -1,0 +1,35 @@
+/* General body styling for better centering/visuals */
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.logout-button {
+    /* Basic link styling reset */
+    text-decoration: none; /* Removes underline */
+    color: white; /* Text color */
+
+    /* Button-like styling */
+    background-color: #10B981; /* Green-600 */
+    padding: 0.75rem 1.5rem; /* py-2 px-4 */
+    border-radius: 0.375rem; /* rounded-md */
+    display: inline-block; /* Allows padding and other box model properties */
+    transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* transition ease-in-out duration-150 */
+
+    /* Hover effects */
+    &:hover {
+        background-color: #059669; /* Green-700 */
+    }
+
+    /* Focus effects (mimicking ring-2, ring-green-500, ring-offset-2) */
+    &:focus {
+        outline: none; /* Removes default outline */
+        box-shadow: 0 0 0 2px #FFFFFF, /* ring-offset-2 (white ring) */
+                    0 0 0 4px #10B981; /* ring-2 (green ring) */
+    }
+}

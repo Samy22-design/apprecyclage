@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Déchets</title>
+    <!-- Tailwind CSS CDN -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="../Styles/vente.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="app-header flex items-center justify-center">
+        <h1 class="text-3xl font-bold">EcoCycle</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+       
+       
+
+        <!-- Vendre Section (hidden by default) -->
+        <section id="section-vendre" class="content-section hidden">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Vendre vos Déchets</h2>
+            <p class="text-gray-700 mb-4">Monétisez vos déchets recyclables ! Découvrez les types de matériaux que nous achetons et nos tarifs actuels. Vous pouvez nous proposer vos matériaux en remplissant le formulaire ci-dessous.</p>
+            <div class="bg-orange-50 rounded-lg p-4 mb-4 border border-orange-200">
+                <h3 class="text-lg font-medium text-orange-700 mb-2">Tarifs Actuels (indicatifs)</h3>
+                <ul class="list-disc list-inside text-orange-600">
+                    <li>Plastique (PET) : 150 FCFA/kg</li>
+                    <li>Carton : 50 FCFA/kg</li>
+                    <li>Aluminium : 500 FCFA/kg</li>
+                </ul>
+                <p class="text-sm mt-2 text-orange-700">Les prix peuvent varier selon la qualité et la quantité.</p>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label for="sell-waste-type" class="block text-sm font-medium text-gray-700">Type de Déchet à Vendre</label>
+                    <select id="sell-waste-type" name="sell-waste-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md">
+                        <option>Plastique</option>
+                        <option>Papier/Carton</option>
+                        <option>Verre</option>
+                        <option>Métal</option>
+                        <option>Autres</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="sell-quantity" class="block text-sm font-medium text-gray-700">Quantité à Vendre</label>
+                    <input type="text" id="sell-quantity" name="sell-quantity" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2" placeholder="Ex: 10 kg de PET">
+                </div>
+                <div>
+                    <label for="contact-info" class="block text-sm font-medium text-gray-700">Vos Coordonnées</label>
+                    <input type="text" id="contact-info" name="contact-info" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2" placeholder="Nom, Téléphone, Email">
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                    Proposer à la Vente
+                </button>
+            </form>
+        </section>
+
+        
+    </main>
+
+    <!-- Footer Navigation -->
+    <footer class="app-footer">
+        <nav class="list-menu app-nav">
+           
+            <a href="#" class="page-menu" data-target="section-vendre">
+                <i class="fas fa-dollar-sign"></i>
+                <p class="text">Vendre</p>
+            </a>
+           
+        </nav>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageMenus = document.querySelectorAll('.page-menu');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            // Function to show a specific section and activate its menu item
+            const showSection = (targetId) => {
+                // Remove 'active' class from all menu items
+                pageMenus.forEach(menu => menu.classList.remove('active'));
+
+                // Hide all content sections
+                contentSections.forEach(section => {
+                    section.classList.add('hidden');
+                    section.style.opacity = '0'; // For transition effect
+                });
+
+                // Find the target section and show it
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    // Trigger reflow to ensure transition works
+                    void targetSection.offsetWidth;
+                    targetSection.style.opacity = '1';
+                }
+
+                // Activate the corresponding menu item
+                const activeMenu = document.querySelector(`.page-menu[data-target="${targetId}"]`);
+                if (activeMenu) {
+                    activeMenu.classList.add('active');
+                }
+            };
+
+            // Add click event listeners to each navigation link
+            pageMenus.forEach(menu => {
+                menu.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const targetId = menu.dataset.target; // Get the target section ID from data-target attribute
+                    showSection(targetId);
+                });
+            });
+
+            // Show the initial active section (Accueil) on page load
+            // This ensures 'section-accueil' is visible and its menu item is active if page is refreshed
+            showSection('section-vendre');
+        });
+    </script>
+</body>
+</html>
