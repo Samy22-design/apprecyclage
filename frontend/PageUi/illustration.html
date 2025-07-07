@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Gestion des Déchets</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="../Styles/illustration.css">
+        <link rel="stylesheet" href="../Styles/vendre-maintenant.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="app-header flex items-center justify-center">
+        <h1 class="text-3xl font-bold">Ecocycle</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+        <!-- New Économie Detail Section -->
+      
+    </main>
+
+    <!-- Footer Navigation -->
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageMenus = document.querySelectorAll('.page-menu');
+            const contentSections = document.querySelectorAll('.content-section');
+            // Select the new "En Savoir Plus" buttons
+            const learnMoreButtons = document.querySelectorAll('.learn-more-button');
+
+            // Function to show a specific section and activate its menu item
+            const showSection = (targetId) => {
+                // Remove 'active' class from all menu items
+                pageMenus.forEach(menu => menu.classList.remove('active'));
+
+                // Hide all content sections
+                contentSections.forEach(section => {
+                    section.classList.add('hidden');
+                    section.style.opacity = '0'; // For transition effect
+                });
+
+                // Find the target section and show it
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    // Trigger reflow to ensure transition works
+                    void targetSection.offsetWidth;
+                    targetSection.style.opacity = '1';
+                }
+
+                // Activate the corresponding menu item if it exists in the footer navigation
+                const activeMenu = document.querySelector(`.page-menu[data-target="${targetId}"]`);
+                if (activeMenu) {
+                    activeMenu.classList.add('active');
+                }
+            };
+
+            
+            // Add click event listeners to the new "En Savoir Plus" buttons
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default button behavior (if it were a form submit, for example)
+                    const targetId = button.dataset.target; // Get the target section ID
+                    showSection(targetId);
+                });
+            });
+
+            // Show the initial active section (Accueil) on page load
+            showSection('section-economie-detail');
+        });
+    </script>
+</body>
+</html>

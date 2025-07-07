@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Gestion des Déchets</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="../Styles/accueil.css">
+    <link rel="stylesheet" href="../Styles/illustration.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="app-header flex items-center justify-center">
+        <h1 class="text-3xl font-bold">EcoCycle</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Accueil Section -->
+					
+		 <section class="testimonial-one">
+
+            <div class="testimonial-one-shape-2 float-bob-y">
+                <img decoding="async" src="../images/testimonial-one-shape-2.png" alt="alt">
+            </div>
+            
+        </section>					
+				
+            
+           
+						
+								
+	</section>
+       
+        
+
+
+       
+    </main>
+
+    <!-- Footer Navigation -->
+    <footer class="app-footer">
+        <nav class="list-menu app-nav">
+            <a href="#" class="page-menu active" data-target="section-accueil">
+                <i class="fas fa-home"></i>
+                <p class="text">Accueil</p>
+            </a>
+            
+        </nav>
+        
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageMenus = document.querySelectorAll('.page-menu');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            // Function to show a specific section and activate its menu item
+            const showSection = (targetId) => {
+                // Remove 'active' class from all menu items
+                pageMenus.forEach(menu => menu.classList.remove('active'));
+
+                // Hide all content sections
+                contentSections.forEach(section => {
+                    section.classList.add('hidden');
+                    section.style.opacity = '0'; // For transition effect
+                });
+
+                // Find the target section and show it
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    // Trigger reflow to ensure transition works
+                    void targetSection.offsetWidth;
+                    targetSection.style.opacity = '1';
+                }
+
+                // Activate the corresponding menu item
+                const activeMenu = document.querySelector(`.page-menu[data-target="${targetId}"]`);
+                if (activeMenu) {
+                    activeMenu.classList.add('active');
+                }
+            };
+
+            // Add click event listeners to each navigation link
+            pageMenus.forEach(menu => {
+                menu.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const targetId = menu.dataset.target; // Get the target section ID from data-target attribute
+                    showSection(targetId);
+                });
+            });
+
+            // Show the initial active section (Accueil) on page load
+            // This ensures 'section-accueil' is visible and its menu item is active if page is refreshed
+            showSection('section-accueil');
+        });
+    </script>
+</body>
+</html>

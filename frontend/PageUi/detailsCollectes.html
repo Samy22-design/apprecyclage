@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails - Collectes Terminées</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #ffc107; /* Jaune/Orange pour les collectes */
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .detail-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .detail-section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .detail-section h2 {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background-color: #e9ecef;
+            margin-bottom: 8px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+            text-align: right;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au tableau de bord</a>
+        <h1>Détails des Collectes Terminées</h1>
+
+        <div class="detail-section">
+            <h2>Statistiques des Collectes</h2>
+            <p><strong>Total des collectes terminées à ce jour :</strong> 42</p>
+            <p><strong>Collectes effectuées ce mois-ci :</strong> 3</p>
+            <p><strong>Collecte moyenne par semaine :</strong> 1-2</p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Liste des Collectes Récentes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Lieu</th>
+                        <th>Kilos (Estimation)</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01/07/2025</td>
+                        <td>Quartier Bonabéri</td>
+                        <td>80 kg</td>
+                        <td>Terminée</td>
+                    </tr>
+                    <tr>
+                        <td>28/06/2025</td>
+                        <td>Marché Mfoundi</td>
+                        <td>150 kg</td>
+                        <td>Terminée</td>
+                    </tr>
+                    <tr>
+                        <td>25/06/2025</td>
+                        <td>École Bilingue</td>
+                        <td>60 kg</td>
+                        <td>Terminée</td>
+                    </tr>
+                     <tr>
+                        <td>18/06/2025</td>
+                        <td>Hôpital Général</td>
+                        <td>45 kg</td>
+                        <td>Terminée</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section">
+            <h2>Types de Lieux de Collecte</h2>
+            <ul>
+                <li>Zones résidentielles</li>
+                <li>Marchés publics</li>
+                <li>Écoles et universités</li>
+                <li>Entreprises et bureaux</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

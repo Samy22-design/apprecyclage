@@ -1,0 +1,571 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8f0;
+    /* Un vert clair pour le thème recyclage */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+    /* Empêche le débordement horizontal à cause des animations */
+}
+
+
+/* Header */
+
+.main-header {
+    background-color: #28a745;
+    /* Vert plus profond */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    position: relative;
+    overflow: hidden;
+    /* border-radius: 0 0 32PX 32px; */
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+    animation: fadeInDown 1s ease-out;
+    /* Animation pour le titre */
+}
+
+.main-header p {
+    font-size: 1.1em;
+    margin-top: 10px;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+    /* Délai pour l'animation */
+}
+
+.main-header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-header nav a:hover {
+    color: #d4edda;
+    /* Vert très clair au survol */
+}
+
+
+/* Animation pour le header */
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Container principal */
+
+.main-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    animation: scaleIn 0.8s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.section-intro,
+.section-steps,
+.section-benefits,
+.section-cta {
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.section-cta {
+    border-bottom: none;
+    /* Pas de bordure pour la dernière section */
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    /* Bleu pour les titres de section */
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #28a745;
+    border-radius: 2px;
+}
+
+
+/* Section Introduction */
+
+.section-intro p {
+    font-size: 2.1em;
+    line-height: 1.6;
+    /* text-align: center; */
+    /* max-width: 700px; */
+    /* margin: 0 auto 20px auto; */
+}
+
+.intro-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Section Étapes */
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.step-card {
+    background-color: #e6ffee;
+    /* Fond légèrement vert pour les étapes */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    /* Pour l'animation de fond */
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.step-card .icon {
+    font-size: 3em;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.step-card h3 {
+    color: #28a745;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.step-card p {
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+
+/* Section Bénéfices */
+
+.benefits-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.benefit-item {
+    background-color: #e0f2f7;
+    /* Bleu clair pour les bénéfices */
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1 1 calc(33% - 40px);
+    /* 3 colonnes sur desktop, s'adapte */
+    min-width: 280px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+.benefit-item:hover {
+    background-color: #cce9f0;
+}
+
+.benefit-item .icon {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.benefit-item h4 {
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.benefit-item p {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+
+/* Call to Action */
+
+.section-cta .btn {
+    background-color: #007bff;
+    /* Jaune vif pour l'appel à l'action */
+    color: #ffffff;
+    font-size: 1.3em;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-cta .btn:hover {
+    background-color: #28a745;
+    transform: translateY(-3px);
+    font-weight: 600;
+}
+
+
+/* Footer dynamique */
+
+.main-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9em;
+    border-top: 5px solid #28a745;
+    /* Ligne verte */
+    position: relative;
+    overflow: hidden;
+}
+
+.main-footer p {
+    margin: 5px 0;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #28a745;
+}
+
+.footer-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    /* Ajustez la hauteur de la vague */
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.1), transparent);
+    animation: wave 10s linear infinite alternate;
+}
+
+@keyframes wave {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100px);
+    }
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2em;
+    }
+    .main-header p {
+        font-size: 1em;
+    }
+    .main-container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .steps-grid,
+    .benefits-list {
+        grid-template-columns: 1fr;
+        /* Une colonne sur mobile */
+    }
+    .benefit-item {
+        flex: 1 1 100%;
+    }
+    .section-cta .btn {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
+} body {
+            font-family: 'Man', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Allow content to stack */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e0ffe0, #c8ffd8); /* Light green gradient */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 100%;
+            /* max-width: 800px; */ /* Wider for text content */
+            box-sizing: border-box;
+            margin: 30px auto; /* Add margin for spacing */
+        }
+
+        h1 {
+            color: #28a745; /* Eco-friendly green */
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 2rem;
+            color: #555;
+            font-family: emoji;
+        }
+
+        ul {
+            list-style: none; /* Remove default bullet points */
+            padding-left: 0;
+            margin-bottom: 20px;
+            font-family: emoji;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        ul li::before {
+            content: '🌿'; /* Eco-friendly bullet point */
+            position: absolute;
+            left: 0;
+            color: #28a745;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Basic header for navigation */
+        header {
+            width: 100%;
+            background-color: #28a745;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed; /* Keep header visible */
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        header nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Adjust body padding for fixed header */
+        body {
+            padding-top: 70px; /* Space for the fixed header */
+        }
+         
+        body {
+            font-family: 'Man', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Allow content to stack */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e0ffe0, #c8ffd8); /* Light green gradient */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 100%;
+            /* max-width: 800px; */ /* Wider for text content */
+            box-sizing: border-box;
+            margin: 30px auto; /* Add margin for spacing */
+        }
+
+        h1 {
+            color: #28a745; /* Eco-friendly green */
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 2rem;
+            color: #555;
+            font-family: emoji;
+        }
+
+        ul {
+            list-style: none; /* Remove default bullet points */
+            padding-left: 0;
+            margin-bottom: 20px;
+            font-family: emoji;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        ul li::before {
+            content: '🌿'; /* Eco-friendly bullet point */
+            position: absolute;
+            left: 0;
+            color: #28a745;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Basic header for navigation */
+        header {
+            width: 100%;
+            background-color: #28a745;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed; /* Keep header visible */
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        header nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Adjust body padding for fixed header */
+        body {
+            padding-top: 70px; /* Space for the fixed header */
+        }
+    

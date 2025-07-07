@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails - Kilos Recyclés</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .detail-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .detail-section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .detail-section h2 {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background-color: #e9ecef;
+            margin-bottom: 8px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+            text-align: right;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="frontend\PageUi\index.html" class="back-link"><i class="fas fa-arrow-left"></i><button type="submit" class="btn-connexion">Retour au tableau de bord</button></a>
+        <h1>Détails des Kilos Recyclés</h1>
+
+        <div class="detail-section">
+            <h2>Statistiques Générales</h2>
+            <p><strong>Total Kilos Recyclés à ce jour :</strong> 1250 kg</p>
+            <p><strong>Augmentation ce mois-ci :</strong> 12%</p>
+            <p><strong>Prévision annuelle :</strong> 15000 kg</p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Répartition par Type de Matériau</h2>
+            <ul>
+                <li>Plastique (PET) <span>500 kg</span></li>
+                <li>Carton <span>300 kg</span></li>
+                <li>Verre <span>200 kg</span></li>
+                <li>Métaux <span>150 kg</span></li>
+                <li>Autres <span>100 kg</span></li>
+            </ul>
+        </div>
+
+        <div class="detail-section">
+            <h2>Historique des Collectes Récentes</h2>
+            <ul>
+                <li>01/07/2025 - Collecte Quartier Nkoabang <span>75 kg</span></li>
+                <li>25/06/2025 - Collecte Marché Central <span>120 kg</span></li>
+                <li>18/06/2025 - Collecte École Primaire <span>55 kg</span></li>
+            </ul>
+            <div class="total">Total du mois de Juin : 250 kg</div>
+        </div>
+
+        </div>
+
+</body>
+</html>

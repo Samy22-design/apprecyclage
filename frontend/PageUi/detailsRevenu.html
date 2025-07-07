@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails - Revenus Générés</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #007bff; /* Bleu pour les revenus */
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .detail-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .detail-section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .detail-section h2 {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background-color: #e9ecef;
+            margin-bottom: 8px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+            text-align: right;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au tableau de bord</a>
+        <h1>Détails des Revenus Générés</h1>
+
+        <div class="detail-section">
+            <h2>Statistiques Financières</h2>
+            <p><strong>Total des Revenus à ce jour :</strong> 250.75 XAF</p>
+            <p><strong>Dernière vente enregistrée :</strong> 25 XAF</p>
+            <p><strong>Revenu moyen par kilo de plastique :</strong> 5 XAF/kg</p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Historique des Transactions Récentes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type de Matériau</th>
+                        <th>Quantité (kg)</th>
+                        <th>Montant (XAF)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>02/07/2025</td>
+                        <td>Plastique PET</td>
+                        <td>5 kg</td>
+                        <td>25.00</td>
+                    </tr>
+                    <tr>
+                        <td>28/06/2025</td>
+                        <td>Carton</td>
+                        <td>10 kg</td>
+                        <td>30.00</td>
+                    </tr>
+                    <tr>
+                        <td>20/06/2025</td>
+                        <td>Verre</td>
+                        <td>8 kg</td>
+                        <td>40.00</td>
+                    </tr>
+                     <tr>
+                        <td>15/06/2025</td>
+                        <td>Plastique HDPE</td>
+                        <td>7 kg</td>
+                        <td>35.00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="total">Total du mois de Juin : 130 XAF (Exemple basé sur les données ci-dessus)</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Sources de Revenus</h2>
+            <ul>
+                <li>Vente de plastique recyclé à des usines de transformation</li>
+                <li>Vente de carton compressé</li>
+                <li>Subventions ou partenariats (à détailler)</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
