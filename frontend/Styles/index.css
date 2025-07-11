@@ -206,7 +206,6 @@ ul {
     background: url(../images/hero.jpg) no-repeat;
     background-size: cover;
     object-fit: cover;
-     
 }
 .hero-section .hero-content{
     position: relative;
@@ -216,11 +215,11 @@ ul {
 
 .hero-section .hero-content .sub-container{
      position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 0;
-    opacity: 40%;
+     width: 100%;
+     height: 100%;
+     background-color: black;
+     z-index: 0;
+     opacity: 30%;
 }
     
 .hero-section .hero-content  .hero{
@@ -357,7 +356,7 @@ ul {
 }
 
 .solutions-grid {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 11px;
 }
@@ -467,7 +466,7 @@ ul {
 }
 
 .contact-footer a {
-    color: var(--light-blue-text);
+    color: #d0e0ee;
 }
 .contact-footer a:hover {
     color: var(--white);
@@ -691,4 +690,13 @@ ul {
     .footer-col {
         padding-bottom: 20px;
     }
+}
+.design{
+    color: rgb(41, 231, 41);
+}
+.red{
+    color: red;
+}
+.yellow{
+    color: yellow;
 }

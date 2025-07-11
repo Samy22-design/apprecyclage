@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Portfolio de Développeur Web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Navigation -->
+  <nav class="bg-blue-600 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Mon Portfolio</h1>
+      <ul class="flex space-x-4">
+        <li><a href="#accueil" class="hover:underline">Accueil</a></li>
+        <li><a href="#projets" class="hover:underline">Projets</a></li>
+        <li><a href="#competences" class="hover:underline">Compétences</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Accueil -->
+  <section id="accueil" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+    <div class="text-center">
+      <h2 class="text-4xl font-bold mb-4">Bonjour, je suis LOMO ABENGUE HELENE SAMANTA</h2>
+      <p class="text-xl mb-6">Développeur Web passionné par le DOMAINE INFORMATIQUE</p>
+      <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200">Me contacter</a>
+    </div>
+  </section>
+
+  <!-- Projets -->
+  <section id="projets" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Mes Projets</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">conception de pages Web</h3>
+          <p class="text-gray-600">structuration d'un cheminement(structure) en entreprise   avec HTML, CSS et JavaScript.</p>
+          <a href="C:/wamp/www/bloc4/bloc4.HTML" class="text-blue-600 hover:underline">Voir le projet</a>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">calculatrice</h3>
+          <p class="text-gray-600">conception d'une calculatrice numérique en html,css, JavaScript</p>
+          <a href="C:/wamp/www/CALCULATRICE/calco.html" class="text-blue-600 hover:underline">Voir le projet</a>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">apprecyclage</h3>
+          <p class="text-gray-600">conception d'une application de recyclage "ecocycle"</p>
+          <a href="#" class="text-blue-600 hover:underline">Voir le projet</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compétences -->
+  <section id="competences" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Mes Compétences</h2>
+      <ul class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <li class="bg-white p-4 rounded-lg shadow">HTML5</li>
+        <li class="bg-white p-4 rounded-lg shadow">CSS3</li>
+        <li class="bg-white p-4 rounded-lg shadow">JavaScript</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Me Contacter</h2>
+      <div class="max-w-lg mx-auto">
+        <div class="space-y-4">
+          <input type="text" placeholder="Nom" class="w-full p-3 border rounded-lg">
+          <input type="email" placeholder="Email" class="w-full p-3 border rounded-lg">
+          <textarea placeholder="Message" class="w-full p-3 border rounded-lg h-32"></textarea>
+          <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="bg-blue-600 text-white p-4 text-center">
+    <p>&copy; 2025 lomo abengue helene samanta. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Ajout d'un effet de défilement fluide pour les liens de navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

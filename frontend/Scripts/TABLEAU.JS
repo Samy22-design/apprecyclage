@@ -149,3 +149,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// Gestion des modals
+function openModal(type) {
+    document.getElementById(`${type}Modal`).style.display = 'block';
+}
+
+function closeModal(type) {
+    document.getElementById(`${type}Modal`).style.display = 'none';
+    document.getElementById(`${type}Form`).reset();
+}
+
+// Gestion des formulaires
+document.getElementById('collecteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const collecteData = {
+        date: document.getElementById('collecteDate').value,
+        type: document.getElementById('collecteType').value,
+        quantite: document.getElementById('collecteQuantite').value
+    };
+    console.log('Nouvelle collecte:', collecteData);
+    alert('Collecte enregistrée avec succès !');
+    closeModal('collecte');
+});
+
+document.getElementById('venteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const venteData = {
+        date: document.getElementById('venteDate').value,
+        produit: document.getElementById('venteProduit').value,
+        quantite: document.getElementById('venteQuantite').value,
+        prix: document.getElementById('ventePrix').value
+    };
+    console.log('Nouvelle vente:', venteData);
+    alert('Vente enregistrée avec succès !');
+    closeModal('vente');
+});
+
+// Fermer le modal en cliquant à l'extérieur
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        closeModal('collecte');
+        closeModal('vente');
+    }
+}

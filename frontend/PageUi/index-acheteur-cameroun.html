@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Acheteur - EcoRecycle Cameroun</title>
+    <link rel="stylesheet" href="Styles/profil.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-recycle"></i>
+                <span>EcoRecycle Cameroun</span>
+            </div>
+            <nav class="nav">
+                <a href="#profil" class="nav-link active" data-section="profil">
+                    <i class="fas fa-user"></i> Profil
+                </a>
+                <a href="#commandes" class="nav-link" data-section="commandes">
+                    <i class="fas fa-shopping-bag"></i> Mes Commandes
+                </a>
+                <a href="#favoris" class="nav-link" data-section="favoris">
+                    <i class="fas fa-heart"></i> Favoris
+                </a>
+                <a href="#avis" class="nav-link" data-section="avis">
+                    <i class="fas fa-star"></i> Mes Avis
+                </a>
+                <a href="#parametres" class="nav-link" data-section="parametres">
+                    <i class="fas fa-cog"></i> Paramètres
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Section Profil -->
+            <section id="profil" class="section active">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="https://via.placeholder.com/150/007bff/ffffff?text=AF" alt="Avatar" id="avatar-img">
+                        <button class="avatar-edit-btn">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="profile-name">Aminata Fofana</h1>
+                        <p class="profile-role">Acheteur Éco-responsable</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-number">45</span>
+                                <span class="stat-label">Achats Réalisés</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">4.9</span>
+                                <span class="stat-label">Note Moyenne</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">1.2k</span>
+                                <span class="stat-label">Kg Sauvés</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-details">
+                    <div class="details-card">
+                        <h2>Informations Personnelles</h2>
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" value="Fofana" readonly>
+                            <button class="edit-btn" data-field="nom">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" value="Aminata" readonly>
+                            <button class="edit-btn" data-field="prenom">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" value="aminata.fofana@gmail.com" readonly>
+                            <button class="edit-btn" data-field="email">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Téléphone</label>
+                            <input type="tel" id="telephone" value="+237 6 55 44 33 22" readonly>
+                            <button class="edit-btn" data-field="telephone">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="adresse">Adresse de livraison</label>
+                            <textarea id="adresse" readonly>Quartier Bonanjo, Rue Joss, Douala, Cameroun</textarea>
+                            <button class="edit-btn" data-field="adresse">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">À propos de moi</label>
+                            <textarea id="bio" readonly>Passionnée par l'écologie et la consommation responsable au Cameroun, j'achète uniquement des produits recyclés et durables pour préserver notre environnement.</textarea>
+                            <button class="edit-btn" data-field="bio">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Mes Commandes -->
+            <section id="commandes" class="section">
+                <div class="section-header">
+                    <h2>Mes Commandes</h2>
+                    <div class="order-filters">
+                        <button class="filter-btn active" data-filter="all">Toutes</button>
+                        <button class="filter-btn" data-filter="pending">En cours</button>
+                        <button class="filter-btn" data-filter="shipped">Expédiées</button>
+                        <button class="filter-btn" data-filter="delivered">Livrées</button>
+                    </div>
+                </div>
+
+                <div class="orders-list">
+                    <!-- Commande 1 -->
+                    <div class="order-card" data-status="delivered">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h3>Commande #ECO-CM-2024-001</h3>
+                                <p>Passée le 15 Mars 2024</p>
+                            </div>
+                            <div class="order-status">
+                                <span class="status-badge delivered">Livrée</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="https://via.placeholder.com/80x80/28a745/ffffff?text=B1" alt="Bouteille">
+                                <div class="item-info">
+                                    <h4>Bouteille en Plastique Recyclé</h4>
+                                    <p>Vendeur: Ngozi Mballa</p>
+                                    <span class="item-price">2.500 FCFA</span>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn btn-secondary btn-sm">
+                                        <i class="fas fa-star"></i> Noter
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-redo"></i> Racheter
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="order-total">Total: 2.500 FCFA</div>
+                            <button class="btn btn-secondary">Voir les détails</button>
+                        </div>
+                    </div>
+
+                    <!-- Commande 2 -->
+                    <div class="order-card" data-status="shipped">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h3>Commande #ECO-CM-2024-002</h3>
+                                <p>Passée le 18 Mars 2024</p>
+                            </div>
+                            <div class="order-status">
+                                <span class="status-badge shipped">Expédiée</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="https://via.placeholder.com/80x80/007bff/ffffff?text=S1" alt="Sac">
+                                <div class="item-info">
+                                    <h4>Sac Réutilisable en Raphia Recyclé</h4>
+                                    <p>Vendeur: Ngozi Mballa</p>
+                                    <span class="item-price">1.800 FCFA</span>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn btn-secondary btn-sm">
+                                        <i class="fas fa-truck"></i> Suivre
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <img src="https://via.placeholder.com/80x80/ffc107/000000?text=C1" alt="Cahier">
+                                <div class="item-info">
+                                    <h4>Cahier en Papier Recyclé Local</h4>
+                                    <p>Vendeur: Fatou Ndiaye</p>
+                                    <span class="item-price">1.200 FCFA</span>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn btn-secondary btn-sm">
+                                        <i class="fas fa-truck"></i> Suivre
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="order-total">Total: 3.000 FCFA</div>
+                            <button class="btn btn-secondary">Voir les détails</button>
+                        </div>
+                    </div>
+
+                    <!-- Commande 3 -->
+                    <div class="order-card" data-status="pending">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h3>Commande #ECO-CM-2024-003</h3>
+                                <p>Passée le 20 Mars 2024</p>
+                            </div>
+                            <div class="order-status">
+                                <span class="status-badge pending">En préparation</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="https://via.placeholder.com/80x80/dc3545/ffffff?text=T1" alt="T-shirt">
+                                <div class="item-info">
+                                    <h4>T-shirt en Coton Bio Camerounais</h4>
+                                    <p>Vendeur: Koffi Asante</p>
+                                    <span class="item-price">4.500 FCFA</span>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-times"></i> Annuler
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="order-total">Total: 4.500 FCFA</div>
+                            <button class="btn btn-secondary">Voir les détails</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Favoris -->
+            <section id="favoris" class="section">
+                <div class="section-header">
+                    <h2>Mes Favoris</h2>
+                    <div class="favorites-count">
+                        <span>12 produits favoris</span>
+                    </div>
+                </div>
+
+                <div class="favorites-grid">
+                    <!-- Favori 1 -->
+                    <div class="favorite-card">
+                        <div class="favorite-image">
+                            <img src="https://via.placeholder.com/300x200/28a745/ffffff?text=Panier+Raphia" alt="Panier Raphia">
+                            <button class="favorite-btn active">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <div class="product-status available">Disponible</div>
+                        </div>
+                        <div class="favorite-info">
+                            <h3>Panier en Raphia Traditionnel</h3>
+                            <p>Vendeur: Atelier Bamenda</p>
+                            <div class="favorite-price">3.500 FCFA</div>
+                            <div class="favorite-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>(4.8)</span>
+                            </div>
+                        </div>
+                        <div class="favorite-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-eye"></i> Voir
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Favori 2 -->
+                    <div class="favorite-card">
+                        <div class="favorite-image">
+                            <img src="https://via.placeholder.com/300x200/007bff/ffffff?text=Lampe+Solaire" alt="Lampe Solaire">
+                            <button class="favorite-btn active">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <div class="product-status unavailable">Rupture</div>
+                        </div>
+                        <div class="favorite-info">
+                            <h3>Lampe Solaire Portable</h3>
+                            <p>Vendeur: EcoLux Cameroun</p>
+                            <div class="favorite-price">8.500 FCFA</div>
+                            <div class="favorite-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span>(4.2)</span>
+                            </div>
+                        </div>
+                        <div class="favorite-actions">
+                            <button class="btn btn-secondary" disabled>
+                                <i class="fas fa-bell"></i> Me notifier
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-eye"></i> Voir
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Favori 3 -->
+                    <div class="favorite-card">
+                        <div class="favorite-image">
+                            <img src="https://via.placeholder.com/300x200/ffc107/000000?text=Savon+Bio" alt="Savon Bio">
+                            <button class="favorite-btn active">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <div class="product-status available">Disponible</div>
+                        </div>
+                        <div class="favorite-info">
+                            <h3>Savon Bio au Karité Camerounais</h3>
+                            <p>Vendeur: Naturel Yaoundé</p>
+                            <div class="favorite-price">1.500 FCFA</div>
+                            <div class="favorite-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>(4.6)</span>
+                            </div>
+                        </div>
+                        <div class="favorite-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-eye"></i> Voir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Mes Avis -->
+            <section id="avis" class="section">
+                <div class="section-header">
+                    <h2>Mes Avis</h2>
+                    <div class="reviews-summary">
+                        <div class="summary-card">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <span class="summary-number">4.9</span>
+                                <span class="summary-label">Note Moyenne Donnée</span>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <i class="fas fa-comment"></i>
+                            <div>
+                                <span class="summary-number">23</span>
+                                <span class="summary-label">Avis Rédigés</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-list">
+                    <!-- Avis 1 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-product">
+                                <img src="https://via.placeholder.com/60x60/28a745/ffffff?text=B1" alt="Bouteille">
+                                <div>
+                                    <h4>Bouteille en Plastique Recyclé</h4>
+                                    <p>Vendeur: Ngozi Mballa</p>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>5/5</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Excellente qualité ! La bouteille est très résistante et parfaite pour notre climat camerounais. Je recommande vivement ce produit éco-responsable made in Cameroun.</p>
+                            <div class="review-date">Avis publié le 16 Mars 2024</div>
+                        </div>
+                        <div class="review-actions">
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fas fa-edit"></i> Modifier
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Supprimer
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Avis 2 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-product">
+                                <img src="https://via.placeholder.com/60x60/007bff/ffffff?text=S1" alt="Sac">
+                                <div>
+                                    <h4>Sac Réutilisable en Raphia Recyclé</h4>
+                                    <p>Vendeur: Ngozi Mballa</p>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span>4/5</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Bon produit traditionnel camerounais. Le sac en raphia est solide et pratique pour aller au marché. Très authentique et écologique.</p>
+                            <div class="review-date">Avis publié le 10 Mars 2024</div>
+                        </div>
+                        <div class="review-actions">
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fas fa-edit"></i> Modifier
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Supprimer
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Avis en attente -->
+                    <div class="review-card pending">
+                        <div class="review-header">
+                            <div class="review-product">
+                                <img src="https://via.placeholder.com/60x60/ffc107/000000?text=C1" alt="Cahier">
+                                <div>
+                                    <h4>Cahier en Papier Recyclé Local</h4>
+                                    <p>Vendeur: Fatou Ndiaye</p>
+                                </div>
+                            </div>
+                            <div class="review-status">
+                                <span class="status-badge pending">Avis en attente</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Vous pouvez maintenant laisser un avis sur ce produit.</p>
+                            <div class="review-date">Produit reçu le 19 Mars 2024</div>
+                        </div>
+                        <div class="review-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-star"></i> Laisser un avis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Paramètres -->
+            <section id="parametres" class="section">
+                <div class="section-header">
+                    <h2>Paramètres du Compte</h2>
+                </div>
+
+                <div class="settings-container">
+                    <!-- Paramètres de livraison -->
+                    <div class="settings-card">
+                        <h3><i class="fas fa-truck"></i> Livraison</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Adresse de livraison par défaut</h4>
+                                <p>Quartier Bonanjo, Rue Joss, Douala, Cameroun</p>
+                            </div>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-edit"></i> Modifier
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Instructions de livraison</h4>
+                                <p>Appeler avant de livrer, maison avec portail vert</p>
+                            </div>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-edit"></i> Modifier
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Paramètres de paiement -->
+                    <div class="settings-card">
+                        <h3><i class="fas fa-mobile-alt"></i> Paiement</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Mobile Money principal</h4>
+                                <p>Orange Money - **** **** 3322</p>
+                            </div>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-edit"></i> Gérer
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>MTN Mobile Money</h4>
+                                <p>MTN MoMo - **** **** 5544</p>
+                            </div>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-edit"></i> Gérer
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Paiement automatique</h4>
+                                <p>Utiliser Orange Money pour tous les achats</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="auto-payment" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Paramètres de sécurité -->
+                    <div class="settings-card">
+                        <h3><i class="fas fa-shield-alt"></i> Sécurité</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Changer le mot de passe</h4>
+                                <p>Modifiez votre mot de passe pour sécuriser votre compte</p>
+                            </div>
+                            <button class="btn btn-secondary" id="change-password-btn">
+                                <i class="fas fa-key"></i> Modifier
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Authentification par SMS</h4>
+                                <p>Recevez un code de sécurité par SMS</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="sms-auth-toggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Paramètres de notification -->
+                    <div class="settings-card">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Notifications de commande par SMS</h4>
+                                <p>Recevez des mises à jour sur vos commandes par SMS</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="order-sms-notifications" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Notifications WhatsApp</h4>
+                                <p>Recevez des notifications via WhatsApp</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="whatsapp-notifications" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Offres et promotions</h4>
+                                <p>Recevez des notifications sur les offres spéciales</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="promo-notifications" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Paramètres de confidentialité -->
+                    <div class="settings-card">
+                        <h3><i class="fas fa-user-secret"></i> Confidentialité</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Profil public</h4>
+                                <p>Permettre aux vendeurs de voir votre profil</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="public-profile" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Afficher mes avis</h4>
+                                <p>Rendre mes avis visibles publiquement</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="show-reviews" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Gestion du compte -->
+                    <div class="settings-card danger-zone">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Zone Dangereuse</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Désactiver le compte</h4>
+                                <p>Désactivez temporairement votre compte. Vous pourrez le réactiver plus tard.</p>
+                            </div>
+                            <button class="btn btn-warning" id="deactivate-account-btn">
+                                <i class="fas fa-pause"></i> Désactiver
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Supprimer le compte</h4>
+                                <p>Supprimez définitivement votre compte et toutes vos données. Cette action est irréversible.</p>
+                            </div>
+                            <button class="btn btn-danger" id="delete-account-btn">
+                                <i class="fas fa-trash"></i> Supprimer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal de notation -->
+    <div id="rating-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Laisser un avis</h3>
+                <button class="modal-close" onclick="closeModal('rating-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="rating-product">
+                    <img src="https://via.placeholder.com/80x80/28a745/ffffff?text=P" alt="Produit" id="rating-product-image">
+                    <div>
+                        <h4 id="rating-product-name">Nom du produit</h4>
+                        <p id="rating-product-seller">Vendeur</p>
+                    </div>
+                </div>
+                <form id="rating-form">
+                    <div class="form-group">
+                        <label>Note globale</label>
+                        <div class="rating-stars">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-title">Titre de l'avis</label>
+                        <input type="text" id="review-title" placeholder="Résumez votre expérience">
+                    </div>
+                    <div class="form-group">
+                        <label for="review-comment">Votre avis</label>
+                        <textarea id="review-comment" placeholder="Partagez votre expérience avec ce produit..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Recommanderiez-vous ce produit ?</label>
+                        <div class="recommendation">
+                            <label class="radio-option">
+                                <input type="radio" name="recommend" value="yes">
+                                <span>Oui, je le recommande</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="recommend" value="no">
+                                <span>Non, je ne le recommande pas</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('rating-modal')">Annuler</button>
+                <button type="submit" class="btn btn-primary" form="rating-form">
+                    <i class="fas fa-star"></i> Publier l'avis
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals de confirmation (identiques à la page vendeur) -->
+    <div id="deactivate-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Désactiver le compte</h3>
+                <button class="modal-close" onclick="closeModal('deactivate-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="warning-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h4>Êtes-vous sûr de vouloir désactiver votre compte ?</h4>
+                    <p>Votre compte sera temporairement désactivé. Vous ne pourrez plus passer de commandes ni accéder à vos favoris. Vous pourrez réactiver votre compte à tout moment.</p>
+                </div>
+                <div class="form-group">
+                    <label for="deactivate-reason">Raison de la désactivation (optionnel)</label>
+                    <textarea id="deactivate-reason" placeholder="Dites-nous pourquoi vous désactivez votre compte..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('deactivate-modal')">Annuler</button>
+                <button type="button" class="btn btn-warning" onclick="confirmDeactivateAccount()">
+                    <i class="fas fa-pause"></i> Désactiver le compte
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Supprimer le compte</h3>
+                <button class="modal-close" onclick="closeModal('delete-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="danger-message">
+                    <i class="fas fa-skull-crossbones"></i>
+                    <h4>ATTENTION : Cette action est irréversible !</h4>
+                    <p>La suppression de votre compte entraînera :</p>
+                    <ul>
+                        <li>La suppression de votre historique de commandes</li>
+                        <li>La perte de tous vos favoris et avis</li>
+                        <li>La suppression de toutes vos données personnelles</li>
+                        <li>L'impossibilité de récupérer votre compte</li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label for="delete-confirmation">Pour confirmer, tapez "SUPPRIMER" en majuscules :</label>
+                    <input type="text" id="delete-confirmation" placeholder="SUPPRIMER">
+                </div>
+                <div class="form-group">
+                    <label for="delete-password">Confirmez avec votre mot de passe :</label>
+                    <input type="password" id="delete-password" placeholder="Votre mot de passe">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('delete-modal')">Annuler</button>
+                <button type="button" class="btn btn-danger" onclick="confirmDeleteAccount()" id="confirm-delete-btn" disabled>
+                    <i class="fas fa-trash"></i> Supprimer définitivement
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="password-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Changer le mot de passe</h3>
+                <button class="modal-close" onclick="closeModal('password-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="password-form">
+                    <div class="form-group">
+                        <label for="current-password">Mot de passe actuel</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Nouveau mot de passe</label>
+                        <input type="password" id="new-password" required>
+                        <small>Le mot de passe doit contenir au moins 8 caractères</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmer le nouveau mot de passe</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('password-modal')">Annuler</button>
+                <button type="submit" class="btn btn-primary" form="password-form">
+                    <i class="fas fa-save"></i> Changer le mot de passe
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay pour les modals -->
+    <div id="modal-overlay" class="modal-overlay"></div>
+
+    <script src="script-acheteur.js"></script>
+</body>
+</html>
+

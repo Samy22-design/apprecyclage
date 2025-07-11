@@ -3,99 +3,667 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Gestion des Déchets</title>
-    <!-- Tailwind CSS CDN -->
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="../Styles/profil.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
+    <title>Profil Utilisateur - EcoRecycle Cameroun</title>
+    <link rel="icon" href="/path/to/your/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../Styles/profil.css"> 
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="app-header flex items-center justify-center">
-        <h1 class="text-3xl font-bold">EcoCycle</h1>
+    <header class="header">
+        <div class="container">
+            <div class="header__brand">
+                <a href="index.html">
+                    <img src="../images/unnamed__1.png" alt="EcoCycle Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <button class="hamburger-menu" aria-label="Ouvrir le menu de navigation">
+                    <span class="hamburger-menu__line"></span>
+                    <span class="hamburger-menu__line"></span>
+                    <span class="hamburger-menu__line"></span>
+                </button>
+                <ul class="main-nav__list">
+                    <li class="main-nav__item">
+                        <a href="#profil" class="main-nav__link active" data-section="profil">
+                            <i class="fas fa-user main-nav__icon"></i> Profil
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#produits" class="main-nav__link" data-section="produits">
+                            <i class="fas fa-box main-nav__icon"></i> Mes Produits
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#vendus" class="main-nav__link" data-section="vendus">
+                            <i class="fas fa-chart-line main-nav__icon"></i> Produits Vendus
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#commandes" class="main-nav__link" data-section="commandes">
+                            <i class="fas fa-shopping-bag main-nav__icon"></i> Mes Commandes
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#favoris" class="main-nav__link" data-section="favoris">
+                            <i class="fas fa-heart main-nav__icon"></i> Favoris
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#avis" class="main-nav__link" data-section="avis">
+                            <i class="fas fa-star main-nav__icon"></i> Mes Avis
+                        </a>
+                    </li>
+                    <li class="main-nav__item">
+                        <a href="#parametres" class="main-nav__link" data-section="parametres">
+                            <i class="fas fa-cog main-nav__icon"></i> Paramètres
+                        </a>
+                    </li>
+                </ul>
+                
+            </nav>
+        </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="main-content">
-       
+        <div class="container">
+            <section id="profil" class="section active" aria-labelledby="profile-heading">
+                <h2 id="profile-heading" class="section-title visually-hidden">Profil Utilisateur</h2>
+                <div class="profile-tabs" role="tablist" aria-label="Sélectionner le profil">
+                    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="seller-profile-panel" id="seller-profile-tab" data-tab="seller-profile">Profil Vendeur</button>
+                    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="buyer-profile-panel" id="buyer-profile-tab" data-tab="buyer-profile">Profil Acheteur</button>
+                </div>
 
-        <!-- Profil Section (hidden by default) -->
-        <section id="section-profil" class="content-section hidden">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Mon Profil</h2>
-            <p class="text-gray-700 mb-4">Gérez vos informations personnelles, consultez l'historique de vos collectes et ventes, et suivez vos contributions à l'environnement.</p>
-            <div class="bg-indigo-50 rounded-lg p-4 mb-4 border border-indigo-200">
-                <h3 class="text-lg font-medium text-indigo-700 mb-2">Informations Générales</h3>
-                <p class="text-indigo-600"><span class="font-semibold">Nom:</span> sam baby</p>
-                <p class="text-indigo-600"><span class="font-semibold">Email:</span> sambaby@example.com</p>
-                <p class="text-indigo-600"><span class="font-semibold">Téléphone:</span> +237 670 123 456</p>
-            </div>
-            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                <h3 class="text-lg font-medium text-gray-700 mb-2">Historique des Transactions</h3>
-                <ul class="list-disc list-inside text-gray-600">
-                    <li>15 Juin 2025: Collecte de 10 kg de Plastique (Terminé)</li>
-                    <li>10 Mai 2025: Vente de 5 kg d'Aluminium (Payé)</li>
-                    <li>01 Avril 2025: Collecte de 20 kg de Carton (Terminé)</li>
-                </ul>
-            </div>
-            <div class="mt-6 text-center">
-                <a href="../PageUi/modification-profil.html" class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150">Modifier le Profil</a>
-                <a href="../PageUi/deconnexion.html" id="logoutLink" class="ml-4 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">Se Déconnecter</a>
+                <div id="seller-profile-panel" class="profile-tab-content active" role="tabpanel" aria-labelledby="seller-profile-tab">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="../images/WhatsApp Image 2025-07-02 à 20.05.21_10bcbff5.jpg" alt="" id="seller-avatar-img">
+                            <button class="avatar-edit-btn" aria-label="Modifier l'avatar du vendeur">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <h3 class="profile-name">SAM ABENGUE</h3>
+                            <p class="profile-role">Vendeuse Certifié</p>
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">127</span>
+                                    <span class="stat-label">Produits Vendus</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">4.8</span>
+                                    <span class="stat-label">Note Moyenne</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">2.5k</span>
+                                    <span class="stat-label">Kg Recyclés</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-               
-                
-            </div>
-        </section>
+                    <div class="profile-details">
+                        <div class="details-card">
+                            <h3>Informations Personnelles (Vendeur)</h3>
+                            <div class="form-group">
+                                <label for="seller-nom">Nom</label>
+                                <input type="text" id="seller-nom" value="Mballa" readonly data-original-value="Mballa">
+                                <button class="edit-btn" data-field="seller-nom" aria-label="Modifier le nom">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="seller-prenom">Prénom</label>
+                                <input type="text" id="seller-prenom" value="Ngozi" readonly data-original-value="Ngozi">
+                                <button class="edit-btn" data-field="seller-prenom" aria-label="Modifier le prénom">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="seller-email">Email</label>
+                                <input type="email" id="seller-email" value="ngozi.mballa@gmail.com" readonly data-original-value="ngozi.mballa@gmail.com">
+                                <button class="edit-btn" data-field="seller-email" aria-label="Modifier l'email">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="seller-telephone">Téléphone</label>
+                                <input type="tel" id="seller-telephone" value="+237 6 78 90 12 34" readonly data-original-value="+237 6 78 90 12 34">
+                                <button class="edit-btn" data-field="seller-telephone" aria-label="Modifier le numéro de téléphone">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="seller-adresse">Adresse</label>
+                                <textarea id="seller-adresse" readonly data-original-value="Quartier Bastos, Rue 1.234, Yaoundé, Cameroun">Quartier Bastos, Rue 1.234, Yaoundé, Cameroun</textarea>
+                                <button class="edit-btn" data-field="seller-adresse" aria-label="Modifier l'adresse">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="seller-bio">Biographie</label>
+                                <textarea id="seller-bio" readonly data-original-value="Passionnée par l'environnement et le recyclage au Cameroun, je propose des produits de qualité issus de matériaux recyclés pour préserver notre belle nature camerounaise.">Passionnée par l'environnement et le recyclage au Cameroun, je propose des produits de qualité issus de matériaux recyclés pour préserver notre belle nature camerounaise.</textarea>
+                                <button class="edit-btn" data-field="seller-bio" aria-label="Modifier la biographie">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="buyer-profile-panel" class="profile-tab-content" role="tabpanel" aria-labelledby="buyer-profile-tab" hidden>
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="../images/télécharger.JPG" alt="" id="buyer-avatar-img">
+                            <button class="avatar-edit-btn" aria-label="Modifier l'avatar de l'acheteur">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <h3 class="profile-name">Aminata Fofana</h3>
+                            <p class="profile-role">Acheteur Éco-responsable</p>
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">45</span>
+                                    <span class="stat-label">Achats Réalisés</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">4.9</span>
+                                    <span class="stat-label">Note Moyenne</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">1.2k</span>
+                                    <span class="stat-label">Kg Sauvés</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="details-card">
+                            <h3>Informations Personnelles (Acheteur)</h3>
+                            <div class="form-group">
+                                <label for="buyer-nom">Nom</label>
+                                <input type="text" id="buyer-nom" value="Fofana" readonly data-original-value="Fofana">
+                                <button class="edit-btn" data-field="buyer-nom" aria-label="Modifier le nom">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="buyer-prenom">Prénom</label>
+                                <input type="text" id="buyer-prenom" value="Aminata" readonly data-original-value="Aminata">
+                                <button class="edit-btn" data-field="buyer-prenom" aria-label="Modifier le prénom">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="buyer-email">Email</label>
+                                <input type="email" id="buyer-email" value="aminata.fofana@gmail.com" readonly data-original-value="aminata.fofana@gmail.com">
+                                <button class="edit-btn" data-field="buyer-email" aria-label="Modifier l'email">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="buyer-telephone">Téléphone</label>
+                                <input type="tel" id="buyer-telephone" value="+237 6 55 44 33 22" readonly data-original-value="+237 6 55 44 33 22">
+                                <button class="edit-btn" data-field="buyer-telephone" aria-label="Modifier le numéro de téléphone">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="buyer-adresse">Adresse de livraison</label>
+                                <textarea id="buyer-adresse" readonly data-original-value="Quartier Bonanjo, Rue Joss, Douala, Cameroun">Quartier Bonanjo, Rue Joss, Douala, Cameroun</textarea>
+                                <button class="edit-btn" data-field="buyer-adresse" aria-label="Modifier l'adresse de livraison">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="buyer-bio">À propos de moi</label>
+                                <textarea id="buyer-bio" readonly data-original-value="Passionnée par l'écologie et la consommation responsable au Cameroun, j'achète uniquement des produits recyclés et durables pour préserver notre environnement.">Passionnée par l'écologie et la consommation responsable au Cameroun, j'achète uniquement des produits recyclés et durables pour préserver notre environnement.</textarea>
+                                <button class="edit-btn" data-field="buyer-bio" aria-label="Modifier la biographie">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            ---
+
+            <section id="produits" class="section" aria-labelledby="my-products-heading">
+                <div class="section-header">
+                    <h2 id="my-products-heading">Mes Produits Publiés</h2>
+                    <button class="btn btn-primary" id="add-product-btn">
+                        <i class="fas fa-plus"></i> Ajouter un Produit
+                    </button>
+                </div>
+
+                <div class="products-grid" id="products-grid">
+                    <article class="product-card" data-product-id="1">
+                        <div class="product-image">
+                            <img src="../images/téléchargement (9).jpeg" alt="Image de Bouteille en Plastique Recyclé">
+                            <div class="product-status product-status--published">Publié</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Bouteille en Plastique Recyclé</h3>
+                            <p class="product-description">Bouteille écologique fabriquée à partir de plastique 100% recyclé, parfaite pour l'eau potable.</p>
+                            <div class="product-price">2.500 FCFA</div>
+                            <div class="product-category">
+                                <i class="fas fa-tag"></i> Plastique
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary product-action-btn edit-product-btn" aria-label="Modifier le produit Bouteille en Plastique Recyclé">
+                                <i class="fas fa-edit"></i> Modifier
+                            </button>
+                            <button class="btn btn-warning product-action-btn trash-product-btn" aria-label="Déplacer le produit Bouteille en Plastique Recyclé vers la corbeille" data-product-id="1">
+                                <i class="fas fa-trash"></i> Corbeille
+                            </button>
+                            <button class="btn btn-danger product-action-btn delete-product-btn" aria-label="Supprimer définitivement le produit Bouteille en Plastique Recyclé" data-product-id="1">
+                                <i class="fas fa-times"></i> Supprimer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="2">
+                        <div class="product-image">
+                            <img src="../images/téléchargement (11).jpeg" alt="Image de Sac Réutilisable en Raphia Recyclé">
+                            <div class="product-status product-status--published">Publié</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Sac Réutilisable en Raphia Recyclé</h3>
+                            <p class="product-description">Sac traditionnel camerounais en raphia recyclé, durable et résistant pour le marché.</p>
+                            <div class="product-price">1.800 FCFA</div>
+                            <div class="product-category">
+                                <i class="fas fa-tag"></i> Textile
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary product-action-btn edit-product-btn" aria-label="Modifier le produit Sac Réutilisable en Raphia Recyclé">
+                                <i class="fas fa-edit"></i> Modifier
+                            </button>
+                            <button class="btn btn-warning product-action-btn trash-product-btn" aria-label="Déplacer le produit Sac Réutilisable en Raphia Recyclé vers la corbeille" data-product-id="2">
+                                <i class="fas fa-trash"></i> Corbeille
+                            </button>
+                            <button class="btn btn-danger product-action-btn delete-product-btn" aria-label="Supprimer définitivement le produit Sac Réutilisable en Raphia Recyclé" data-product-id="2">
+                                <i class="fas fa-times"></i> Supprimer
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="3">
+                        <div class="product-image">
+                            <img src="../images/téléchargement (12).jpeg" alt="Image de Cahier en Papier Recyclé Local">
+                            <div class="product-status product-status--draft">Brouillon</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Cahier en Papier Recyclé Local</h3>
+                            <p class="product-description">Cahier écologique fabriqué avec du papier recyclé au Cameroun, idéal pour les étudiants.</p>
+                            <div class="product-price">1.200 FCFA</div>
+                            <div class="product-category">
+                                <i class="fas fa-tag"></i> Papier
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary product-action-btn publish-product-btn" aria-label="Publier le produit Cahier en Papier Recyclé Local" data-product-id="3">
+                                <i class="fas fa-upload"></i> Publier
+                            </button>
+                            <button class="btn btn-secondary product-action-btn edit-product-btn" aria-label="Modifier le produit Cahier en Papier Recyclé Local">
+                                <i class="fas fa-edit"></i> Modifier
+                            </button>
+                            <button class="btn btn-danger product-action-btn delete-product-btn" aria-label="Supprimer définitivement le produit Cahier en Papier Recyclé Local" data-product-id="3">
+                                <i class="fas fa-times"></i> Supprimer
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="trash-section">
+                    <h3 class="trash-section__title">
+                        <i class="fas fa-trash trash-section__icon"></i> Corbeille
+                        <span class="trash-count" aria-live="polite">(0)</span>
+                    </h3>
+                    <div class="trash-grid" id="trash-grid">
+                        <p class="empty-state-message" id="trash-empty-message">Aucun produit dans la corbeille pour le moment.</p>
+                    </div>
+                </div>
+            </section>
+
+            ---
+
+            <section id="vendus" class="section" aria-labelledby="sold-products-heading">
+                <div class="section-header">
+                    <h2 id="sold-products-heading">Produits Vendus</h2>
+                    <div class="sales-summary">
+                        <div class="summary-card">
+                            <i class="fas fa-coins summary-icon"></i>
+                            <div>
+                                <span class="summary-number">185.750 FCFA</span>
+                                <span class="summary-label">Revenus Totaux</span>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <i class="fas fa-box summary-icon"></i>
+                            <div>
+                                <span class="summary-number">127</span>
+                                <span class="summary-label">Produits Vendus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sold-products-list">
+                    <article class="sold-product-item">
+                        <div class="sold-product-image">
+                            <img src="../images/téléchargement (8).jpeg" alt="Image de Bouteille en Plastique Recyclé">
+                        </div>
+                        <div class="sold-product-info">
+                            <h4>Bouteille en Plastique Recyclé</h4>
+                            <p>Vendu le 15 Mars 2024</p>
+                            <span class="buyer-name">Acheteur: Aminata Fofana</span>
+                        </div>
+                        <div class="sold-product-price">2.500 FCFA</div>
+                        <div class="sold-product-status">
+                            <span class="status-badge status-badge--delivered">Livré</span>
+                        </div>
+                    </article>
+
+                    <article class="sold-product-item">
+                        <div class="sold-product-image">
+                            <img src="../images/téléchargement (11).jpeg" alt="Image de Sac Réutilisable en Raphia Recyclé">
+                        </div>
+                        <div class="sold-product-info">
+                            <h4>Sac Réutilisable en Raphia Recyclé</h4>
+                            <p>Vendu le 12 Mars 2024</p>
+                            <span class="buyer-name">Acheteur: Amadou Bello</span>
+                        </div>
+                        <div class="sold-product-price">1.800 FCFA</div>
+                        <div class="sold-product-status">
+                            <span class="status-badge status-badge--delivered">Livré</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            ---
+
+            <section id="commandes" class="section" aria-labelledby="my-orders-heading">
+                <div class="section-header">
+                    <h2 id="my-orders-heading">Mes Commandes</h2>
+                    <div class="order-filters" role="group" aria-label="Filtrer les commandes">
+                        <button class="filter-btn active" data-filter="all" aria-pressed="true">Toutes</button>
+                        <button class="filter-btn" data-filter="pending" aria-pressed="false">En cours</button>
+                        <button class="filter-btn" data-filter="shipped" aria-pressed="false">Expédiées</button>
+                        <button class="filter-btn" data-filter="delivered" aria-pressed="false">Livrées</button>
+                    </div>
+                </div>
+
+                <div class="orders-list" id="orders-list">
+                    <article class="order-card" data-status="delivered">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h3>Commande #ECO-CM-2024-001</h3>
+                                <p>Passée le 15 Mars 2024</p>
+                            </div>
+                            <div class="order-status">
+                                <span class="status-badge status-badge--delivered">Livrée</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="../images/téléchargement (9).jpeg" alt="Image de Bouteille en Plastique Recyclé">
+                                <div class="item-info">
+                                    <h4>Bouteille en Plastique Recyclé</h4>
+                                    <p>Vendeur: Ngozi Mballa</p>
+                                    <span class="item-price">2.500 FCFA</span>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn btn-secondary btn-sm" aria-label="Noter le produit Bouteille en Plastique Recyclé">
+                                        <i class="fas fa-star"></i> Noter
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" aria-label="Racheter le produit Bouteille en Plastique Recyclé">
+                                        <i class="fas fa-redo"></i> Racheter
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="order-total">Total: 2.500 FCFA</div>
+                            <button class="btn btn-secondary" aria-label="Voir les détails de la Commande #ECO-CM-2024-001">Voir les détails</button>
+                        </div>
+                    </article>
+                    <article class="order-card" data-status="pending">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h3>Commande #ECO-CM-2024-002</h3>
+                                <p>Passée le 20 Juin 2024</p>
+                            </div>
+                            <div class="order-status">
+                                <span class="status-badge status-badge--pending">En cours</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="../images/téléchargement (13).jpeg" alt="Image de Stylo en Bambou Recyclé">
+                                <div class="item-info">
+                                    <h4>Stylo en Bambou Recyclé</h4>
+                                    <p>Vendeur: Artisanat Local</p>
+                                    <span class="item-price">800 FCFA</span>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn btn-secondary btn-sm" disabled aria-label="Noter le produit Stylo en Bambou Recyclé (non livré)">
+                                        <i class="fas fa-star"></i> Noter
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" disabled aria-label="Racheter le produit Stylo en Bambou Recyclé (non livré)">
+                                        <i class="fas fa-redo"></i> Racheter
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="order-total">Total: 800 FCFA</div>
+                            <button class="btn btn-secondary" aria-label="Voir les détails de la Commande #ECO-CM-2024-002">Voir les détails</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            ---
+
+            <section id="favoris" class="section" aria-labelledby="my-favorites-heading">
+                <div class="section-header">
+                    <h2 id="my-favorites-heading">Mes Favoris</h2>
+                    <div class="favorites-count">
+                        <span aria-live="polite"><span id="favorites-count-number">1</span> produit favori</span>
+                    </div>
+                </div>
+
+                <div class="favorites-grid" id="favorites-grid">
+                    <article class="favorite-card" data-favorite-id="1">
+                        <div class="favorite-image">
+                            <img src="../images/téléchargement (14).jpeg" alt="Image de Panier en Raphia Traditionnel">
+                            <button class="favorite-btn active" aria-label="Retirer ce produit des favoris">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <div class="product-status product-status--available">Disponible</div>
+                        </div>
+                        <div class="favorite-info">
+                            <h3>Panier en Raphia Traditionnel</h3>
+                            <p>Vendeur: Atelier Bamenda</p>
+                            <div class="favorite-price">3.500 FCFA</div>
+                            <div class="favorite-rating">
+                                <div class="stars" role="img" aria-label="4.8 étoiles sur 5">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-value">(4.8)</span>
+                            </div>
+                        </div>
+                        <div class="favorite-actions">
+                            <button class="btn btn-primary" aria-label="Ajouter Panier en Raphia Traditionnel au panier">
+                                <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                            </button>
+                            <button class="btn btn-secondary" aria-label="Voir les détails du produit Panier en Raphia Traditionnel">
+                                <i class="fas fa-eye"></i> Voir
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            ---
+
+            <section id="avis" class="section" aria-labelledby="my-reviews-heading">
+                <div class="section-header">
+                    <h2 id="my-reviews-heading">Mes Avis</h2>
+                    <div class="reviews-summary">
+                        <div class="summary-card">
+                            <i class="fas fa-star summary-icon"></i>
+                            <div>
+                                <span class="summary-number">4.9</span>
+                                <span class="summary-label">Note Moyenne Donnée</span>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <i class="fas fa-comment summary-icon"></i>
+                            <div>
+                                <span class="summary-number">23</span>
+                                <span class="summary-label">Avis Rédigés</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-list">
+                    <article class="review-card">
+                        <div class="review-header">
+                            <div class="review-product">
+                                <img src="../images/téléchargement (9).jpeg" alt="Image du produit Bouteille en Plastique Recyclé">
+                                <div>
+                                    <h4>Bouteille en Plastique Recyclé</h4>
+                                    <p>Vendeur: Ngozi Mballa</p>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars" role="img" aria-label="5 étoiles sur 5">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-value">5/5</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Excellente bouteille, très pratique et un geste formidable pour l'environnement ! Livraison rapide.</p>
+                        </div>
+                        <div class="review-meta">
+                            <span class="review-date">Posté le 18 Mars 2024</span>
+                            <button class="btn btn-text edit-review-btn"><i class="fas fa-edit"></i> Modifier</button>
+                            <button class="btn btn-text delete-review-btn"><i class="fas fa-trash"></i> Supprimer</button>
+                        </div>
+                    </article>
+                    <article class="review-card">
+                        <div class="review-header">
+                            <div class="review-product">
+                                <img src="../images/téléchargement (12).jpeg" alt="Image du produit Sac Réutilisable en Raphia Recyclé">
+                                <div>
+                                    <h4>Sac Réutilisable en Raphia Recyclé</h4>
+                                    <p>Vendeur: Amadou Bello</p>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars" role="img" aria-label="4 étoiles sur 5">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-value">4/5</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Très beau sac, mais la couleur était légèrement différente de l'image. Toujours très fonctionnel !</p>
+                        </div>
+                        <div class="review-meta">
+                            <span class="review-date">Posté le 14 Mars 2024</span>
+                            <button class="btn btn-text edit-review-btn"><i class="fas fa-edit"></i> Modifier</button>
+                            <button class="btn btn-text delete-review-btn"><i class="fas fa-trash"></i> Supprimer</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            ---
+
+            <section id="parametres" class="section" aria-labelledby="settings-heading">
+                <h2 id="settings-heading">Paramètres du Compte</h2>
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Sécurité du Compte</h3>
+                        <div class="form-group">
+                            <label for="current-password">Mot de passe actuel</label>
+                            <input type="password" id="current-password" placeholder="Entrez votre mot de passe actuel">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">Nouveau mot de passe</label>
+                            <input type="password" id="new-password" placeholder="Minimum 8 caractères">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirmer le nouveau mot de passe</label>
+                            <input type="password" id="confirm-password" placeholder="Confirmez votre nouveau mot de passe">
+                        </div>
+                        <button class="btn btn-primary"><i class="fas fa-save"></i> Mettre à jour le mot de passe</button>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Préférences de Notification</h3>
+                        <div class="form-group form-group--switch">
+                            <label for="email-notifications">Notifications par Email</label>
+                            <label class="switch">
+                                <input type="checkbox" id="email-notifications" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group form-group--switch">
+                            <label for="sms-notifications">Notifications par SMS</label>
+                            <label class="switch">
+                                <input type="checkbox" id="sms-notifications">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group form-group--switch">
+                            <label for="app-notifications">Notifications In-App</label>
+                            <label class="switch">
+                                <input type="checkbox" id="app-notifications" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <button class="btn btn-primary"><i class="fas fa-save"></i> Enregistrer les préférences</button>
+                    </div>
+
+                    <div class="settings-card settings-card--danger">
+                        <h3>Zone de Danger</h3>
+                        <p>Attention : Ces actions sont irréversibles.</p>
+                        <button class="btn btn-danger"><i class="fas fa-user-times"></i> Supprimer le Compte</button>
+                        <button class="btn btn-warning"><i class="fas fa-sign-out-alt"></i> Déconnexion de tous les appareils</button>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <!-- Footer Navigation -->
-    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 EcoRecycle Cameroun. Tous droits réservés.</p>
+        </div>
+    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pageMenus = document.querySelectorAll('.page-menu');
-            const contentSections = document.querySelectorAll('.content-section');
-
-            // Function to show a specific section and activate its menu item
-            const showSection = (targetId) => {
-                // Remove 'active' class from all menu items
-                pageMenus.forEach(menu => menu.classList.remove('active'));
-
-                // Hide all content sections
-                contentSections.forEach(section => {
-                    section.classList.add('hidden');
-                    section.style.opacity = '0'; // For transition effect
-                });
-
-                // Find the target section and show it
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.remove('hidden');
-                    // Trigger reflow to ensure transition works
-                    void targetSection.offsetWidth;
-                    targetSection.style.opacity = '1';
-                }
-
-                // Activate the corresponding menu item
-                const activeMenu = document.querySelector(`.page-menu[data-target="${targetId}"]`);
-                if (activeMenu) {
-                    activeMenu.classList.add('active');
-                }
-            };
-
-            // Add click event listeners to each navigation link
-            pageMenus.forEach(menu => {
-                menu.addEventListener('click', (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-                    const targetId = menu.dataset.target; // Get the target section ID from data-target attribute
-                    showSection(targetId);
-                });
-            });
-
-            // Show the initial active section (Accueil) on page load
-            // This ensures 'section-accueil' is visible and its menu item is active if page is refreshed
-            showSection('section-profil');
-        });
-    </script>
+    <script src="../Scripts/profil_dynamic.js"></script>
 </body>
 </html>

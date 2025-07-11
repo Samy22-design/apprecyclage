@@ -326,10 +326,7 @@
                 -webkit-tap-highlight-color: transparent
             }
             
-            body {
-                margin: 0;
-                line-height: inherit
-            }
+            
             
             hr {
                 height: 0;
@@ -574,7 +571,7 @@
             }
             
             .justify-around {
-                justify-content: space-around
+                /* justify-content: space-around; */
             }
             
             .rounded-lg {

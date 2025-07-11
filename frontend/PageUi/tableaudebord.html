@@ -11,13 +11,13 @@
     <div class="dashboard-wrapper">
         <aside class="dashboard-sidebar">
             <div class="sidebar-header">
-                <a href="../PageUi/accueil.html" class="logo-link">
+                <a href="../PageUi/accueil1.html" class="logo-link">
                     <img src="../images/unnamed__1.png" alt="EcoCycle Logo" class="logo-img">
                 </a>
             </div>
             <nav class="sidebar-nav">
                 <ul class="sidebar-menu">
-                    <li class="menu-item active"><a href="#overview"><i class="fas fa-home menu-icon"></i> Aperçu</a></li>
+                    <li class="menu-item active"><a href="../PageUi/accueil1.html"><i class="fas fa-home menu-icon"></i> Accueil</a></li>
                     <li class="menu-item"><a href="../PageUi/collecte.html"><i class="fas fa-recycle menu-icon"></i> Mes Collectes</a></li>
                     <li class="menu-item"><a href="../PageUi/vente.html"><i class="fas fa-hand-holding-usd menu-icon"></i> Mes Ventes</a></li>
                     <li class="menu-item"><a href="../PageUi/profil.html"><i class="fas fa-user-circle menu-icon"></i> Mon Profil</a></li>
@@ -34,8 +34,12 @@
             <header class="dashboard-header">
                 <h1 class="dashboard-title">Tableau de Bord</h1>
                 <div class="header-actions">
-                    <button class="action-btn primary-action"><i class="fas fa-plus"></i> Nouvelle Collecte</button>
-                    <button class="action-btn secondary-action"><i class="fas fa-boxes"></i> Créer une Vente</button>
+                    <button class="action-btn primary-action" onclick="openModal('collecte')">
+                        <i class="fas fa-plus"></i> Nouvelle Collecte
+                    </button>
+                    <button class="action-btn secondary-action" onclick="openModal('vente')">
+                             <i class="fas fa-boxes"></i> Créer une Vente
+                    </button>
                     <div class="user-profile-widget">
                         <img src="../images/WhatsApp Image 2025-07-02 à 20.05.21_10bcbff5.jpg" alt="User Avatar" class="user-avatar">
                         <span class="username">sam sam</span>
@@ -43,58 +47,57 @@
                 </div>
             </header>
 
-            <section id="overview" class="dashboard-section active-section">
-                <h2>Aperçu de mon activité</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <i class="fas fa-weight-hanging stat-icon"></i>
-                        <h3>Total Kilos Recyclés</h3>
-                        <p class="stat-value">1250 <small>kg</small></p>
-                        <span class="stat-info">+12% ce mois</span>
-                        <a href="frontend/PageUi/detailsCollectes.html"></a>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-dollar-sign stat-icon"></i>
-                        <h3>Revenus Générés</h3>
-                        <p class="stat-value">250.75 <small>XAF</small></p>
-                        <span class="stat-info">Dernière vente : 25 XAF</span>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-box-open stat-icon"></i>
-                        <h3>Collectes Terminées</h3>
-                        <p class="stat-value">42</p>
-                        <span class="stat-info">3 ce mois-ci</span>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-leaf stat-icon"></i>
-                        <h3>Impact Carbone Évité</h3>
-                        <p class="stat-value">800 <small>kg CO2</small></p>
-                        <span class="stat-info">Estimation</span>
-                    </div>
-                </div>
+    <section id="overview" class="dashboard-section active-section">
+               <h2>Aperçu de l'activité de sam sam</h2>
+                 <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-weight-hanging stat-icon"></i>
+            <h3>Mes Kilos Recyclés Total</h3>
+            <p class="stat-value">1250 <small>kg</small></p>
+            <span class="stat-info">+12% ce mois pour sam sam</span>
+            <a href="frontend/PageUi/detailsCollectes.html"></a>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-dollar-sign stat-icon"></i>
+            <h3>Mes Revenus Générés</h3>
+            <p class="stat-value">250.75 <small>XAF</small></p>
+            <span class="stat-info">Dernière vente : 25 XAF par sam sam</span>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-box-open stat-icon"></i>
+            <h3>Mes Collectes Terminées</h3>
+            <p class="stat-value">42</p>
+            <span class="stat-info">3 ce mois-ci par sam sam</span>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-leaf stat-icon"></i>
+            <h3>Mon Impact Carbone Évité</h3>
+            <p class="stat-value">800 <small>kg CO2</small></p>
+            <span class="stat-info">Estimation pour sam sam</span>
+        </div>
+    </div>
 
-                <div class="charts-area">
-                    <div class="chart-card">
-                        <h3>Évolution du Recyclage (kg)</h3>
-                        
-                        <div class="chart-placeholder"><canvas id="ecoCycleCollectionChart"></canvas></div>
-                    </div>
-                    <div class="chart-card">
-                        <h3>Répartition des Matériaux</h3>
-                        <div class="chart-placeholder">Graphique en secteurs ici</div>
-                    </div>
-                </div>
+    <div class="charts-area">
+    <div class="chart-card">
+        <h3>Évolution du Recyclage de sam sam (kg)</h3>
+        <div class="chart-placeholder"><canvas id="ecoCycleCollectionChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+        <h3>Répartition des Matériaux de sam sam</h3>
+        <div class="chart-placeholder"><canvas id="repartitionChart"></canvas></div>
+    </div>
+</div>
 
-                <div class="recent-activity">
-                    <h3>Activités Récentes</h3>
-                    <ul class="activity-list">
-                        <li><i class="fas fa-check-circle activity-icon"></i> Collecte #1234 terminée (Plastique, 15kg) - Il y a 2h</li>
-                        <li><i class="fas fa-usd-circle activity-icon"></i> Vente #5678 confirmée (Carton, 50 USD) - Hier</li>
-                        <li><i class="fas fa-hourglass-half activity-icon"></i> Collecte #1235 en attente de confirmation - Il y a 1 jour</li>
-                        <li><i class="fas fa-trash-alt activity-icon"></i> Nouveau dépôt de verre (10kg) - Il y a 3 jours</li>
-                    </ul>
-                </div>
-            </section>
+    <div class="recent-activity">
+        <h3>Activités Récentes de sam sam</h3>
+        <ul class="activity-list">
+            <li><i class="fas fa-check-circle activity-icon"></i> Collecte #1234 terminée (Plastique, 15kg) - Il y a 2h par sam sam</li>
+            <li><i class="fas fa-usd-circle activity-icon"></i> Vente #5678 confirmée (Carton, 50 USD) - Hier par sam sam</li>
+            <li><i class="fas fa-hourglass-half activity-icon"></i> Collecte #1235 en attente de confirmation - Il y a 1 jour par sam sam</li>
+            <li><i class="fas fa-trash-alt activity-icon"></i> Nouveau dépôt de verre (10kg) - Il y a 3 jours par sam sam</li>
+        </ul>
+    </div>
+</section>
 
             <section id="collectes" class="dashboard-section">
                 <h2>Mes Collectes</h2>
@@ -217,182 +220,166 @@
 
             </main>
     </div>
-   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-   <script>
-    // =============================================================
-    // Configuration et données du graphique EcoCycle
-    // =============================================================
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Attendre que le DOM soit chargé
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialiser les graphes
+        const ctxEvolution = document.getElementById('ecoCycleCollectionChart').getContext('2d');
+        const ctxRepartition = document.getElementById('repartitionChart').getContext('2d');
 
-    const ctx = document.getElementById('ecoCycleCollectionChart').getContext('2d');
-
-    new Chart(ctx, {
-        type: 'bar', // Type de graphique: 'bar' (barres)
-        data: {
-            // Les 6 derniers mois comme étiquettes (axe X)
-            labels: ['Déc 2024', 'Janv 2025', 'Fév 2025', 'Mars 2025', 'Avril 2025', 'Mai 2025'],
-            datasets: [
-                {
-                    label: 'Plastique (kg)',
-                    data: [1200, 1800, 1500, 2200, 1900, 2500],
-                    backgroundColor: 'rgba(54, 162, 235, 0.8)', // Bleu vif pour le plastique
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Papier/Carton (kg)',
-                    data: [800, 1100, 950, 1400, 1200, 1600],
-                    backgroundColor: 'rgba(255, 159, 64, 0.8)', // Orange pour le papier
-                    borderColor: 'rgba(255, 159, 64, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Verre (kg)',
-                    data: [400, 600, 500, 750, 650, 800],
-                    backgroundColor: 'rgba(75, 192, 192, 0.8)', // Vert-bleu pour le verre
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Métal (kg)',
-                    data: [150, 250, 200, 300, 280, 350],
-                    backgroundColor: 'rgba(153, 102, 255, 0.8)', // Violet pour le métal
-                    borderColor: 'rgba(153, 102, 255, 1)',
-                    borderWidth: 1
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Collecte Mensuelle par Type de Matériau (kg)',
-                    font: {
-                        size: 24,
-                        weight: 'bold'
+        // Graphe Évolution du Recyclage
+        new Chart(ctxEvolution, {
+            type: 'bar',
+            data: {
+                labels: ['Déc 2024', 'Janv 2025', 'Fév 2025', 'Mars 2025', 'Avril 2025', 'Mai 2025'],
+                datasets: [
+                    {
+                        label: 'Plastique (kg)',
+                        data: [1200, 1800, 1500, 2200, 1900, 2500],
+                        backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
                     },
-                    padding: {
-                        top: 15,
-                        bottom: 25
+                    {
+                        label: 'Papier/Carton (kg)',
+                        data: [800, 1100, 950, 1400, 1200, 1600],
+                        backgroundColor: 'rgba(255, 159, 64, 0.8)',
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        borderWidth: 1
                     },
-                    color: '#333'
-                },
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
-                        font: {
-                            size: 14
-                        },
-                        padding: 20
+                    {
+                        label: 'Verre (kg)',
+                        data: [400, 600, 500, 750, 650, 800],
+                        backgroundColor: 'rgba(75, 192, 192, 0.8)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Métal (kg)',
+                        data: [150, 250, 200, 300, 280, 350],
+                        backgroundColor: 'rgba(153, 102, 255, 0.8)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
                     }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.dataset.label || '';
-                            if (label) {
-                                label += ': ';
-                            }
-                            if (context.parsed.y !== null) {
-                                label += new Intl.NumberFormat('fr-FR', { style: 'unit', unit: 'kilogram', unitDisplay: 'short' }).format(context.parsed.y);
-                            }
-                            return label;
-                        }
-                    },
-                    backgroundColor: 'rgba(0,0,0,0.7)',
-                    titleFont: { size: 16 },
-                    bodyFont: { size: 14 },
-                    padding: 10,
-                    cornerRadius: 5
-                }
+                ]
             },
-            scales: {
-                x: {
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
                     title: {
                         display: true,
-                        text: 'Mois',
-                        font: {
-                            size: 16,
-                            weight: 'bold'
-                        },
-                        color: '#555'
+                        text: 'Évolution du Recyclage de sam sam (kg)',
+                        font: { size: 24, weight: 'bold' },
+                        color: '#333'
                     },
-                    grid: {
-                        display: false
-                    },
-                    ticks: {
-                        font: {
-                            size: 12
-                        }
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: { font: { size: 14 }, padding: 20 }
                     }
                 },
-                y: {
-                    beginAtZero: true,
+                scales: {
+                    x: { title: { display: true, text: 'Mois', font: { size: 16, weight: 'bold' }, color: '#555' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Poids Collecté (kg)', font: { size: 16, weight: 'bold' }, color: '#555' } }
+                }
+            }
+        });
+
+        // Graphe Répartition des Matériaux
+        new Chart(ctxRepartition, {
+            type: 'pie',
+            data: {
+                labels: ['Plastique', 'Papier/Carton', 'Verre', 'Métal'],
+                datasets: [
+                    {
+                        data: [2500, 1600, 800, 350],
+                        backgroundColor: ['rgba(54, 162, 235, 0.8)', 'rgba(255, 159, 64, 0.8)', 'rgba(75, 192, 192, 0.8)', 'rgba(153, 102, 255, 0.8)'],
+                        borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 159, 64, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
                     title: {
                         display: true,
-                        text: 'Poids Collecté (kg)',
-                        font: {
-                            size: 16,
-                            weight: 'bold'
-                        },
-                        color: '#555'
+                        text: 'Répartition des Matériaux de sam sam',
+                        font: { size: 24, weight: 'bold' },
+                        color: '#333'
                     },
-                    ticks: {
-                        callback: function(value) {
-                            return value + ' kg';
-                        },
-                        font: {
-                            size: 12
-                        }
-                    },
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.05)'
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: { font: { size: 14 }, padding: 20 }
                     }
                 }
             }
-        }
-    );
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get all elements with the class 'stat-card'
-        const statCards = document.querySelectorAll('.stat-card');
-
-        // Loop through each stat card and add a click event listener
-        statCards.forEach(card => {
-            card.style.cursor = 'pointer'; // Optional: Change cursor to indicate clickability
-            card.addEventListener('click', function() {
-                // Get the heading text to identify which card was clicked
-                const cardTitle = this.querySelector('h3').textContent;
-
-                // You can perform different actions based on which card was clicked
-                switch (cardTitle) {
-                    case 'Total Kilos Recyclés':
-                        alert('You clicked on "Total Kilos Recyclés"! Here you would show more detailed information about recycling.');
-                        // In a real application, you might:
-                        // - Open a modal/popup with detailed stats
-                        // - Navigate to a new page (e.g., window.location.href = 'kilos-details.html';)
-                        // - Dynamically load more data into a hidden section on the page
-                        break;
-                    case 'Revenus Générés':
-                        alert('You clicked on "Revenus Générés"! This section would display a breakdown of revenue.');
-                        break;
-                    case 'Collectes Terminées':
-                        alert('You clicked on "Collectes Terminées"! Here are the details of completed collections.');
-                        break;
-                    case 'Impact Carbone Évité':
-                        alert('You clicked on "Impact Carbone Évité"! Discover more about your environmental impact.');
-                        break;
-                    default:
-                        alert('You clicked on an unknown stat card.');
-                }
-            });
         });
-    });
-</script>
+
+    </script>    // Gestion de la navigation entre sections
     <script src="tableaudebord.js"></script>
+    <!-- Modal pour Nouvelle Collecte -->
+<div id="collecteModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Nouvelle Collecte</h2>
+            <span class="close-btn" onclick="closeModal('collecte')">×</span>
+        </div>
+        <form id="collecteForm">
+            <div class="form-group">
+                <label for="collecteDate">Date de collecte</label>
+                <input type="date" id="collecteDate" required>
+            </div>
+            <div class="form-group">
+                <label for="collecteType">Type de collecte</label>
+                <select id="collecteType" required>
+                    <option value="">Sélectionner...</option>
+                    <option value="organique">Déchets organiques</option>
+                    <option value="recyclable">Déchets recyclables</option>
+                    <option value="dangereux">Déchets dangereux</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="collecteQuantite">Quantité (kg)</label>
+                <input type="number" id="collecteQuantite" min="0" required>
+            </div>
+            <button type="submit" class="submit-btn">Enregistrer la collecte</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal pour Créer une Vente -->
+<div id="venteModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Créer une Vente</h2>
+            <span class="close-btn" onclick="closeModal('vente')">×</span>
+        </div>
+        <form id="venteForm">
+            <div class="form-group">
+                <label for="venteDate">Date de vente</label>
+                <input type="date" id="venteDate" required>
+            </div>
+            <div class="form-group">
+                <label for="venteProduit">Produit</label>
+                <input type="text" id="venteProduit" required>
+            </div>
+            <div class="form-group">
+                <label for="venteQuantite">Quantité</label>
+                <input type="number" id="venteQuantite" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="ventePrix">Prix unitaire (€)</label>
+                <input type="number" id="ventePrix" min="0" step="0.01" required>
+            </div>
+            <button type="submit" class="submit-btn">Enregistrer la vente</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

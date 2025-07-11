@@ -3,122 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des Déchets</title>
-    <!-- Tailwind CSS CDN -->
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="../Styles/vente.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <title>Ecocycle - Mes Ventes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/tableaudebord.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 500px;
+            max-width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: #555;
+        }
+        .close-btn:hover { color: #0b1a5e; }
+        .form-group {
+            margin-bottom: 20px;
+            display: grid;
+            gap: 10px;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #0b1a5e;
+            outline: none;
+            box-shadow: 0 0 5px rgba(11, 26, 94, 0.3);
+        }
+        .save-btn {
+            background: #0b1a5e;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .save-btn:hover { background: #09143f; }
+        .nav-buttons { margin-top: 20px; }
+        .nav-buttons button { margin: 0 10px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .nav-buttons button:hover { background: #218838; }
+    </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="app-header flex items-center justify-center">
-        <h1 class="text-3xl font-bold">EcoCycle</h1>
-    </header>
-
-    <!-- Main Content Area -->
-    <main class="main-content">
-       
-       
-
-        <!-- Vendre Section (hidden by default) -->
-        <section id="section-vendre" class="content-section hidden">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Vendre vos Déchets</h2>
-            <p class="text-gray-700 mb-4">Monétisez vos déchets recyclables ! Découvrez les types de matériaux que nous achetons et nos tarifs actuels. Vous pouvez nous proposer vos matériaux en remplissant le formulaire ci-dessous.</p>
-            <div class="bg-orange-50 rounded-lg p-4 mb-4 border border-orange-200">
-                <h3 class="text-lg font-medium text-orange-700 mb-2">Tarifs Actuels (indicatifs)</h3>
-                <ul class="list-disc list-inside text-orange-600">
-                    <li>Plastique (PET) : 150 FCFA/kg</li>
-                    <li>Carton : 50 FCFA/kg</li>
-                    <li>Aluminium : 500 FCFA/kg</li>
-                </ul>
-                <p class="text-sm mt-2 text-orange-700">Les prix peuvent varier selon la qualité et la quantité.</p>
+    <div class="dashboard-wrapper">
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="accueil.html" class="logo-link">
+                    <img src="../images/unnamed__1.png" alt="EcoCycle Logo" class="logo-img">
+                </a>
             </div>
-            <form class="space-y-4">
-                <div>
-                    <label for="sell-waste-type" class="block text-sm font-medium text-gray-700">Type de Déchet à Vendre</label>
-                    <select id="sell-waste-type" name="sell-waste-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md">
-                        <option>Plastique</option>
-                        <option>Papier/Carton</option>
-                        <option>Verre</option>
-                        <option>Métal</option>
-                        <option>Autres</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="sell-quantity" class="block text-sm font-medium text-gray-700">Quantité à Vendre</label>
-                    <input type="text" id="sell-quantity" name="sell-quantity" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2" placeholder="Ex: 10 kg de PET">
-                </div>
-                <div>
-                    <label for="contact-info" class="block text-sm font-medium text-gray-700">Vos Coordonnées</label>
-                    <input type="text" id="contact-info" name="contact-info" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2" placeholder="Nom, Téléphone, Email">
-                </div>
-                <button type="submit" class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                    Proposer à la Vente
-                </button>
-            </form>
-        </section>
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li class="menu-item"><a href="accueil.html"><i class="fas fa-home menu-icon"></i> Aperçu</a></li>
+                    <li class="menu-item"><a href="collecte.html"><i class="fas fa-recycle menu-icon"></i> Mes Collectes</a></li>
+                    <li class="menu-item active"><a href="vente.html"><i class="fas fa-hand-holding-usd menu-icon"></i> Mes Ventes</a></li>
+                    <li class="menu-item"><a href="profil.html"><i class="fas fa-user-circle menu-icon"></i> Mon Profil</a></li>
+                    <li class="menu-item"><a href="historique.html"><i class="fas fa-history menu-icon"></i> Historique</a></li>
+                    <li class="menu-item"><a href="parametre.html"><i class="fas fa-cog menu-icon"></i> Paramètres</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../PageUi/sign-in.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+            </div>
+        </aside>
 
-        
-    </main>
+        <main class="dashboard-content">
+            <header class="dashboard-header">
+                <h1 class="dashboard-title">Mes Ventes</h1>
+                <div class="header-actions">
+                    <button class="action-btn primary-action" onclick="document.getElementById('startSellingModal').style.display='flex'"><i class="fas fa-play"></i> Commencer à Vendre Maintenant</button>
+                    <button class="action-btn secondary-action" onclick="document.getElementById('proposeVenteModal').style.display='flex'"><i class="fas fa-plus"></i> Proposer à la Vente</button>
+                    <div class="user-profile-widget">
+                        <img src="../images/WhatsApp Image 2025-07-02 à 20.05.21_10bcbff5.jpg" alt="User Avatar" class="user-avatar">
+                        <span class="username">sam sam</span>
+                    </div>
+                </div>
+            </header>
 
-    <!-- Footer Navigation -->
-    <footer class="app-footer">
-        <nav class="list-menu app-nav">
-           
-            <a href="#" class="page-menu" data-target="section-vendre">
-                <i class="fas fa-dollar-sign"></i>
-                <p class="text">Vendre</p>
-            </a>
-           
-        </nav>
-    </footer>
+            <section id="ventes" class="dashboard-section active-section">
+                <div class="section-actions">
+                    <button class="action-btn" onclick="document.getElementById('proposeVenteModal').style.display='flex'"><i class="fas fa-plus"></i> Proposer à la Vente</button>
+                    <input type="text" placeholder="Rechercher une vente..." class="search-input">
+                </div>
+                <div class="ventes-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Vente</th>
+                                <th>Matériau</th>
+                                <th>Quantité</th>
+                                <th>Prix</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#V001</td>
+                                <td>Carton</td>
+                                <td>100 kg</td>
+                                <td>50 cfa</td>
+                                <td><span class="status-badge completed">Vendue</span></td>
+                                <td><button class="table-btn view-btn"><i class="fas fa-eye"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>#V002</td>
+                                <td>Métal</td>
+                                <td>50 kg</td>
+                                <td>30 cfa</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td><button class="table-btn edit-btn"><i class="fas fa-edit"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <button onclick="changePage(-1)">« Précédent</button>
+                    <span id="page-info">Page 1 sur 3</span>
+                    <button onclick="changePage(1)">Suivant »</button>
+                </div>
 
+                <div class="charts-area">
+                    <div class="chart-card">
+                        <h3>Évolution des Ventes de sam sam (kg)</h3>
+                        <div class="chart-placeholder"><canvas id="venteEvolutionChart"></canvas></div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Répartition des Ventes de sam sam</h3>
+                        <div class="chart-placeholder"><canvas id="venteRepartitionChart"></canvas></div>
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button onclick="goToPage('collecte.html')">Précédent</button>
+                    <button onclick="goToPage('historique.html')">Suivant</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal pour Commencer à Vendre -->
+        <div id="startSellingModal" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="document.getElementById('startSellingModal').style.display='none'">×</button>
+                <h3>Commencer à Vendre Maintenant</h3>
+                <p>Confirmez votre intention de commencer à vendre à partir du 08/07/2025 18:46 PM WAT.</p>
+                <form action="/start-selling/" method="post" class="modal-form">
+                
+                    <div class="form-group">
+                        <label for="initial-material">Matériau Initial</label>
+                        <select id="initial-material" name="initial_material" required>
+                            <option value="carton">Carton</option>
+                            <option value="metal">Métal</option>
+                            <option value="plastique">Plastique</option>
+                            <option value="verre">Verre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="initial-quantity">Quantité Initiale (kg)</label>
+                        <input type="number" id="initial-quantity" name="initial_quantity" min="1" required placeholder="Ex. 50">
+                    </div>
+                    <button type="submit" class="save-btn">Confirmer et Commencer</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal pour Proposer une Vente -->
+        <div id="proposeVenteModal" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="document.getElementById('proposeVenteModal').style.display='none'">×</button>
+                <h3>Proposer une Vente</h3>
+                <form action="/propose-vente/" method="post" class="modal-form">
+                    
+                    <div class="form-group">
+                        <label for="material">Matériau</label>
+                        <select id="material" name="material" required>
+                            <option value="carton">Carton</option>
+                            <option value="metal">Métal</option>
+                            <option value="plastique">Plastique</option>
+                            <option value="verre">Verre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantité (kg)</label>
+                        <input type="number" id="quantity" name="quantity" min="1" required placeholder="Ex. 100">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Prix (FCFA)</label>
+                        <input type="number" id="price" name="price" step="0.01" min="0" required placeholder="Ex. 50.00">
+                    </div>
+                    <button type="submit" class="save-btn">Proposer la Vente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pageMenus = document.querySelectorAll('.page-menu');
-            const contentSections = document.querySelectorAll('.content-section');
-
-            // Function to show a specific section and activate its menu item
-            const showSection = (targetId) => {
-                // Remove 'active' class from all menu items
-                pageMenus.forEach(menu => menu.classList.remove('active'));
-
-                // Hide all content sections
-                contentSections.forEach(section => {
-                    section.classList.add('hidden');
-                    section.style.opacity = '0'; // For transition effect
-                });
-
-                // Find the target section and show it
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.remove('hidden');
-                    // Trigger reflow to ensure transition works
-                    void targetSection.offsetWidth;
-                    targetSection.style.opacity = '1';
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctxEvolution = document.getElementById('venteEvolutionChart').getContext('2d');
+            new Chart(ctxEvolution, {
+                type: 'bar',
+                data: {
+                    labels: ['Déc 2024', 'Janv 2025', 'Fév 2025', 'Mars 2025', 'Avril 2025', 'Mai 2025'],
+                    datasets: [
+                        { label: 'Carton (kg)', data: [100, 150, 120, 180, 140, 200], backgroundColor: 'rgba(255, 159, 64, 0.8)', borderColor: 'rgba(255, 159, 64, 1)', borderWidth: 1 },
+                        { label: 'Métal (kg)', data: [50, 70, 60, 90, 80, 100], backgroundColor: 'rgba(153, 102, 255, 0.8)', borderColor: 'rgba(153, 102, 255, 1)', borderWidth: 1 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { title: { display: true, text: 'Évolution des Ventes de sam sam (kg)', font: { size: 24, weight: 'bold' }, color: '#333' }, legend: { display: true, position: 'bottom', labels: { font: { size: 14 }, padding: 20 } } },
+                    scales: { x: { title: { display: true, text: 'Mois', font: { size: 16, weight: 'bold' }, color: '#555' } }, y: { beginAtZero: true, title: { display: true, text: 'Poids Vendu (kg)', font: { size: 16, weight: 'bold' }, color: '#555' } } }
                 }
-
-                // Activate the corresponding menu item
-                const activeMenu = document.querySelector(`.page-menu[data-target="${targetId}"]`);
-                if (activeMenu) {
-                    activeMenu.classList.add('active');
-                }
-            };
-
-            // Add click event listeners to each navigation link
-            pageMenus.forEach(menu => {
-                menu.addEventListener('click', (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-                    const targetId = menu.dataset.target; // Get the target section ID from data-target attribute
-                    showSection(targetId);
-                });
             });
 
-            // Show the initial active section (Accueil) on page load
-            // This ensures 'section-accueil' is visible and its menu item is active if page is refreshed
-            showSection('section-vendre');
+            const ctxRepartition = document.getElementById('venteRepartitionChart').getContext('2d');
+            new Chart(ctxRepartition, {
+                type: 'pie',
+                data: {
+                    labels: ['Carton', 'Métal'],
+                    datasets: [{ data: [200, 100], backgroundColor: ['rgba(255, 159, 64, 0.8)', 'rgba(153, 102, 255, 0.8)'], borderColor: ['rgba(255, 159, 64, 1)', 'rgba(153, 102, 255, 1)'], borderWidth: 1 }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { title: { display: true, text: 'Répartition des Ventes de sam sam', font: { size: 24, weight: 'bold' }, color: '#333' }, legend: { display: true, position: 'bottom', labels: { font: { size: 14 }, padding: 20 } } }
+                }
+            });
         });
+
+        let currentPage = 1;
+        const totalPages = 3;
+
+        function changePage(delta) {
+            currentPage += delta;
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            document.getElementById('page-info').textContent = `Page ${currentPage} sur ${totalPages}`;
+            alert(`Chargement de la page ${currentPage}`);
+        }
+
+        function goToPage(url) {
+            window.location.href = url;
+        }
+
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>

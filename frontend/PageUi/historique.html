@@ -3,307 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historique - EcoCycle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Styles/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #e0ffe0, #c8ffd8); /* Light green gradient */
-            color: #333;
-            line-height: 1.6;
-            padding-top: 70px; /* Space for fixed header */
-        }
-
-        header {
-            width: 100%;
-            background-color: #28a745;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        header nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            margin: 0 15px;
-            transition: opacity 0.3s ease;
-        }
-
-        header nav a:hover {
-            opacity: 0.8;
-        }
-
-        .container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            width: 100%;
-            max-width: 900px;
-            box-sizing: border-box;
-            margin: 30px auto;
-        }
-
-        h1 {
-            color: #28a745;
-            margin-bottom: 30px;
-            font-weight: 600;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        h1 .menu-icon {
-            font-size: 1.5em;
-        }
-
-        .history-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
-            justify-content: center;
-            padding: 10px;
-            background-color: #f8f8f8;
-            border-radius: 8px;
-            border: 1px solid #eee;
-        }
-
-        .history-filters label {
-            font-weight: 500;
-            color: #555;
-            margin-right: 5px;
-        }
-
-        .history-filters select,
-        .history-filters input[type="date"] {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            color: #333;
-            background-color: #fff;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .history-filters select:focus,
-        .history-filters input[type="date"]:focus {
-            border-color: #28a745;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
-        }
-
-        .history-list {
-            display: grid;
-            gap: 20px;
-        }
-
-        .history-item {
-            background-color: #fcfcfc;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 20px 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .history-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-
-        .item-header h3 {
-            margin: 0;
-            color: #28a745;
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .item-header .item-date {
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        .item-details p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        .item-details p strong {
-            color: #333;
-        }
-
-        .no-history {
-            text-align: center;
-            color: #888;
-            padding: 50px;
-            font-size: 1.1rem;
-            border: 1px dashed #ccc;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
-
-        .no-history i {
-            font-size: 2.5em;
-            color: #ccc;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                padding: 25px;
-                margin: 20px auto;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .history-filters {
-                flex-direction: column;
-                align-items: stretch;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            .item-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-            .item-header .item-date {
-                font-size: 0.85rem;
-            }
-            .history-item {
-                padding: 15px;
-            }
-        }
-    </style>
+    <title>Ecocycle - Historique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/tableaudebord.css">
 </head>
 <body>
-
-    <header>
-        <nav>
-            <a href="apropos.html">À Propos</a>
-            <a href="contact.html">Contact</a>
-            <a href="connexion.html">Se connecter</a>
-            <a href="inscription.html">S'inscrire</a>
-            <a href="historique.html"><i class="fas fa-history menu-icon"></i> Historique</a>
-            <a href="parametres.html"><i class="fas fa-cog menu-icon"></i> Paramètres</a>
-        </nav>
-    </header>
-
-    <div class="container">
-        <h1><i class="fas fa-history menu-icon"></i> Votre Historique de Recyclage</h1>
-
-        <div class="history-filters">
-            <div>
-                <label for="filter-type">Type de matériau :</label>
-                <select id="filter-type">
-                    <option value="">Tous les types</option>
-                    <option value="plastique">Plastique</option>
-                    <option value="verre">Verre</option>
-                    <option value="papier">Papier/Carton</option>
-                    <option value="metal">Métal</option>
-                    <option value="electronique">Électronique</option>
-                    <option value="textile">Textile</option>
-                </select>
+    <div class="dashboard-wrapper">
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="accueil.html" class="logo-link">
+                    <img src="../images/unnamed__1.png" alt="EcoCycle Logo" class="logo-img">
+                </a>
             </div>
-            <div>
-                <label for="filter-period">Période :</label>
-                <select id="filter-period">
-                    <option value="">Toute l'année</option>
-                    <option value="last-month">Dernier mois</option>
-                    <option value="last-3-months">3 derniers mois</option>
-                    <option value="last-6-months">6 derniers mois</option>
-                    <option value="this-year">Cette année</option>
-                </select>
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li class="menu-item"><a href="accueil.html"><i class="fas fa-home menu-icon"></i> Aperçu</a></li>
+                    <li class="menu-item"><a href="collecte.html"><i class="fas fa-recycle menu-icon"></i> Mes Collectes</a></li>
+                    <li class="menu-item"><a href="vente.html"><i class="fas fa-hand-holding-usd menu-icon"></i> Mes Ventes</a></li>
+                    <li class="menu-item"><a href="profil.html"><i class="fas fa-user-circle menu-icon"></i> Mon Profil</a></li>
+                    <li class="menu-item active"><a href="historique.html"><i class="fas fa-history menu-icon"></i> Historique</a></li>
+                    <li class="menu-item"><a href="parametre.html"><i class="fas fa-cog menu-icon"></i> Paramètres</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../PageUi/sign-in.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
             </div>
-            <div>
-                <label for="filter-date-start">Du :</label>
-                <input type="date" id="filter-date-start">
-            </div>
-            <div>
-                <label for="filter-date-end">Au :</label>
-                <input type="date" id="filter-date-end">
-            </div>
-        </div>
+        </aside>
 
-        <div class="history-list">
-            <div class="history-item">
-                <div class="item-header">
-                    <h3>Dépôt au Centre EcoVert</h3>
-                    <span class="item-date">01 juillet 2025</span>
+        <main class="dashboard-content">
+            <header class="dashboard-header">
+                <h1 class="dashboard-title">Historique de sam sam</h1>
+                <div class="header-actions">
+                    <input type="text" placeholder="Rechercher dans l'historique..." class="search-input">
+                    <div class="user-profile-widget">
+                        <img src="../images/WhatsApp Image 2025-07-02 à 20.05.21_10bcbff5.jpg" alt="User Avatar" class="user-avatar">
+                        <span class="username">sam sam</span>
+                    </div>
                 </div>
-                <div class="item-details">
-                    <p><strong>Matériaux :</strong> Plastique (2kg), Verre (5kg)</p>
-                    <p><strong>Point de collecte :</strong> Centre de Tri de la Rue Principale</p>
-                    <p><strong>Impact estimé :</strong> 10 kg CO2 évités, 3 litres d'eau économisés</p>
-                </div>
-            </div>
+            </header>
 
-            <div class="history-item">
-                <div class="item-header">
-                    <h3>Collecte de textiles</h3>
-                    <span class="item-date">25 juin 2025</span>
+            <section id="historique" class="dashboard-section active-section">
+                <h2>Historique Complet des Activités</h2>
+                <div class="recent-activity">
+                    <h3>Collectes Récentes</h3>
+                    <ul class="activity-list">
+                        <li><i class="fas fa-check-circle activity-icon"></i> Collecte #1234 (Plastique, 15kg) - Terminée le 08/07/2025</li>
+                        <li><i class="fas fa-hourglass-half activity-icon"></i> Collecte #1235 (Verre, 10kg) - En attente depuis 01/07/2025</li>
+                    </ul>
+                    <h3>Ventes Récentes</h3>
+                    <ul class="activity-list">
+                        <li><i class="fas fa-usd-circle activity-icon"></i> Vente #5678 (Carton, 50kg, 50 USD) - Confirmée le 07/07/2025</li>
+                        <li><i class="fas fa-spinner activity-icon"></i> Vente #5679 (Métal, 30kg, 30 USD) - En cours depuis 05/07/2025</li>
+                    </ul>
+                    <h3>Impact Environnemental</h3>
+                    <p>Total CO2 évité : 800 kg depuis le début. Dernier calcul : 08/07/2025.</p>
                 </div>
-                <div class="item-details">
-                    <p><strong>Matériaux :</strong> Vêtements usagés (3kg)</p>
-                    <p><strong>Point de collecte :</strong> Conteneur Textile du Marché</p>
-                    <p><strong>Impact estimé :</strong> 2 kg CO2 évités</p>
+                <div class="charts-area">
+                    <div class="chart-card">
+                        <h3>Activité Historique de sam sam</h3>
+                        <div class="chart-placeholder"><canvas id="historiqueChart"></canvas></div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="history-item">
-                <div class="item-header">
-                    <h3>Dépose de Piles usagées</h3>
-                    <span class="item-date">10 juin 2025</span>
-                </div>
-                <div class="item-details">
-                    <p><strong>Matériaux :</strong> Piles (0.5kg)</p>
-                    <p><strong>Point de collecte :</strong> Supermarché EcoPlus</p>
-                    <p><strong>Impact estimé :</strong> Réduction des polluants</p>
-                </div>
-            </div>
-
-            </div>
+            </section>
+        </main>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctxHistorique = document.getElementById('historiqueChart').getContext('2d');
+            new Chart(ctxHistorique, {
+                type: 'line',
+                data: {
+                    labels: ['Jan 2025', 'Fév 2025', 'Mars 2025', 'Avr 2025', 'Mai 2025', 'Juil 2025'],
+                    datasets: [
+                        { label: 'Collectes (kg)', data: [500, 700, 900, 1100, 1300, 1250], borderColor: 'rgba(75, 192, 192, 1)', fill: false },
+                        { label: 'Ventes (kg)', data: [200, 300, 400, 500, 600, 650], borderColor: 'rgba(255, 159, 64, 1)', fill: false }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { title: { display: true, text: 'Activité Historique de sam sam', font: { size: 24, weight: 'bold' }, color: '#333' }, legend: { display: true, position: 'bottom', labels: { font: { size: 14 }, padding: 20 } } },
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Poids (kg)', font: { size: 16, weight: 'bold' }, color: '#555' } } }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

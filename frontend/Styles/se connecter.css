@@ -224,7 +224,7 @@ form {
     font-size: 15px;
     /* Adjusted font size */
     font-weight: 600;
-    color: var(--white-color);
+    color: white;
     transition: all 0.4s ease;
     cursor: pointer;
     font-family: var(--title-font);

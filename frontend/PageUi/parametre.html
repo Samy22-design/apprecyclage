@@ -3,322 +3,650 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paramètres - EcoCycle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Styles/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Ecocycle - Paramètres</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/tableaudebord.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        /* Variables CSS pour faciliter la gestion des couleurs et espacements */
+        :root {
+            --primary-green: #388e3c; /* Vert principal de EcoRecycle */
+            --primary-green-dark: #2e7d32;
+            --primary-green-light: #e8f5e9;
+            --secondary-blue: #0b1a5e; /* Bleu foncé pour les accents et texte principal */
+            --secondary-blue-light: #eceff1;
+            --text-dark: #333;
+            --text-medium: #555;
+            --text-light: #888;
+            --border-light: #e0e0e0;
+            --background-light: #f5f7fa; /* Fond légèrement gris pour la page */
+            --card-background: #ffffff;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombre douce */
+            --border-radius-large: 12px;
+            --border-radius-small: 6px;
+            --transition-speed: 0.3s ease-in-out;
+        }
+
+        /* Styles généraux pour le corps */
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #e0ffe0, #c8ffd8); /* Light green gradient */
-            color: #333;
+            color: var(--text-dark);
+            background-color: var(--background-light);
             line-height: 1.6;
-            padding-top: 70px; /* Space for fixed header */
         }
 
-        header {
-            width: 100%;
-            background-color: #28a745;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
+        /* En-tête du tableau de bord */
+        .dashboard-header {
+            background-color: var(--card-background);
+            padding: 2rem 2.5rem; /* Plus d'espace */
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Ombre légère */
         }
 
-        header nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            margin: 0 15px;
-            transition: opacity 0.3s ease;
+        .dashboard-title {
+            font-size: 2rem; /* Titre plus grand et percutant */
+            font-weight: 700;
+            color: var(--secondary-blue);
+            margin: 0; /* Réinitialise la marge par défaut */
         }
 
-        header nav a:hover {
-            opacity: 0.8;
-        }
-
-        .container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            width: 100%;
-            max-width: 700px; /* Adjusted width for settings */
-            box-sizing: border-box;
-            margin: 30px auto;
-        }
-
-        h1 {
-            color: #28a745;
-            margin-bottom: 30px;
-            font-weight: 600;
-            text-align: center;
+        .header-actions {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            gap: 1.5rem; /* Espace entre les éléments de l'en-tête */
         }
 
-        h1 .menu-icon {
-            font-size: 1.5em;
+        .user-profile-widget {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-small);
+            transition: background var(--transition-speed);
+        }
+        .user-profile-widget:hover {
+            background-color: var(--secondary-blue-light);
         }
 
-        .settings-section {
-            margin-bottom: 40px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 30px;
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-green);
         }
 
-        .settings-section:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+        .username {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        /* Sections du tableau de bord (contenu principal) */
+        .dashboard-content {
+            padding: 2.5rem; /* Padding général pour la section de contenu */
+        }
+
+        .dashboard-section {
+            background-color: var(--card-background);
+            padding: 2.5rem 3rem; /* Padding généreux à l'intérieur des sections */
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-light);
+            margin-bottom: 2.5rem; /* Espace entre les sections */
+        }
+
+        .dashboard-section h2 {
+            font-size: 1.8rem;
+            color: var(--secondary-blue);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--primary-green-light); /* Ligne de séparation subtile */
+            padding-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Conteneurs de paramètres */
+        .settings-group { /* Renommé de .notification-settings pour être plus générique */
+            margin-bottom: 2.5rem; /* Espace entre les groupes de paramètres */
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-light); /* Séparateur discret */
+        }
+        .settings-group:last-of-type {
+            border-bottom: none; /* Pas de bordure pour le dernier groupe */
             margin-bottom: 0;
         }
 
-        .settings-section h2 {
-            color: #333;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .settings-group h3 {
+            font-size: 1.4rem;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
-        .settings-section h2 .section-icon {
-            color: #28a745;
-            font-size: 1.1em;
+        /* Boutons d'action */
+        .action-btn {
+            padding: 0.9rem 1.8rem;
+            border-radius: var(--border-radius-small);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            border: none;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-btn i {
+            font-size: 1.1em; /* Ajuste la taille de l'icône */
+        }
+
+        .primary-action {
+            background-color: var(--primary-green);
+            color: white;
+        }
+        .primary-action:hover {
+            background-color: var(--primary-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .secondary-action {
+            background-color: var(--secondary-blue);
+            color: white;
+            margin-bottom: 1rem; /* Espace entre les boutons d'action de sécurité */
+        }
+        .secondary-action:hover {
+            background-color: var(--secondary-blue-dark); /* Vous pouvez définir --secondary-blue-dark */
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Plus d'espace entre le switch et le texte */
+            margin-bottom: 1.2rem; /* Espace entre chaque switch */
+            cursor: pointer;
+        }
+
+        .toggle-switch span:last-child {
+            font-size: 1.05rem;
+            color: var(--text-medium);
+            font-weight: 400;
+        }
+
+        .toggle-switch input { display: none; }
+
+        .slider {
+            position: relative;
+            width: 55px; /* Largeur augmentée */
+            height: 28px; /* Hauteur augmentée */
+            background: var(--border-light); /* Couleur de fond par défaut */
+            border-radius: 14px; /* Rayon pour une forme de pilule */
+            cursor: pointer;
+            transition: background var(--transition-speed);
+        }
+
+        .slider:before {
+            content: "";
+            position: absolute;
+            width: 24px; /* Taille du cercle */
+            height: 24px;
+            background: var(--card-background); /* Couleur du cercle */
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform var(--transition-speed);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre sur le cercle */
+        }
+
+        .toggle-switch input:checked + .slider {
+            background: var(--primary-green); /* Couleur active du fond */
+        }
+
+        .toggle-switch input:checked + .slider:before {
+            transform: translateX(27px); /* Déplacement du cercle */
+        }
+
+        /* Boutons de navigation bas de page */
+        .nav-buttons {
+            margin-top: 3rem; /* Plus d'espace au-dessus des boutons */
+            display: flex;
+            justify-content: center;
+            gap: 2rem; /* Espace entre les boutons */
+        }
+
+        .nav-buttons button {
+            padding: 1rem 2.5rem; /* Plus de padding pour des boutons plus grands */
+            background: var(--secondary-blue); /* Couleur plus neutre pour la navigation */
+            color: white;
+            border: none;
+            border-radius: var(--border-radius-small);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background var(--transition-speed);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        .nav-buttons button:hover {
+            background: var(--secondary-blue-dark); /* Définir --secondary-blue-dark */
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Fond plus sombre pour l'effet de superposition */
+            display: flex; /* Utilise flexbox pour centrer */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0; /* Pour l'animation d'apparition */
+            transition: opacity var(--transition-speed);
+            pointer-events: none; /* Empêche les clics avant l'apparition */
+        }
+        .modal.open { /* Classe ajoutée par JS pour ouvrir la modale */
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--card-background);
+            padding: 35px; /* Plus de padding */
+            border-radius: var(--border-radius-large);
+            width: 550px; /* Largeur légèrement augmentée */
+            max-width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+            position: relative;
+            transform: translateY(-20px); /* Pour l'animation d'apparition */
+            transition: transform var(--transition-speed);
+        }
+        .modal.open .modal-content {
+            transform: translateY(0); /* Retourne à sa position normale */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            font-size: 28px; /* Plus grande */
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color var(--transition-speed), transform 0.1s ease-in-out;
+        }
+        .close-btn:hover {
+            color: var(--text-dark);
+            transform: scale(1.1);
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        .modal-content p {
+            text-align: center;
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* Espace entre les groupes de formulaires */
         }
 
         .form-group {
-            margin-bottom: 20px;
-            display: flex;
+            margin-bottom: 0; /* Géré par le gap du formulaire */
+            display: flex; /* Utilise flex pour aligner label et input */
             flex-direction: column;
         }
-
         .form-group label {
-            font-weight: 500;
-            color: #555;
-            margin-bottom: 8px;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="password"] {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.7rem; /* Espace entre label et input */
             font-size: 1rem;
+        }
+        .form-group input, .form-group select {
+            padding: 14px 18px; /* Plus de padding pour les inputs */
+            border: 1px solid var(--border-light); /* Bordure plus fine */
+            border-radius: var(--border-radius-small);
+            font-size: 1.05rem;
+            width: 100%;
             box-sizing: border-box;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--background-light); /* Fond légèrement gris pour les inputs */
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
         }
-
-        .form-group input:focus {
-            border-color: #28a745;
+        .form-group input::placeholder, .form-group select::placeholder {
+            color: var(--text-light);
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-green);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+            box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.2); /* Halo subtil */
+            background-color: white;
         }
 
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            margin-right: 10px;
-            min-width: 18px; /* Ensures checkbox is visible */
-            min-height: 18px;
-            accent-color: #28a745; /* Colors the checkbox itself */
-        }
-
-        .checkbox-group label {
-            margin: 0;
-            font-weight: 400;
-            color: #555;
-        }
-
-        button.btn-save {
-            background-color: #28a745;
-            color: #fff;
-            padding: 12px 25px;
+        .save-btn { /* Appliqué aux boutons d'action dans les modals */
+            background: var(--primary-green);
+            color: white;
+            padding: 15px 30px; /* Plus grand */
             border: none;
-            border-radius: 8px;
-            font-size: 1.05rem;
-            font-weight: 600;
+            border-radius: var(--border-radius-small);
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-top: 10px;
-            display: inline-block; /* Allows text to wrap, but button stays compact */
-        }
-
-        button.btn-save:hover {
-            background-color: #218838;
-            transform: translateY(-2px);
-        }
-
-        button.btn-danger {
-            background-color: #2196f3;
-            color: #fff;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-top: 10px;
-            margin-left: 15px; /* Spacing from save button */
+            width: 100%; /* Pleine largeur */
+            transition: background var(--transition-speed), transform 0.1s ease-in-out;
+            margin-top: 1rem; /* Espace au-dessus du bouton de soumission */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-
-        button.btn-danger:hover {
-            background-color: #c82333;
+        .save-btn:hover {
+            background: var(--primary-green-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
 
-        .action-buttons {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: 30px;
-            gap: 10px; /* Space between buttons */
-            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-        }
-
-        /* Responsive adjustments */
+        /* Media Queries pour la responsivité */
         @media (max-width: 768px) {
-            .container {
-                padding: 25px;
-                margin: 20px auto;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .settings-section h2 {
-                font-size: 1.3rem;
-            }
-
-            .action-buttons {
+            .dashboard-header {
                 flex-direction: column;
-                align-items: stretch;
+                align-items: flex-start;
+                padding: 1.5rem;
             }
-            button.btn-save,
-            button.btn-danger {
+            .header-actions {
                 width: 100%;
-                margin-left: 0; /* Remove left margin for stacked buttons */
+                justify-content: space-between;
+                margin-top: 1.5rem;
             }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 15px;
+            .dashboard-title {
+                font-size: 1.7rem;
             }
-
-            h1 {
+            .dashboard-content {
+                padding: 1.5rem;
+            }
+            .dashboard-section {
+                padding: 2rem 1.5rem;
+            }
+            .dashboard-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .settings-group h3 {
+                font-size: 1.2rem;
+            }
+            .action-btn {
+                width: 100%; /* Les boutons prennent toute la largeur */
+                justify-content: center;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            .secondary-action {
+                margin-bottom: 0.8rem;
+            }
+            .nav-buttons {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .nav-buttons button {
+                width: 100%;
+                padding: 0.9rem 2rem;
+            }
+            .modal-content {
+                padding: 25px;
+            }
+            .modal-content h3 {
                 font-size: 1.5rem;
             }
-            .settings-section h2 {
-                font-size: 1.2rem;
+            .form-group input, .form-group select {
+                padding: 12px 15px;
+                font-size: 1rem;
+            }
+            .save-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <nav>
-            <a href="apropos.html">À Propos</a>
-            <a href="contact.html">Contact</a>
-            <a href="connexion.html">Se connecter</a>
-            <a href="inscription.html">S'inscrire</a>
-            <a href="historique.html"><i class="fas fa-history menu-icon"></i> Historique</a>
-            <a href="parametres.html"><i class="fas fa-cog menu-icon"></i> Paramètres</a>
-        </nav>
-    </header>
-
-    <div class="container">
-        <h1><i class="fas fa-cog menu-icon"></i> Paramètres</h1>
-
-        <div class="settings-section">
-            <h2><i class="fas fa-user section-icon"></i> Informations du Profil</h2>
-            <form>
-                <div class="form-group">
-                    <label for="username">Nom d'utilisateur</label>
-                    <input type="text" id="username" name="username" value="UtilisateurEco" placeholder="Votre nom d'utilisateur">
-                </div>
-                <div class="form-group">
-                    <label for="email">Adresse Email</label>
-                    <input type="email" id="email" name="email" value="utilisateur@example.com" placeholder="Votre adresse email">
-                </div>
-                <button type="submit" class="btn-save">Enregistrer les modifications</button>
-            </form>
-        </div>
-
-        <div class="settings-section">
-            <h2><i class="fas fa-bell section-icon"></i> Préférences de Notification</h2>
-            <form>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="notif-general" name="notif-general" checked>
-                    <label for="notif-general">Recevoir les notifications générales (mises à jour, actualités)</label>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="notif-promos" name="notif-promos">
-                    <label for="notif-promos">Recevoir les offres spéciales et promotions</label>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="notif-reminder">
-                    <label for="notif-reminder">Rappels de recyclage personnalisés</label>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="notif-impact" checked>
-                    <label for="notif-impact">Mises à jour de l'impact écologique</label>
-                </div>
-                <button type="submit" class="btn-save">Enregistrer les préférences</button>
-            </form>
-        </div>
-
-        <div class="settings-section">
-            <h2><i class="fas fa-lock section-icon"></i> Sécurité du Compte</h2>
-            <form>
-                <div class="form-group">
-                    <label for="current-password">Mot de passe actuel</label>
-                    <input type="password" id="current-password" name="current-password" placeholder="Entrez votre mot de passe actuel">
-                </div>
-                <div class="form-group">
-                    <label for="new-password">Nouveau mot de passe</label>
-                    <input type="password" id="new-password" name="new-password" placeholder="Min. 8 caractères">
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirmer le nouveau mot de passe</label>
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmez le nouveau mot de passe">
-                </div>
-                <button type="submit" class="btn-save">Changer le mot de passe</button>
-            </form>
-        </div>
-
-        <div class="settings-section">
-            <h2><i class="fas fa-times-circle section-icon"></i> Gestion du Compte</h2>
-            <div class="action-buttons">
-                <button type="button" class="btn-danger">Désactiver le compte</button>
-                <button type="button" class="btn-danger">Supprimer le compte</button>
+    <div class="dashboard-wrapper">
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="accueil.html" class="logo-link">
+                    <img src="../images/unnamed__1.png" alt="EcoCycle Logo" class="logo-img">
+                </a>
             </div>
-            <p style="font-size: 0.9em; color: #888; margin-top: 20px;">
-                La désactivation rend votre compte invisible. La suppression est définitive et toutes vos données seront effacées.
-            </p>
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li class="menu-item"><a href="accueil.html"><i class="fas fa-home menu-icon"></i> Aperçu</a></li>
+                    <li class="menu-item"><a href="collecte.html"><i class="fas fa-recycle menu-icon"></i> Mes Collectes</a></li>
+                    <li class="menu-item"><a href="vente.html"><i class="fas fa-hand-holding-usd menu-icon"></i> Mes Ventes</a></li>
+                    <li class="menu-item"><a href="profil.html"><i class="fas fa-user-circle menu-icon"></i> Mon Profil</a></li>
+                    <li class="menu-item"><a href="historique.html"><i class="fas fa-history menu-icon"></i> Historique</a></li>
+                    <li class="menu-item active"><a href="parametre.html"><i class="fas fa-cog menu-icon"></i> Paramètres</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../PageUi/sign-in.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+            </div>
+        </aside>
+
+        <main class="dashboard-content">
+            <header class="dashboard-header">
+                <h1 class="dashboard-title">Paramètres du Compte</h1>
+                <div class="header-actions">
+                    <button class="action-btn primary-action" onclick="openModal('saveSettingsModal')" aria-label="Enregistrer les modifications">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                    <div class="user-profile-widget">
+                        <img src="../images/WhatsApp Image 2025-07-02 à 20.05.21_10bcbff5.jpg" alt="Avatar de l'utilisateur" class="user-avatar">
+                        <span class="username">Sam Sam</span>
+                    </div>
+                </div>
+            </header>
+
+            <section id="parametre" class="dashboard-section">
+                <h2>Configuration de mon compte</h2>
+                
+                <div class="settings-group">
+                    <h3>Préférences de Notification</h3>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="email-notif" name="email_notif" checked>
+                        <span class="slider"></span>
+                        <span>Notifications par e-mail</span>
+                    </label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="push-notif" name="push_notif">
+                        <span class="slider"></span>
+                        <span>Alertes push</span>
+                    </label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="report-notif" name="report_notif">
+                        <span class="slider"></span>
+                        <span>Rapports mensuels</span>
+                    </label>
+                </div>
+
+                <div class="settings-group">
+                    <h3>Paramètres d’Affichage</h3>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="dark-mode" name="dark_mode">
+                        <span class="slider"></span>
+                        <span>Mode sombre</span>
+                    </label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="details-display" name="details_display">
+                        <span class="slider"></span>
+                        <span>Détails avancés</span>
+                    </label>
+                </div>
+
+                <div class="settings-group">
+                    <h3>Sécurité du Compte</h3>
+                    <button class="action-btn secondary-action" onclick="openModal('changePasswordModal')" aria-label="Changer le mot de passe">
+                        <i class="fas fa-lock"></i> Changer le Mot de Passe
+                    </button>
+                    <button class="action-btn secondary-action" onclick="openModal('twoFactorModal')" aria-label="Activer l'authentification à deux facteurs">
+                        <i class="fas fa-shield-alt"></i> Activer l'Authentification à Deux Facteurs
+                    </button>
+                </div>
+
+                <div class="nav-buttons">
+                    <button onclick="goToPage('profil.html')">Précédent</button>
+                    <button onclick="goToPage('historique.html')">Suivant</button>
+                </div>
+            </section>
+        </main>
+
+        <div id="saveSettingsModal" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal('saveSettingsModal')" aria-label="Fermer la fenêtre">×</button>
+                <h3>Enregistrer les Modifications</h3>
+                <p>Confirmez l'enregistrement des paramètres actuels.</p>
+                <button class="save-btn" onclick="saveSettings()">Enregistrer</button>
+            </div>
         </div>
 
+        <div id="changePasswordModal" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal('changePasswordModal')" aria-label="Fermer la fenêtre">×</button>
+                <h3>Changer le Mot de Passe</h3>
+                <form action="#" method="post" class="modal-form" onsubmit="event.preventDefault(); changePassword();">
+                    <div class="form-group">
+                        <label for="current-password">Mot de Passe Actuel</label>
+                        <input type="password" id="current-password" name="current_password" required placeholder="Entrez votre mot de passe actuel">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Nouveau Mot de Passe</label>
+                        <input type="password" id="new-password" name="new_password" required placeholder="Entrez un nouveau mot de passe">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmer le Nouveau Mot de Passe</label>
+                        <input type="password" id="confirm-password" name="confirm_password" required placeholder="Confirmez le nouveau mot de passe">
+                    </div>
+                    <button type="submit" class="save-btn">Enregistrer le Nouveau Mot de Passe</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="twoFactorModal" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal('twoFactorModal')" aria-label="Fermer la fenêtre">×</button>
+                <h3>Activer l’Authentification à Deux Facteurs</h3>
+                <form action="#" method="post" class="modal-form" onsubmit="event.preventDefault(); enableTwoFactor();">
+                    <div class="form-group">
+                        <label for="two-factor-method">Méthode</label>
+                        <select id="two-factor-method" name="two_factor_method" required>
+                            <option value="email">E-mail</option>
+                            <option value="sms">SMS</option>
+                            <option value="app">Application Authentificatrice</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="two-factor-code">Code de Vérification</label>
+                        <input type="text" id="two-factor-code" name="two_factor_code" required placeholder="Entrez le code reçu">
+                    </div>
+                    <button type="submit" class="save-btn">Activer</button>
+                </form>
+            </div>
+        </div>
     </div>
 
+    <script>
+        // Fonction pour ouvrir une modale
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex'; // Rend visible immédiatement
+                setTimeout(() => modal.classList.add('open'), 10); // Ajoute la classe pour l'animation
+            }
+        }
+
+        // Fonction pour fermer une modale
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('open'); // Supprime la classe pour l'animation inverse
+                setTimeout(() => modal.style.display = 'none', 300); // Cache après l'animation
+            }
+        }
+
+        // Gestionnaire de clic en dehors des modales
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        // Logique de sauvegarde des paramètres (exemple simplifié)
+        function saveSettings() {
+            const emailNotif = document.getElementById('email-notif').checked;
+            const pushNotif = document.getElementById('push-notif').checked;
+            const reportNotif = document.getElementById('report-notif').checked;
+            const darkMode = document.getElementById('dark-mode').checked;
+            const detailsDisplay = document.getElementById('details-display').checked;
+            
+            console.log(`Paramètres sauvegardés : Email=${emailNotif}, Push=${pushNotif}, Rapport=${reportNotif}, Mode Sombre=${darkMode}, Détails=${detailsDisplay}`);
+            alert('Vos préférences ont été enregistrées avec succès !');
+            closeModal('saveSettingsModal');
+            // Ici, vous enverriez ces données à votre backend via une requête AJAX (fetch/axios)
+        }
+
+        // Logique pour changer le mot de passe (exemple simplifié)
+        function changePassword() {
+            const currentPassword = document.getElementById('current-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (newPassword !== confirmPassword) {
+                alert('Le nouveau mot de passe et la confirmation ne correspondent pas.');
+                return;
+            }
+            if (newPassword.length < 8) { // Exemple de validation
+                alert('Le nouveau mot de passe doit contenir au moins 8 caractères.');
+                return;
+            }
+
+            console.log(`Changement de mot de passe : Ancien='${currentPassword}', Nouveau='${newPassword}'`);
+            alert('Votre mot de passe a été modifié avec succès !');
+            closeModal('changePasswordModal');
+            // Ici, vous enverriez les données à votre backend
+        }
+
+        // Logique pour activer l'authentification à deux facteurs (exemple simplifié)
+        function enableTwoFactor() {
+            const method = document.getElementById('two-factor-method').value;
+            const code = document.getElementById('two-factor-code').value;
+
+            console.log(`Activation 2FA : Méthode='${method}', Code='${code}'`);
+            alert(`L'authentification à deux facteurs par ${method} a été activée !`);
+            closeModal('twoFactorModal');
+            // Ici, vous enverriez les données à votre backend
+        }
+
+        // Fonction de navigation
+        function goToPage(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>
